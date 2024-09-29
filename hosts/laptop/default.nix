@@ -1,11 +1,25 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules
+    # ../modules/vm.nix
+    ../modules/nh.nix
+    #../modules/adb.nix
+    ../modules/boot.nix
+    ../modules/users.nix
+    #../modules/thunar.nix
+    ../modules/greetd.nix
+    ../modules/nvidia.nix
+    ../modules/system.nix
+    ../modules/fstrim.nix
+    ../modules/laptop.nix
+    #../modules/gaming.nix
+    ../modules/ollama.nix
+    ../modules/xserver.nix
+    # ../modules/ananicy.nix
+    ../modules/network.nix
+    ../modules/security.nix
+    ../modules/pipewire.nix
+    ../modules/gsettings.nix
+    ../modules/bluetooth.nix
   ];
 }

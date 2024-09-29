@@ -12,7 +12,7 @@
 
       background = {
         monitor = "";
-        path = "~/dotfiles/wallpapers/lock.jpg";
+        path = "~/Dotfiles/home/wallpapers/lock.jpg";
       };
 
       input-field = [
@@ -28,6 +28,7 @@
           fade_on_empty = true;
           fade_timeout = "1000";
 
+          position = "0, -20";
           halign = "center";
           valign = "center";
         }

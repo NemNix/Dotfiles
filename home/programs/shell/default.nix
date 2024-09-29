@@ -5,7 +5,8 @@
     shellAliases = {
       fetch = "fastfetch";
       rebuild = "nh os switch";
-      update = "nh os switch --update";
+      update = "sudo nix flake update ~/Dotfiles";
+
       garbage = "nh clean all";
 
       ls = "ls --color=auto";

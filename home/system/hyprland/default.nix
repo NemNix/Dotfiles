@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -15,13 +16,14 @@
 
   home.packages = with pkgs; [
     hyprshot
+    hyprpicker
 
-    wlsunset
     wlr-randr
-    wl-clipboard
-
+    wdisplays
+    playerctl
     brightnessctl
 
+    xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
   ];
@@ -32,6 +34,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
 
     # ------------------------------------------------
@@ -43,16 +46,26 @@
       "$shiftMod" = "SUPER_SHIFT";
       "$Alt_L" = "ALT";
 
-      "$numberRow0" = "agrave";
-      "$numberRow1" = "ampersand";
-      "$numberRow2" = "eacute";
-      "$numberRow3" = "quotedbl";
-      "$numberRow4" = "apostrophe";
-      "$numberRow5" = "parenleft";
-      "$numberRow6" = "minus";
-      "$numberRow7" = "egrave";
-      "$numberRow8" = "underscore";
-      "$numberRow9" = "ccedilla";
+      "$numberRow1" = "code:10";
+      "$numberRow2" = "code:11";
+      "$numberRow3" = "code:12";
+      "$numberRow4" = "code:13";
+      "$numberRow5" = "code:14";
+      "$numberRow6" = "code:15";
+      "$numberRow7" = "code:16";
+      "$numberRow8" = "code:17";
+      "$numberRow9" = "code:18";
+
+      # App
+
+      "$terminal" = "kitty";
+      "$browser" = "zen-bin";
+      "$file-manager" = "nautilus";
+      "$launcher" = "wofi -S drun -I";
+      "$Tfile-manager" = "$terminal -e yazi";
+      "$audio-manager" = "com.saivert.pwvucontrol";
+      "$password-manager" = "org.keepassxc.KeePassXC";
+      "$bluetooth-manager" = "io.github.kaii_lb.Overskride";
 
       # ------------------------------------------------
       # Envirronement variables
@@ -63,16 +76,13 @@
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
-        "MOZ_ENABLE_WAYLAND,1"
-        "ANKI_WAYLAND,1"
-        "DISABLE_QT5_COMPAT,1"
         "NIXOS_OZONE_WL,1"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM=wayland,xcb"
+        "QT_QPA_PLATFORM,wayland"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "GTK_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "ELECTRON_OZONE_PLATFORM_HINT,1"
 
-        # "AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
+        #"AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
       ];
 
       # ------------------------------------------------
@@ -89,7 +99,32 @@
 
       monitor = [
         "eDP-1, 1920x1080@144.00, auto, 1"
-        "DP-1 , highrr, auto-right ,1"
+        "DP-1 , highrr, auto-right, 1, transform, 3 "
+      ];
+
+      # ------------------------------------------------
+      # Window Rules
+      # ------------------------------------------------
+
+      windowrule = [
+        "float, ^($terminal)$"
+        "size 45% 45%,^($terminal)$"
+
+        "float, ^(foot)$"
+        "size 45% 45%,^(foot)$"
+
+        "float, ^($password-manager)$"
+        "size 50% 60%,^($password-manager)$"
+
+        "float, ^($bluetooth-manager)$"
+        "size 50% 60%,^($bluetooth-manager)$"
+
+        "float,  ^($audio-manager)$"
+        "size 50% 30%,^($audio-manager)$"
+
+        # Steam
+        "noblur,    class:^(steam)"
+        "forcergbx, class:^(steam)" # Force rgbx color (needed if steam show strange coloration)
       ];
 
       # ------------------------------------------------
@@ -98,33 +133,31 @@
 
       bind = [
         # Apps
-        "SUPER, RETURN, exec, kitty"
-        "ALT, ampersand, exec, librewolf"
-        "ALT, eacute, exec, kitty -e yazi"
-        "ALT, quotedbl, exec, kitty -e nvim"
+
+        "ALT, code:10, exec, $browser"
+        "ALT, code:11, exec, $file-manager"
+        "ALT, code:12, exec, $Tfile-manager"
 
         # System
+        "SUPER, RETURN, exec,$terminal"
         "SUPER, X, exec, powermenu"
-        "SUPER, R, exec, wofi -S drun -I"
+        "SUPER, R, exec, $launcher"
         "SUPER, L, exec, hyprlock --immediate"
 
         "SUPER, W, killactive,"
         "SUPER, F, fullscreen"
         "SUPER, T, togglefloating,"
 
-        # Multimédia
+        # Screenshot
         "ALT, S , exec , hyprshot -m region --clipboard-only"
         "CONTROL&ALT , S , exec ,hyprshot -m region "
         "CONTROL&ALT&SHIFT_L , S , exec , hyprshot -m output"
 
-        "SUPER, F2, exec, night-shift-off" # Turn off night shift
-        "SUPER, F3, exec, night-shift-on" # Turn on night shift
-
         # Window Focus
-        "SUPER, q, movefocus, l"
-        "SUPER, d, movefocus, r"
-        "SUPER, z, movefocus, u"
-        "SUPER, s, movefocus, d"
+        "SUPER, h, movefocus, l"
+        "SUPER, l, movefocus, r"
+        "SUPER, k, movefocus, u"
+        "SUPER, j, movefocus, d"
 
         # Switch workspaces with mainMod + [0-9]
         "SUPER, $numberRow1      , workspace,  1"
@@ -158,16 +191,23 @@
 
       bindl = [
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock"
+        #",switch:Lid Switch, exec, pidof hyprlock || hyprlock"
       ];
 
       bindle = [
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+
         ", XF86MonBrightnessUp, exec, brightnessctl -q s 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl -q s 5%-"
-        ", XF86kbdBrightnessDown, exec, brightnessctl -q s 5%-"
-        ", XF86kbdBrightnessDown, exec, brightnessctl -q s 5%-"
+
+        ", XF86kbdBrightnessDown, exec, brightnessctl -sd asus::kbd_backlight set 1-"
+        ", XF86kbdBrightnessUp, exec, brightnessctl -sd asus::kbd_backlight set 1+"
+
+        ", XF86AudioPlay , exec , playerctl play-pause"
+        ", XF86AudioStop , exec , playerctl pause"
+        ", XF86AudioPrev , exec ,  playerctl previous"
+        ", XF86AudioNext , exec , playerctl next"
       ];
 
       # ------------------------------------------------
@@ -176,17 +216,13 @@
 
       general = {
         gaps_in = 5;
-        gaps_out = 0;
+        gaps_out = 2;
         border_size = 3;
 
         resize_on_border = true;
-        no_border_on_floating = true;
+        no_border_on_floating = false;
 
         layout = "dwindle";
-      };
-
-      master = {
-        new_status = true;
       };
 
       misc = {
@@ -225,11 +261,13 @@
       };
 
       decoration = {
-        rounding = 7;
+        rounding = 10;
         drop_shadow = false;
+        #inactive_opacity = 0.8;
 
         blur = {
           enabled = false;
+          ignore_opacity = true;
         };
       };
 

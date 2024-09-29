@@ -1,9 +1,11 @@
 {
-  description = "! Nixos Flake !";
-
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland = {
       type = "git";
@@ -11,42 +13,34 @@
       submodules = true;
     };
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = {
-    nixpkgs,
-    self,
-    ...
-  } @ inputs: let
-    username = "nel";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [
-        inputs.hyprpanel.overlay
-      ];
-    };
-    lib = nixpkgs.lib;
-  in {
+  outputs = {nixpkgs, ...} @ inputs: {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [(import ./hosts/laptop)];
+        modules = [./hosts/laptop];
         specialArgs = {
-          host = "laptop";
-          inherit self inputs username pkgs;
+          inherit inputs;
+          username = "nel";
         };
       };
     };

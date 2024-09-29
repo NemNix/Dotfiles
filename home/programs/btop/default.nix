@@ -2,7 +2,7 @@
   programs.btop = {
     enable = true;
     settings = {
-      #theme_background = true;
+      update_ms = 1000;
     };
   };
 }
