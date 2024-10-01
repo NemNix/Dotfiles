@@ -6,7 +6,6 @@
       fetch = "fastfetch";
       rebuild = "nh os switch";
       update = "sudo nix flake update ~/Dotfiles";
-
       garbage = "nh clean all";
 
       ls = "ls --color=auto";
@@ -14,6 +13,7 @@
       ll = "ls -l";
 
       nel = "cd /home/nel";
+      dot = "cd ~/Dotfiles";
       ".." = "cd ..";
 
       grep = "grep --color=auto";

@@ -13,6 +13,14 @@
     };
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      cudaSupport = true;
+      rocmSupport = false;
+    };
+  };
+
   documentation = {
     enable = false;
     doc.enable = false;
@@ -22,7 +30,5 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "Europe/Rome";
-
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05";
 }

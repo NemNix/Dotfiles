@@ -20,7 +20,7 @@
 
     #targets.hyprpaper.enable = false;
 
-    image = /home/nel/Dotfiles/home/wallpapers/nix-magenta-blue-1920x1080.png;
+    image = /home/nel/Dotfiles/home/wallpapers/rog.jpg;
     base16Scheme = {
       base00 = "1e1e2e"; # base
       base01 = "181825"; # mantle
@@ -61,12 +61,12 @@
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];};
+        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
         name = "DroidSansMono";
       };
 
       serif = {
-        package = pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];};
+        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
         name = "DroidSansMono";
       };
     };

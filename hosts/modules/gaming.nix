@@ -1,9 +1,10 @@
 {
   config,
   pkgs,
+  username,
   ...
 }: {
-  users.users.nel.packages = with pkgs; [heroic];
+  users.users.${username}.packages = with pkgs; [heroic];
   hardware.steam-hardware.enable = true;
 
   programs = {

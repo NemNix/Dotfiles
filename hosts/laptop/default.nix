@@ -13,7 +13,7 @@
     ../modules/fstrim.nix
     ../modules/laptop.nix
     #../modules/gaming.nix
-    ../modules/ollama.nix
+    #../modules/ollama.nix
     ../modules/xserver.nix
     # ../modules/ananicy.nix
     ../modules/network.nix

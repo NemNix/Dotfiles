@@ -80,7 +80,7 @@
         "QT_QPA_PLATFORM,wayland"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "GTK_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "ELECTRON_OZONE_PLATFORM_HINT,1"
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
 
         #"AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
       ];

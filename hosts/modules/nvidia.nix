@@ -6,28 +6,30 @@
   nixpkgs.config.nvidia.acceptLicense = true;
   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
-  hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    open = false;
-
-    nvidiaSettings = false;
-    modesetting.enable = true;
-    dynamicBoost.enable = true;
-
-    powerManagement = {
-      enable = false;
-      finegrained = false;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
     };
 
-    prime = {
-      sync.enable = true;
-      amdgpuBusId = "PCI:05:00:0";
-      nvidiaBusId = "PCI:01:00:0";
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      open = false;
+
+      nvidiaSettings = false;
+      modesetting.enable = true;
+      dynamicBoost.enable = true;
+
+      powerManagement = {
+        enable = false;
+        finegrained = false;
+      };
+
+      prime = {
+        sync.enable = true;
+        amdgpuBusId = "PCI:05:00:0";
+        nvidiaBusId = "PCI:01:00:0";
+      };
     };
   };
 

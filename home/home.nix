@@ -1,6 +1,5 @@
 {
   inputs,
-  config,
   pkgs,
   ...
 }: {
@@ -27,6 +26,7 @@
     #./system/mime/
     ./system/udiskie
     #./system/wlgout
+    ./system/wlogout
     ./system/wlsunset
     ./system/hyprland
   ];
@@ -35,24 +35,24 @@
   # HM packages
   # ----------------------------------------------------
   home.packages = with pkgs; [
-    inputs.alejandra.defaultPackage.${system}
-    inputs.zen-browser.packages.${system}.generic
-
+    # DEV
     python3
     python312Packages.black
+    inputs.alejandra.defaultPackage.${system}
 
     # MEDIA
     mpv # Video
     imv # Image
     ventoy-full
-    nautilus
-    pwvucontrol # Sound
-    overskride
-    file-roller
 
     # APPS
-    keepassxc # Password
-    protonvpn-cli_2 # VPN
+    keepassxc
+    protonvpn-cli_2
     vesktop
+    nautilus
+    file-roller
+    overskride
+    pwvucontrol
+    inputs.zen-browser.packages.${system}.generic
   ];
 }
