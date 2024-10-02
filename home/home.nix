@@ -18,14 +18,12 @@
     ./programs/spicetify
     #./programs/librewolf
 
-    #./system/ags
     ./system/wofi
     ./system/dunst
     ./system/stylix
     ./system/waybar
     #./system/mime/
     ./system/udiskie
-    #./system/wlgout
     ./system/wlogout
     ./system/wlsunset
     ./system/hyprland
@@ -46,13 +44,18 @@
     ventoy-full
 
     # APPS
-    keepassxc
     protonvpn-cli_2
+
+    keepassxc
+
     vesktop
+    gparted
     nautilus
     file-roller
+
     overskride
     pwvucontrol
+
     inputs.zen-browser.packages.${system}.generic
   ];
 }

@@ -8,7 +8,7 @@
     ../modules/users.nix
     #../modules/thunar.nix
     ../modules/greetd.nix
-    ../modules/nvidia.nix
+    #../modules/nvidia.nix
     ../modules/system.nix
     ../modules/fstrim.nix
     ../modules/laptop.nix
