@@ -12,7 +12,6 @@
       normal_window = true;
       layer = "top";
       gtk_dark = true;
-      term = "kitty";
       line_wrap = "off";
       dynamic_lines = false;
       allow_images = true;

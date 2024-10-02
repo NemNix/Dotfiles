@@ -82,15 +82,17 @@
 
     bluetooth = {
       format = "";
+      format-off = "󰂲";
       format-disabled = "󰂲";
-      format-off = "";
+      on-click = "bluetoothctl power on";
+      on-click-right = "bluetoothctl power off";
     };
 
     idle_inhibitor = {
       format = "{icon}";
       format-icons = {
-        activated = "";
-        desactivated = "󰾪";
+        "activated" = "";
+        "deactivated" = "󰾪";
       };
     };
 
