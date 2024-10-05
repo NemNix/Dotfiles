@@ -4,6 +4,8 @@
     ../modules/nvidia.nix
     ../modules/boot.nix
     ../modules/network.nix
+    ../modules/ollama.nix
+    ../modules/nh.nix
     ../modules/fstrim.nix
     ../modules/system.nix
   ];
@@ -12,5 +14,10 @@
     isNormalUser = true;
     description = "${username}";
     extraGroups = ["networkmanager" "wheel"];
+  };
+
+  services.logind = {
+    lidSwitch = "ignore";
+    lidSwitchExternalPower = "ignore";
   };
 }
