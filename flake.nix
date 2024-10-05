@@ -42,6 +42,15 @@
         specialArgs = {
           inherit inputs;
           username = "nel";
+          hostname = "laptop";
+        };
+      };
+      server = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/server];
+        specialArgs = {
+          inherit inputs;
+          username = "nel";
+          hostname = "server";
         };
       };
     };

@@ -17,6 +17,7 @@
   home.packages = with pkgs; [
     hyprshot
     hyprpicker
+    qwerty-fr
 
     wlr-randr
     wdisplays
@@ -35,7 +36,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-    xwayland.enable = true;
+    xwayland.enable = false;
 
     # ------------------------------------------------
     # Configuration
@@ -58,7 +59,7 @@
 
       # App
 
-      "$terminal" = "kitty";
+      "$terminal" = "foot";
       "$browser" = "zen-bin";
       "$file-manager" = "nautilus";
       "$launcher" = "wofi -S drun -I";
@@ -98,8 +99,8 @@
       # ------------------------------------------------
 
       monitor = [
-        "eDP-1, 1920x1080@144.00, auto, 1"
-        "DP-1 , highrr, auto-right, 1, transform, 3 "
+        "eDP-1, highrr, auto, 1.5"
+        "DP-1 , highrr, auto-left, 1, transform, 3 "
       ];
 
       # ------------------------------------------------
@@ -114,7 +115,7 @@
         "size 45% 45%,^(foot)$"
 
         "float, ^($password-manager)$"
-        "size 50% 60%,^($password-manager)$"
+        "size 50% 40%,^($password-manager)$"
 
         "float, ^($bluetooth-manager)$"
         "size 50% 60%,^($bluetooth-manager)$"
@@ -144,7 +145,7 @@
         "SUPER, R, exec, $launcher"
         "SUPER, L, exec, hyprlock --immediate"
 
-        "SUPER, W, killactive,"
+        "SUPER, Q, killactive,"
         "SUPER, F, fullscreen"
         "SUPER, T, togglefloating,"
 
@@ -191,7 +192,7 @@
 
       bindl = [
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        #",switch:Lid Switch, exec, pidof hyprlock || hyprlock"
+        ",switch:Lid Switch, exec, pidof hyprlock || hyprlock"
       ];
 
       bindle = [
@@ -241,8 +242,13 @@
         explicit_sync = 2;
       };
 
+      xwayland = {
+        enabled = false;
+      };
+
       input = {
-        kb_layout = "fr";
+        kb_layout = "us";
+        kb_variant = "";
 
         follow_mouse = 1;
         sensitivity = 0.5;

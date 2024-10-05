@@ -26,9 +26,14 @@
       };
 
       prime = {
-        sync.enable = true;
         amdgpuBusId = "PCI:05:00:0";
         nvidiaBusId = "PCI:01:00:0";
+
+        #sync.enable = true;
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
       };
     };
   };

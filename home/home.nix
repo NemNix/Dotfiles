@@ -7,7 +7,7 @@
     ./programs/git
     ./programs/btop
     ./programs/yazi
-    #./programs/foot
+    ./programs/foot
     ./programs/kitty
     ./programs/shell
     ./programs/fetch

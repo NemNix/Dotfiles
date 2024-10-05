@@ -29,14 +29,19 @@
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
         CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+        RADEON_DPM_PERF_LEVEL_ON_AC = "auto";
+        RADEON_DPM_PERF_LEVEL_ON_BAT = "auto";
+        RADEON_DPM_STATE_ON_AC = "performance";
+        RADEON_DPM_STATE_ON_BAT = "battery";
 
         PLATFORM_PROFILE_ON_AC = "performance";
         PLATFORM_PROFILE_ON_BAT = "low-power";
 
-        START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
-        STOP_CHARGE_THRESH_BAT0 = 60; # 80 and above it stops charging
+        START_CHARGE_THRESH_BAT0 = 40;
+        STOP_CHARGE_THRESH_BAT0 = 60;
 
         WIFI_PWR_ON_AC = "off";
         WIFI_PWR_ON_BAT = "on";

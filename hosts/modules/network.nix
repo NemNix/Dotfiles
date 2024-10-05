@@ -1,6 +1,6 @@
-{
+{hostname, ...}: {
   networking = {
-    hostName = "laptop";
+    hostName = "${hostname}";
     firewall.enable = true;
     networkmanager.enable = true;
   };

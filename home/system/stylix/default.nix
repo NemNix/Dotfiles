@@ -20,7 +20,7 @@
 
     #targets.hyprpaper.enable = false;
 
-    image = /home/nel/Dotfiles/home/wallpapers/rog.jpg;
+    image = /home/nel/Dotfiles/home/wallpapers/nixppuccin.png;
     base16Scheme = {
       base00 = "1e1e2e"; # base
       base01 = "181825"; # mantle

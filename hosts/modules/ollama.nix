@@ -1,13 +1,18 @@
 {
-  services = {
-    ollama = {
-      enable = true;
-      acceleration = "cuda";
-    };
+  config,
+  pkgs,
+  ...
+}: {
+  nixpkgs.config.cudaSupport = true;
 
-    open-webui = {
-      enable = true;
-      openFirewall = true;
-    };
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+  };
+
+  services.open-webui = {
+    enable = true;
+    host = "0.0.0.0";
+    openFirewall = true;
   };
 }

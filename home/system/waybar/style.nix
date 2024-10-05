@@ -42,8 +42,8 @@
         background: @theme_base_color;
         border: 3px solid #8caaee;
         border-radius: 10px;
-        padding-right: 20px;
-        padding-left: 20px;
+        padding-right: 20;
+        padding-left: 20;
     }
 
     #backlight,

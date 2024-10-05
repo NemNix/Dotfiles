@@ -1,4 +1,8 @@
 {
+  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "Europe/Rome";
+  system.stateVersion = "24.05";
+
   nix = {
     optimise = {
       automatic = true;
@@ -16,8 +20,7 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      cudaSupport = true;
-      rocmSupport = false;
+      rocmSupport = true;
     };
   };
 
@@ -26,9 +29,7 @@
     doc.enable = false;
     man.enable = true;
     dev.enable = false;
+    info.enable = false;
+    nixos.enable = false;
   };
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  time.timeZone = "Europe/Rome";
-  system.stateVersion = "24.05";
 }

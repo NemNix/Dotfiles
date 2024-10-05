@@ -4,15 +4,8 @@
 
     settings = {
       main = {
-        font = "nerdfonts:size=14:antialias=true";
-        font-bold = "nerdfonts:size=14:antialias=true";
-        font-italic = "nerdfonts:size=14:antialias=true";
-        font-bold-italic = "nerdfonts:size=14:antialias=true";
-        pad = "20x20";
-        vertical-letter-offset = "-4px";
-        line-height = "25px";
-        letter-spacing = "-3px";
-        dpi-aware = "no";
+        pad = "5x0";
+        dpi-aware = "yes";
       };
 
       mouse = {
