@@ -4,58 +4,30 @@
   ...
 }: {
   imports = [
-    ./programs/git
-    ./programs/btop
-    ./programs/yazi
-    ./programs/foot
-    ./programs/kitty
-    ./programs/shell
-    ./programs/fetch
-    ./programs/vscodium
-    #./programs/chromium
-    #./programs/vesktop
-    ./programs/freetube
-    ./programs/spicetify
-    #./programs/librewolf
+    ./programs/git.nix
+    ./programs/btop.nix
+    ./programs/yazi.nix
+    ./programs/foot.nix
+    ./programs/bash.nix
+    ./programs/helix.nix
+    ./programs/kitty.nix
+    ./programs/zellij.nix
+    ./programs/zoxide.nix
+    ./programs/packages.nix
+    ./programs/starship.nix
+    ./programs/freetube.nix
+    ./programs/vscodium.nix
+    ./programs/spicetify.nix
+    ./programs/fastfetch.nix
 
-    ./system/wofi
-    ./system/dunst
-    ./system/stylix
-    ./system/waybar
-    #./system/mime/
-    ./system/udiskie
-    ./system/wlogout
-    ./system/wlsunset
-    ./system/hyprland
-  ];
-
-  # ----------------------------------------------------
-  # HM packages
-  # ----------------------------------------------------
-  home.packages = with pkgs; [
-    # DEV
-    python3
-    python312Packages.black
-    inputs.alejandra.defaultPackage.${system}
-
-    # MEDIA
-    mpv # Video
-    imv # Image
-    ventoy-full
-
-    # APPS
-    protonvpn-cli_2
-
-    keepassxc
-
-    vesktop
-    gparted
-    nautilus
-    file-roller
-
-    overskride
-    pwvucontrol
-
-    inputs.zen-browser.packages.${system}.generic
+    ./tofi.nix
+    ./system/wofi.nix
+    ./system/dunst.nix
+    ./system/stylix.nix
+    ./system/waybar.nix
+    ./system/udiskie.nix
+    ./system/wlogout.nix
+    ./system/wlsunset.nix
+    ./system/hyprland.nix
   ];
 }

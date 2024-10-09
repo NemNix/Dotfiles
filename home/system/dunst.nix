@@ -18,8 +18,6 @@
 
         origin = "top-center";
         offset = "0x10";
-
-        corner_radius = "10";
       };
 
       fullscreen_delay_everything = {fullscreen = "delay";};

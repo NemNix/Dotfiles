@@ -9,9 +9,8 @@
   };
 
   services = {
+    system76-scheduler.enable = true;
     logind.lidSwitchExternalPower = "ignore";
-    power-profiles-daemon.enable = false;
-    asusd.enable = false;
 
     tlp = {
       enable = true;

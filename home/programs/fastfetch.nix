@@ -9,7 +9,7 @@
       modules = [
         {
           type = "custom";
-          format = "\t\t\t\PYNEL";
+          format = "Hardware";
         }
         {
           type = "custom";

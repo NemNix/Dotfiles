@@ -1,6 +1,5 @@
 {
-  programs.librewolf = {
+  programs.tofi = {
     enable = true;
   };
 }
-ll

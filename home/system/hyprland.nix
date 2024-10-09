@@ -4,12 +4,6 @@
   inputs,
   ...
 }: {
-  imports = [
-    ./hypridle.nix
-    ./hyprlock.nix
-    ./hyprpaper.nix
-  ];
-
   # ------------------------------------------------
   # Needed Packages
   # ------------------------------------------------
@@ -18,14 +12,13 @@
     hyprshot
     hyprpicker
     qwerty-fr
-
+    wev
     wlr-randr
     wdisplays
+    wf-recorder
     playerctl
     brightnessctl
 
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
   ];
 
@@ -47,18 +40,7 @@
       "$shiftMod" = "SUPER_SHIFT";
       "$Alt_L" = "ALT";
 
-      "$numberRow1" = "code:10";
-      "$numberRow2" = "code:11";
-      "$numberRow3" = "code:12";
-      "$numberRow4" = "code:13";
-      "$numberRow5" = "code:14";
-      "$numberRow6" = "code:15";
-      "$numberRow7" = "code:16";
-      "$numberRow8" = "code:17";
-      "$numberRow9" = "code:18";
-
       # App
-
       "$terminal" = "foot";
       "$browser" = "zen-bin";
       "$file-manager" = "nautilus";
@@ -75,7 +57,6 @@
       env = [
         "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "NIXOS_OZONE_WL,1"
         "QT_QPA_PLATFORM,wayland"
@@ -99,7 +80,8 @@
       # ------------------------------------------------
 
       monitor = [
-        "eDP-1, highrr, auto, 1.5"
+        #"eDP-1, 1920x1200@120, auto , 1"
+        "eDP-1, 2880x1800@120, auto , 1.5"
         "DP-1 , highrr, auto-left, 1, transform, 3 "
       ];
 
@@ -134,7 +116,6 @@
 
       bind = [
         # Apps
-
         "ALT, code:10, exec, $browser"
         "ALT, code:11, exec, $file-manager"
         "ALT, code:12, exec, $Tfile-manager"
@@ -145,9 +126,9 @@
         "SUPER, R, exec, $launcher"
         "SUPER, L, exec, hyprlock --immediate"
 
-        "SUPER, Q, killactive,"
+        "SUPER, Q, killactive"
         "SUPER, F, fullscreen"
-        "SUPER, T, togglefloating,"
+        "SUPER, T, togglefloating"
 
         # Screenshot
         "ALT, S , exec , hyprshot -m region --clipboard-only"
@@ -161,28 +142,28 @@
         "SUPER, j, movefocus, d"
 
         # Switch workspaces with mainMod + [0-9]
-        "SUPER, $numberRow1      , workspace,  1"
-        "SUPER, $numberRow2      , workspace,  2"
-        "SUPER, $numberRow3      , workspace,  3"
-        "SUPER, $numberRow4      , workspace,  4"
-        "SUPER, $numberRow5      , workspace,  5"
-        "SUPER, $numberRow6      , workspace,  6"
-        "SUPER, $numberRow7      , workspace,  7"
-        "SUPER, $numberRow8      , workspace,  8"
-        "SUPER, $numberRow9      , workspace,  9"
-        "SUPER, $numberRow0      , workspace, 10"
+        "SUPER, code:10, workspace,  1"
+        "SUPER, code:11, workspace,  2"
+        "SUPER, code:12, workspace,  3"
+        "SUPER, code:13, workspace,  4"
+        "SUPER, code:14, workspace,  5"
+        "SUPER, code:15, workspace,  6"
+        "SUPER, code:16, workspace,  7"
+        "SUPER, code:17, workspace,  8"
+        "SUPER, code:18, workspace,  9"
+        "SUPER, code:19, workspace, 10"
 
         # Move active window to a workspace with mainMod + SHIFT + [0-9]
-        "SUPER SHIFT, $numberRow1  , movetoworkspace,  1"
-        "SUPER SHIFT, $numberRow2  , movetoworkspace,  2"
-        "SUPER SHIFT, $numberRow3  , movetoworkspace,  3"
-        "SUPER SHIFT, $numberRow4  , movetoworkspace,  4"
-        "SUPER SHIFT, $numberRow5  , movetoworkspace,  5"
-        "SUPER SHIFT, $numberRow6  , movetoworkspace,  6"
-        "SUPER SHIFT, $numberRow7  , movetoworkspace,  7"
-        "SUPER SHIFT, $numberRow8  , movetoworkspace,  8"
-        "SUPER SHIFT, $numberRow9  , movetoworkspace,  9"
-        "SUPER SHIFT, $numberRow0  , movetoworkspace, 10"
+        "SUPER SHIFT, code:10, movetoworkspace,  1"
+        "SUPER SHIFT, code:11, movetoworkspace,  2"
+        "SUPER SHIFT, code:12, movetoworkspace,  3"
+        "SUPER SHIFT, code:13, movetoworkspace,  4"
+        "SUPER SHIFT, code:14, movetoworkspace,  5"
+        "SUPER SHIFT, code:15, movetoworkspace,  6"
+        "SUPER SHIFT, code:16, movetoworkspace,  7"
+        "SUPER SHIFT, code:17, movetoworkspace,  8"
+        "SUPER SHIFT, code:18, movetoworkspace,  9"
+        "SUPER SHIFT, code:19, movetoworkspace, 10"
       ];
 
       bindm = [
@@ -202,8 +183,8 @@
         ", XF86MonBrightnessUp, exec, brightnessctl -q s 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl -q s 5%-"
 
-        ", XF86kbdBrightnessDown, exec, brightnessctl -sd asus::kbd_backlight set 1-"
-        ", XF86kbdBrightnessUp, exec, brightnessctl -sd asus::kbd_backlight set 1+"
+        #", XF86kbdBrightnessDown, exec, brightnessctl -sd asus::kbd_backlight set 1-"
+        #p", XF86kbdBrightnessUp, exec, brightnessctl -sd asus::kbd_backlight set 1+"
 
         ", XF86AudioPlay , exec , playerctl play-pause"
         ", XF86AudioStop , exec , playerctl pause"
@@ -217,14 +198,19 @@
 
       general = {
         gaps_in = 5;
-        gaps_out = 2;
+        gaps_out = 0;
         border_size = 3;
-
-        resize_on_border = true;
-        no_border_on_floating = false;
+        "col.active_border" = "rgb(F5A97F) rgb(ED8796) rgb(C6A0F6) rgb(8AADF4) rgb(A6DA95) rgb(EED49F)";
 
         layout = "dwindle";
       };
+
+      decoration = {
+        drop_shadow = false;
+        blur = {enabled = false;};
+      };
+
+      animations = {enabled = false;};
 
       misc = {
         vfr = true;
@@ -238,19 +224,17 @@
         new_window_takes_over_fullscreen = 2;
       };
 
-      render = {
-        explicit_sync = 2;
-      };
+      opengl = {force_introspection = 1;};
+      xwayland = {enabled = false;};
 
-      xwayland = {
-        enabled = false;
-      };
+      gestures = {workspace_swipe = true;};
 
       input = {
         kb_layout = "us";
         kb_variant = "";
 
         follow_mouse = 1;
+        accel_profile = "flat";
         sensitivity = 0.5;
         repeat_delay = 300;
         repeat_rate = 50;
@@ -261,25 +245,99 @@
           disable_while_typing = true;
         };
       };
+    };
+  };
 
-      gestures = {
-        workspace_swipe = true;
+  #################################
+  # Hyprpaper
+  #################################
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      ipc = "off";
+      splash = false;
+      preload = ["~/dotfiles/wallpapers/nixos.png"];
+      wallpaper = [",~/dotfiles/wallpapers/nixos.png"];
+    };
+  };
+
+  #################################
+  # Hypridle
+  #################################
+  services.hypridle = {
+    enable = true;
+
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session ";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
       };
 
-      decoration = {
-        rounding = 10;
-        drop_shadow = false;
-        #inactive_opacity = 0.8;
+      listener = [
+        {
+          timeout = 60;
+          on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
+          on-resume = "brightnessctl -rd asus::kbd_backlight";
+        }
 
-        blur = {
-          enabled = false;
-          ignore_opacity = true;
-        };
+        {
+          timeout = 80;
+          on-timeout = "brightnessctl -s set 0";
+          on-resume = "brightnessctl -r";
+        }
+
+        {
+          timeout = 100;
+          on-timeout = "hyprctl dispatch dpms off ";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+
+        {
+          timeout = 150;
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
+  };
+
+  #################################
+  # Hyprlock
+  #################################
+  programs.hyprlock = {
+    enable = true;
+
+    settings = {
+      general = {
+        grace = 5;
+        no_fade_in = true;
+        no_fade_out = true;
+        disable_loading_bar = false;
       };
 
-      animations = {
-        enabled = false;
+      background = {
+        monitor = "";
+        path = "~/Dotfiles/home/wallpapers/lock.jpg";
       };
+
+      input-field = [
+        {
+          monitor = "";
+          size = "200 , 50";
+          outline_thickness = 7;
+
+          dots_size = 0.2;
+          dots_spacing = 0.2;
+          dots_center = true;
+
+          fade_on_empty = true;
+          fade_timeout = "1000";
+
+          position = "0, -20";
+          halign = "center";
+          valign = "center";
+        }
+      ];
     };
   };
 }

@@ -5,9 +5,9 @@
 }: {
   boot = {
     #kernelPackages = pkgs.linuxPackages;
-    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_latest;
     #kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    #kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = ["amd_pstate=active"];
     tmp.cleanOnBoot = true;
 
@@ -20,5 +20,10 @@
         consoleMode = "auto";
       };
     };
+  };
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 }

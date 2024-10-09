@@ -14,7 +14,7 @@
     ../modules/laptop.nix
     #../modules/gaming.nix
     #../modules/xserver.nix
-    # ../modules/ananicy.nix
+    #../modules/ananicy.nix
     ../modules/network.nix
     ../modules/security.nix
     ../modules/pipewire.nix

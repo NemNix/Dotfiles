@@ -17,6 +17,7 @@
     targets.wofi.enable = false;
     targets.vscode.enable = false;
     targets.waybar.enable = false;
+    targets.hyprland.enable = false;
 
     #targets.hyprpaper.enable = false;
 
@@ -39,11 +40,6 @@
       base0E = "cba6f7"; # mauve
       base0F = "f2cdcd"; # flamingo
     };
-
-    polarity = "dark";
-    opacity.desktop = 0.5;
-    opacity.terminal = 0.8;
-    opacity.applications = 0.5;
 
     cursor.size = 24;
     cursor.name = "Bibata-Modern-Ice";

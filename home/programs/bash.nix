@@ -2,6 +2,7 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
+    historyIgnore = ["ls" "cd" "zoxide" "rebuild" "exit" "poweroff" "bluetoothctl" "btop" "reboot" "garbage" "cat"];
     shellAliases = {
       fetch = "fastfetch";
       rebuild = "nh os switch";
@@ -12,7 +13,7 @@
       la = "ls -a";
       ll = "ls -l";
 
-      nel = "cd /home/nel";
+      home = "cd ~";
       dot = "cd ~/Dotfiles";
       ".." = "cd ..";
 
