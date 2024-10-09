@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  hostname,
   ...
 }: {
   boot = {
@@ -9,15 +10,24 @@
   };
 
   services = {
-    system76-scheduler.enable = true;
+    system76-scheduler.enable =
+      if hostname == "laptop"
+      then true
+      else false;
     logind.lidSwitchExternalPower = "ignore";
 
     tlp = {
       enable = true;
 
       settings = {
-        TLP_DEFAULT_MODE = "BAT";
-        TLP_PERSISTENT_DEFAULT = 0;
+        TLP_DEFAULT_MODE =
+          if hostname == "laptop"
+          then "BAT"
+          else "AC";
+        TLP_PERSISTENT_DEFAULT =
+          if hostname == "laptop"
+          then 0
+          else 1;
 
         CPU_BOOST_ON_AC = 1;
         CPU_BOOST_ON_BAT = 0;

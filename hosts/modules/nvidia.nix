@@ -8,11 +8,6 @@
   environment.systemPackages = [pkgs.pkgs.cudaPackages.cudatoolkit];
 
   hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       open = false;

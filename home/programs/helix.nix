@@ -13,8 +13,7 @@
               "nixd"
             ];
             formatter = {
-              command = "${pkgs.nixfmt}/bin/nixfmt";
-              # command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+              command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
               # command = "${pkgs.alejandra}/bin/alejandra";
             };
           }

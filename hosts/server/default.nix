@@ -7,6 +7,7 @@
     ../modules/ollama.nix
     ../modules/nh.nix
     ../modules/ssh.nix
+    ../modules/laptop.nix
     ../modules/users.nix
     ../modules/fstrim.nix
     ../modules/system.nix
