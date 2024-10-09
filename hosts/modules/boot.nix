@@ -12,7 +12,7 @@
       if hostname == "laptop"
       then pkgs.linuxPackages_zen
       else if hostname == "server"
-      then pkgs.linuxPackages_latest_hardened
+      then pkgs.linuxPackages
       else pkgs.linuxPackages_zen;
     kernelParams = ["amd_pstate=active"];
     tmp.cleanOnBoot = true;
