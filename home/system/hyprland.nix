@@ -235,7 +235,7 @@
 
         follow_mouse = 1;
         accel_profile = "flat";
-        sensitivity = 0.5;
+        sensitivity = 0.8;
         repeat_delay = 300;
         repeat_rate = 50;
 

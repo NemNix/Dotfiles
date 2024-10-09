@@ -3,6 +3,7 @@
     if hostname == "laptop"
     then [
       ./programs/git.nix
+      ./programs/eza.nix
       ./programs/btop.nix
       ./programs/yazi.nix
       ./programs/foot.nix
@@ -30,6 +31,7 @@
     else if hostname == "server"
     then [
       ./programs/git.nix
+      ./programs/eza.nix
       ./programs/btop.nix
       ./programs/yazi.nix
       ./programs/bash.nix

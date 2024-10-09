@@ -5,6 +5,7 @@
     ../modules/nh.nix
     #../modules/adb.nix
     ../modules/boot.nix
+    ../modules/lanzaboot.nix
     ../modules/users.nix
     #../modules/thunar.nix
     ../modules/greetd.nix
