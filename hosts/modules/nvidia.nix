@@ -5,6 +5,7 @@
 }: {
   nixpkgs.config.nvidia.acceptLicense = true;
   services.xserver.videoDrivers = ["nvidia"];
+  environment.systemPackages = [pkgs.pkgs.cudaPackages.cudatoolkit];
 
   hardware = {
     graphics = {
@@ -21,14 +22,13 @@
       dynamicBoost.enable = true;
 
       powerManagement = {
-        enable = false;
-        finegrained = false;
+        enable = true;
+        finegrained = true;
       };
 
       prime = {
         amdgpuBusId = "PCI:05:00:0";
         nvidiaBusId = "PCI:01:00:0";
-
         #sync.enable = true;
         offload = {
           enable = true;
@@ -37,7 +37,6 @@
       };
     };
   };
-
   specialisation = {
     Battery.configuration = {
       system.nixos.tags = ["Battery"];

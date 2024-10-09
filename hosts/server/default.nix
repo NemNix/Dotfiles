@@ -6,15 +6,11 @@
     ../modules/network.nix
     ../modules/ollama.nix
     ../modules/nh.nix
+    ../modules/ssh.nix
+    ../modules/users.nix
     ../modules/fstrim.nix
     ../modules/system.nix
   ];
-
-  users.users.${username} = {
-    isNormalUser = true;
-    description = "${username}";
-    extraGroups = ["networkmanager" "wheel"];
-  };
 
   services.logind = {
     lidSwitch = "ignore";
