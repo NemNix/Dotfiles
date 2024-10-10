@@ -12,20 +12,28 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usbhid" "uas" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
+  boot = {
+    initrd = {
+      availableKernelModules = ["nvme" "xhci_pci" "usbhid" "uas" "usb_storage" "sd_mod"];
+      kernelModules = [];
+    };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/33e774b6-8836-46b6-a366-b6e0d30cfd60";
-    fsType = "ext4";
+    kernelModules = ["kvm-amd" "zenpower"];
+    kernelParams = ["amd_pstate=active"];
+    extraModulePackages = [config.boot.kernelPackages.zenpower];
+    blacklistedKernelModules = ["k10temp"];
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/7E61-6574";
-    fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/33e774b6-8836-46b6-a366-b6e0d30cfd60";
+      fsType = "ext4";
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/7E61-6574";
+      fsType = "vfat";
+      options = ["fmask=0077" "dmask=0077"];
+    };
   };
 
   swapDevices = [

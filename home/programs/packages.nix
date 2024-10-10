@@ -16,6 +16,8 @@
     spotube
     keepassxc
 
+    libreoffice
+
     vesktop
     gparted
     nautilus

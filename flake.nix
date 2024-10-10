@@ -1,6 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-24.05";
     #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     lanzaboote = {
@@ -40,14 +41,19 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: {
+  outputs = {
+    nixpkgs,
+    nixpkgs-unstable,
+    ...
+  } @ inputs: {
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
+      laptop = nixpkgs-unstable.lib.nixosSystem {
         modules = [./hosts/laptop];
         specialArgs = {
           inherit inputs;
           username = "nel";
           hostname = "laptop";
+          system = "x86_64-linux";
         };
       };
       server = nixpkgs.lib.nixosSystem {
@@ -56,6 +62,7 @@
           inherit inputs;
           username = "nel";
           hostname = "server";
+          system = "x86_64-linux";
         };
       };
     };

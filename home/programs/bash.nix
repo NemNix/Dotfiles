@@ -2,17 +2,18 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    historyIgnore = ["ls" "cd" "zoxide" "rebuild" "exit" "poweroff" "bluetoothctl" "btop" "reboot" "garbage" "cat" "z" "fetch" "eza"];
+    historyIgnore = ["ls" "cd" "zoxide" "rebuild" "exit" "poweroff" "bluetoothctl" "btop" "reboot" "garbage" "cat" "z" "fastfetch" "eza"];
     shellAliases = {
       fetch = "fastfetch";
       rebuild = "nh os switch";
       update = "sudo nix flake update ~/Dotfiles";
-      garbage = "nh clean all";
+      garbage = "nh clean all && sudo bootctl cleanup ";
 
       ls = "eza";
       la = "eza -a";
       ll = "eza -l";
       lr = "eza -R";
+      tree = "eza -T";
 
       home = "cd ~";
       dot = "cd ~/Dotfiles";

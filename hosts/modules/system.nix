@@ -1,12 +1,14 @@
 {
   username,
   pkgs,
+  inputs,
+  system,
   ...
 }: {
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "Europe/Rome";
   system.stateVersion = "24.05";
-  environment.systemPackages = [pkgs.cachix];
+  environment.systemPackages = [inputs.nixpkgs-unstable.legacyPackages.${system}.cachix];
   hardware.graphics = {
     enable = true;
     enable32Bit = true;

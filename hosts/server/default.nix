@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ../modules/nvidia.nix
     ../modules/boot.nix
+    ../modules/lanzaboot.nix
     ../modules/network.nix
     ../modules/ollama.nix
     ../modules/nh.nix

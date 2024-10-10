@@ -33,7 +33,6 @@
             /** ********** Fonts ********** **/
 
            * {
-          font-family: "0xProto";
           font-size: 14px;
           font-weight: 800;
       }
@@ -77,8 +76,16 @@
       }
 
       #entry:selected {
-          background-color: #89b4fa;
-          color: #cdd6f4;
+      background-image: linear-gradient(
+      to right,
+      #F5A97F,
+      #ED8796,
+      #C6A0F6,
+      #8AADF4,
+      #A6DA95,
+      #EED49F
+      );
+      color: #cdd6f4;
       }
 
       #unselected {}

@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   hostname,
   ...
 }: {
@@ -14,13 +13,11 @@
       else if hostname == "server"
       then pkgs.linuxPackages
       else pkgs.linuxPackages_zen;
-    kernelParams = ["amd_pstate=active"];
     tmp.cleanOnBoot = true;
 
     loader = {
       timeout = 3;
       efi.canTouchEfiVariables = true;
-
       systemd-boot = {
         enable = true;
         consoleMode = "max";

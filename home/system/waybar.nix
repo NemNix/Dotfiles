@@ -53,15 +53,15 @@
         format-icons = {
           "1" = "Web:";
           "2" = "Dev:";
-          "3" = "Chat:";
-          "4" = "Music:";
-          "5" = "Gaming:";
+          "3" = "Work";
+          "4" = "Chat:";
+          "5" = "Music:";
         };
 
         format-windows-separator = "  ";
         window-rewrite-default = "";
         window-rewrite = {
-          "kitty" = "";
+          "foot" = "";
           "codium" = "󰨞";
           "zen" = "";
           "Spotube" = "";

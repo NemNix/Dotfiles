@@ -9,7 +9,6 @@
       ./programs/foot.nix
       ./programs/bash.nix
       ./programs/helix.nix
-      ./programs/kitty.nix
       ./programs/zellij.nix
       ./programs/zoxide.nix
       ./programs/packages.nix

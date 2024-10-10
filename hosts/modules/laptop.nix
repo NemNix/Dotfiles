@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  system,
   hostname,
   ...
 }: {
@@ -12,7 +13,7 @@
   services = {
     system76-scheduler.enable =
       if hostname == "laptop"
-      then true
+      then false
       else false;
     logind.lidSwitchExternalPower = "ignore";
 
