@@ -48,7 +48,7 @@
   } @ inputs: {
     nixosConfigurations = {
       laptop = nixpkgs-unstable.lib.nixosSystem {
-        modules = [./hosts/laptop];
+        modules = [./hosts];
         specialArgs = {
           inherit inputs;
           username = "nel";
@@ -57,7 +57,7 @@
         };
       };
       server = nixpkgs.lib.nixosSystem {
-        modules = [./hosts/server];
+        modules = [./hosts];
         specialArgs = {
           inherit inputs;
           username = "nel";

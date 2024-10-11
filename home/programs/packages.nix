@@ -17,6 +17,7 @@
     keepassxc
 
     libreoffice
+    qalculate-gtk
 
     vesktop
     gparted
@@ -26,6 +27,6 @@
     overskride
     pwvucontrol
 
-    inputs.zen-browser.packages.${system}.generic
+    inputs.zen-browser.packages.${system}.specific
   ];
 }
