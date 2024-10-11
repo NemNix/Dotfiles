@@ -1,11 +1,12 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   nixpkgs.config.nvidia.acceptLicense = true;
   services.xserver.videoDrivers = ["nvidia"];
-  environment.systemPackages = [pkgs.pkgs.cudaPackages.cudatoolkit];
+  environment.systemPackages = [inputs.nixpkgs-unstable.legacyPackages.${system}.cudaPackages.cudatoolkit];
 
   hardware = {
     opengl = {
