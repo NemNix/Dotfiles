@@ -4,7 +4,10 @@
   inputs,
   ...
 }: {
-  imports = [inputs.chaotic.nixosModules.default];
+  imports =
+    if hostname == "laptop"
+    then [inputs.chaotic.nixosModules.default]
+    else [];
   boot = {
     loader = {
       timeout = 3;
