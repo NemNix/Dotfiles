@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  system,
   hostname,
   ...
 }: {
@@ -9,15 +8,23 @@
     kernelModules = ["acpi_call"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
   };
-  environment.systemPackages = [pkgs.powertop];
-  powerManagement.powertop.enable = true;
+  #environment.systemPackages = [pkgs.powertop];
+  #powerManagement.powertop.enable = true;
 
   services = {
-    logind.lidSwitchExternalPower = "ignore";
+    logind = {
+      lidSwitch = "ignore";
+      lidSwitchExternalPower =
+        if hostname == "server"
+        then "ignore"
+        else "suspend-then-hibernate";
+    };
+
+    power-profiles-daemon.enable = false;
 
     auto-cpufreq.enable =
       if hostname == "laptop"
-      then true
+      then false
       else false;
 
     system76-scheduler.enable =
@@ -26,7 +33,8 @@
       else false;
 
     tlp = {
-      enable = false;
+      enable = true;
+
       settings = {
         TLP_DEFAULT_MODE =
           if hostname == "laptop"

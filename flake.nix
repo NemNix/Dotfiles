@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs.url = "nixpkgs/nixos-24.05";
-    #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";

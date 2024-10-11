@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     # DEV
     inputs.alejandra.defaultPackage.${system}
+    python3
     # MEDIA
     mpv # Video
     imv # Image

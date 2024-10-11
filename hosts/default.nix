@@ -35,12 +35,4 @@
       ./modules/lanzaboot.nix
     ]
     else [];
-
-  services.logind = {
-    lidSwitch = "ignore";
-    lidSwitchExternalPower =
-      if hostname == "server"
-      then "ignore"
-      else "suspend-then-hibernate";
-  };
 }

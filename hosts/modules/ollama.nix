@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  system,
   ...
 }: {
   nixpkgs.config.cudaSupport = true;
