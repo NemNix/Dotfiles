@@ -8,6 +8,10 @@
   environment.systemPackages = [pkgs.pkgs.cudaPackages.cudatoolkit];
 
   hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+    };
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       open = false;

@@ -9,10 +9,6 @@
   time.timeZone = "Europe/Rome";
   system.stateVersion = "24.05";
   environment.systemPackages = [inputs.nixpkgs-unstable.legacyPackages.${system}.cachix];
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
 
   nix = {
     optimise = {
