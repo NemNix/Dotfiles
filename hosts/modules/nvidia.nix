@@ -12,8 +12,9 @@
       enable = true;
       driSupport = true;
     };
+
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       open = false;
 
       nvidiaSettings = false;
