@@ -9,6 +9,9 @@
       update = "sudo nix flake update ~/Dotfiles";
       garbage = "nh clean all && sudo bootctl cleanup ";
 
+      hxd = "hx Dotfiles/";
+      hxc = "hx code/";
+
       ls = "eza";
       la = "eza -a";
       ll = "eza -l";

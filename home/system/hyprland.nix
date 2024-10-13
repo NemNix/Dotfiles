@@ -1,9 +1,9 @@
 {
   pkgs,
-  config,
   inputs,
   ...
-}: {
+}:
+{
   # ------------------------------------------------
   # Needed Packages
   # ------------------------------------------------
@@ -11,7 +11,7 @@
   home.packages = with pkgs; [
     hyprshot
     hyprpicker
-    qwerty-fr
+
     wev
     wlr-randr
     wdisplays
@@ -59,8 +59,13 @@
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "NIXOS_OZONE_WL,1"
-        "QT_QPA_PLATFORM,wayland"
+
+        "DISABLE_QT5_COMPAT,1"
+        "QT_SCALE_FACTOR,1.5"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,0"
+        "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+
         "GTK_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
 
@@ -207,10 +212,14 @@
 
       decoration = {
         drop_shadow = false;
-        blur = {enabled = false;};
+        blur = {
+          enabled = false;
+        };
       };
 
-      animations = {enabled = false;};
+      animations = {
+        enabled = false;
+      };
 
       misc = {
         vfr = true;
@@ -224,10 +233,16 @@
         new_window_takes_over_fullscreen = 2;
       };
 
-      opengl = {force_introspection = 1;};
-      xwayland = {enabled = false;};
+      opengl = {
+        force_introspection = 1;
+      };
+      xwayland = {
+        enabled = false;
+      };
 
-      gestures = {workspace_swipe = true;};
+      gestures = {
+        workspace_swipe = true;
+      };
 
       input = {
         kb_layout = "us";
@@ -256,8 +271,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = ["~/dotfiles/wallpapers/nixos.png"];
-      wallpaper = [",~/dotfiles/wallpapers/nixos.png"];
+      preload = [ "~/dotfiles/wallpapers/nixos.png" ];
+      wallpaper = [ ",~/dotfiles/wallpapers/nixos.png" ];
     };
   };
 

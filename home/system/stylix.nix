@@ -1,11 +1,10 @@
 {
   inputs,
-  config,
   pkgs,
-  drv,
   ...
-}: {
-  imports = [inputs.stylix.homeManagerModules.stylix];
+}:
+{
+  imports = [ inputs.stylix.homeManagerModules.stylix ];
 
   gtk.iconTheme.package = pkgs.papirus-icon-theme;
   gtk.iconTheme.name = "Papirus-Dark";
@@ -18,8 +17,6 @@
     targets.vscode.enable = false;
     targets.waybar.enable = false;
     targets.hyprland.enable = false;
-
-    #targets.hyprpaper.enable = false;
 
     image = /home/nel/Dotfiles/home/wallpapers/nixppuccin.png;
     base16Scheme = {
@@ -52,17 +49,17 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
+        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
         name = "DroidSansMono";
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
+        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
         name = "DroidSansMono";
       };
 
       serif = {
-        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
+        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
         name = "DroidSansMono";
       };
     };
