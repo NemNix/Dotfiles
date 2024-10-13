@@ -17,7 +17,6 @@
         ./modules/pipewire.nix
         ./modules/gsettings.nix
         ./modules/bluetooth.nix
-        ./modules/ollama.nix
         ./modules/lanzaboot.nix
       ]
     else if hostname == "server" then

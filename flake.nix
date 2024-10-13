@@ -63,7 +63,6 @@
           username = "nel";
           hostname = "server";
           system = "x86_64-linux";
-          pkgs-unstable = import nixpkgs-unstable {config = {allowUnfree = true;};};
         };
       };
     };

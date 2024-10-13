@@ -1,13 +1,21 @@
 {
   config,
-  pkgs,
   inputs,
   system,
   ...
-}: {
+}:
+let
+  unstablePkgs = import inputs.nixpkgs-unstable {
+    inherit system;
+    config = {
+      allowUnfree = true;
+    };
+  };
+in
+{
   nixpkgs.config.nvidia.acceptLicense = true;
-  services.xserver.videoDrivers = ["nvidia"];
-  environment.systemPackages = [inputs.nixpkgs-unstable.legacyPackages.${system}.cudaPackages.cudatoolkit];
+  services.xserver.videoDrivers = [ "nvidia" ];
+  environment.systemPackages = [ unstablePkgs.cudaPackages.cudatoolkit ];
 
   hardware = {
     opengl = {
@@ -41,10 +49,15 @@
   };
   specialisation = {
     Battery.configuration = {
-      system.nixos.tags = ["Battery"];
+      system.nixos.tags = [ "Battery" ];
 
       boot.extraModprobeConfig = ''blacklist nouveau options nouveau modeset=0'';
-      boot.blacklistedKernelModules = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"];
+      boot.blacklistedKernelModules = [
+        "nouveau"
+        "nvidia"
+        "nvidia_drm"
+        "nvidia_modeset"
+      ];
 
       services.udev.extraRules = ''
         # Remove NVIDIA USB xHCI Host Controller devices, if present
