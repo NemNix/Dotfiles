@@ -21,7 +21,7 @@
         ./programs/qutebrowser.nix
 
         ./system/tofi.nix
-        ./systen/sway.nix
+        ./system/sway.nix
         ./system/wofi.nix
         ./system/dunst.nix
         ./system/stylix.nix
