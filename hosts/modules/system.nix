@@ -1,25 +1,27 @@
 {
   username,
   pkgs,
-  inputs,
-  system,
   ...
-}: {
+}:
+{
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "Europe/Rome";
   system.stateVersion = "24.05";
-  environment.systemPackages = [inputs.nixpkgs-unstable.legacyPackages.${system}.cachix];
+  environment.systemPackages = [ pkgs.cachix ];
 
   nix = {
     optimise = {
       automatic = true;
-      dates = ["daily"];
+      dates = [ "daily" ];
     };
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["${username}"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [ "${username}" ];
       substituters = [
         "https://cache.nixos.org"
         "https://hyprland.cachix.org"

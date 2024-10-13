@@ -1,21 +1,12 @@
 {
   config,
-  inputs,
-  system,
+  pkgs,
   ...
 }:
-let
-  unstablePkgs = import inputs.nixpkgs-unstable {
-    inherit system;
-    config = {
-      allowUnfree = true;
-    };
-  };
-in
 {
   nixpkgs.config.nvidia.acceptLicense = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  environment.systemPackages = [ unstablePkgs.cudaPackages.cudatoolkit ];
+  environment.systemPackages = [ pkgs.cudaPackages.cudatoolkit ];
 
   hardware = {
     opengl = {

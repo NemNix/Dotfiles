@@ -1,28 +1,18 @@
 {
-  inputs,
-  system,
+  pkgs,
   ...
 }:
-
-let
-  unstablePkgs = import inputs.nixpkgs-unstable {
-    inherit system;
-    config = {
-      allowUnfree = true;
-    };
-  };
-in
 {
   nixpkgs.config.cudaSupport = true;
 
   services.ollama = {
-    package = unstablePkgs.ollama;
+    package = pkgs.ollama;
     enable = true;
     acceleration = "cuda";
   };
 
   services.open-webui = {
-    package = unstablePkgs.open-webui;
+    package = pkgs.open-webui;
     enable = true;
     host = "0.0.0.0";
     openFirewall = true;
