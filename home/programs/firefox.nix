@@ -1,9 +1,9 @@
 {
-  inputs,
   pkgs,
   username,
   ...
-}: {
+}:
+{
   programs.firefox = {
     enable = true;
     package = pkgs.librewolf;
@@ -14,7 +14,7 @@
       bookmarks = [
         {
           name = "wikipedia";
-          tags = ["wiki"];
+          tags = [ "wiki" ];
           keyword = "wiki";
           url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
         }
@@ -32,7 +32,10 @@
             }
             {
               name = "wiki";
-              tags = ["wiki" "nix"];
+              tags = [
+                "wiki"
+                "nix"
+              ];
               url = "https://wiki.nixos.org/";
             }
           ];
@@ -40,7 +43,8 @@
       ];
 
       userContent = '''';
-      userChrome = ''        /* Base color for the theme, dependent on whether it's a light theme or not */
+      userChrome = ''
+        /* Base color for the theme, dependent on whether it's a light theme or not */
         @media (prefers-color-scheme: dark) {
             :root {
                 --accent-color: #1c1b22;

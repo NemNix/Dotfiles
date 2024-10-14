@@ -1,8 +1,8 @@
 {
-  config,
   username,
   ...
-}: {
+}:
+{
   programs.nh = {
     enable = true;
     clean.enable = true;

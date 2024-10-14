@@ -1,9 +1,9 @@
 {
-  config,
   pkgs,
   ...
-}: {
-  home.packages = with pkgs; [libnotify];
+}:
+{
+  home.packages = with pkgs; [ libnotify ];
 
   services.dunst = {
     enable = true;
@@ -20,7 +20,9 @@
         offset = "0x10";
       };
 
-      fullscreen_delay_everything = {fullscreen = "delay";};
+      fullscreen_delay_everything = {
+        fullscreen = "delay";
+      };
     };
   };
 }

@@ -1,10 +1,6 @@
-{
-  config,
-  ...
-}:
-{
+{config, ...}: {
   nixpkgs.config.nvidia.acceptLicense = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware = {
     graphics = {
@@ -38,7 +34,7 @@
   };
   specialisation = {
     Battery.configuration = {
-      system.nixos.tags = [ "Battery" ];
+      system.nixos.tags = ["Battery"];
 
       boot.extraModprobeConfig = ''blacklist nouveau options nouveau modeset=0'';
       boot.blacklistedKernelModules = [

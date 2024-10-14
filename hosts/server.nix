@@ -15,7 +15,6 @@
         "nvme"
         "xhci_pci"
         "usbhid"
-        "uas"
         "usb_storage"
         "sd_mod"
       ];
@@ -33,11 +32,11 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/33e774b6-8836-46b6-a366-b6e0d30cfd60";
+      device = "/dev/disk/by-uuid/532d0641-9c4b-4297-b049-20355285b545";
       fsType = "ext4";
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/7E61-6574";
+      device = "/dev/disk/by-uuid/0C6C-B5C0";
       fsType = "vfat";
       options = [
         "fmask=0077"
@@ -47,7 +46,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/9e0eb895-dc87-467f-aa3e-1689d5281c5d"; }
+    { device = "/dev/disk/by-uuid/42a69bca-5e86-4b4f-9e7e-3ba6d8c07f63"; }
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

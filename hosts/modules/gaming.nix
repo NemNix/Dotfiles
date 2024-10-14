@@ -1,23 +1,23 @@
 {
-  config,
   pkgs,
   username,
   ...
-}: {
-  users.users.${username}.packages = with pkgs; [heroic];
+}:
+{
+  users.users.${username}.packages = with pkgs; [ heroic ];
   hardware.steam-hardware.enable = true;
 
   programs = {
     steam = {
       enable = true;
       gamescopeSession.enable = true;
-      extraCompatPackages = with pkgs; [proton-ge-bin];
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
     };
 
     gamemode = {
       enable = false;
       enableRenice = false;
-      settings = {};
+      settings = { };
     };
 
     gamescope = {

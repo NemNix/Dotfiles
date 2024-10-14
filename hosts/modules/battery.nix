@@ -1,12 +1,12 @@
 {
   config,
-  pkgs,
   hostname,
   ...
-}: {
+}:
+{
   boot = {
-    kernelModules = ["acpi_call"];
-    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+    kernelModules = [ "acpi_call" ];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
   #environment.systemPackages = [pkgs.powertop];
   #powerManagement.powertop.enable = true;
@@ -14,36 +14,21 @@
   services = {
     logind = {
       lidSwitch = "ignore";
-      lidSwitchExternalPower =
-        if hostname == "server"
-        then "ignore"
-        else "suspend-then-hibernate";
+      lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate";
     };
 
     power-profiles-daemon.enable = false;
 
-    auto-cpufreq.enable =
-      if hostname == "laptop"
-      then false
-      else false;
+    auto-cpufreq.enable = if hostname == "laptop" then false else false;
 
-    system76-scheduler.enable =
-      if hostname == "laptop"
-      then false
-      else false;
+    system76-scheduler.enable = if hostname == "laptop" then false else false;
 
     tlp = {
       enable = true;
 
       settings = {
-        TLP_DEFAULT_MODE =
-          if hostname == "laptop"
-          then "BAT"
-          else "AC";
-        TLP_PERSISTENT_DEFAULT =
-          if hostname == "laptop"
-          then 0
-          else 1;
+        TLP_DEFAULT_MODE = if hostname == "laptop" then "BAT" else "AC";
+        TLP_PERSISTENT_DEFAULT = if hostname == "laptop" then 0 else 1;
 
         CPU_DRIVER_OPMODE_ON_AC = "active";
         CPU_DRIVER_OPMODE_ON_BAT = "active";

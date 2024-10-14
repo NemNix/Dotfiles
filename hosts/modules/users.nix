@@ -1,20 +1,21 @@
 {
-  pkgs,
   inputs,
   username,
   hostname,
-  system,
   ...
-}: {
-  imports = [inputs.home-manager.nixosModules.home-manager];
+}:
+{
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs username hostname system;};
+    extraSpecialArgs = {
+      inherit inputs username hostname;
+    };
 
     users.${username} = {
-      imports = [../../home/home.nix];
+      imports = [ ../../home/home.nix ];
       home.stateVersion = "24.05";
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
@@ -25,6 +26,9 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 }

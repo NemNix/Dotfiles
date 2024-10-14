@@ -40,26 +40,26 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: {
-    nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
-        modules = [./hosts];
-        specialArgs = {
-          inherit inputs;
-          username = "nel";
-          hostname = "laptop";
-          system = "x86_64-linux";
+  outputs =
+    { nixpkgs, ... }@inputs:
+    {
+      nixosConfigurations = {
+        laptop = nixpkgs.lib.nixosSystem {
+          modules = [ ./hosts ];
+          specialArgs = {
+            inherit inputs;
+            username = "nel";
+            hostname = "laptop";
+          };
         };
-      };
-      server = nixpkgs.lib.nixosSystem {
-        modules = [./hosts];
-        specialArgs = {
-          inherit inputs;
-          username = "nel";
-          hostname = "server";
-          system = "x86_64-linux";
+        server = nixpkgs.lib.nixosSystem {
+          modules = [ ./hosts ];
+          specialArgs = {
+            inherit inputs;
+            username = "nel";
+            hostname = "server";
+          };
         };
       };
     };
-  };
 }
