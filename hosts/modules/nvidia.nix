@@ -1,17 +1,15 @@
 {
   config,
-  pkgs,
   ...
 }:
 {
   nixpkgs.config.nvidia.acceptLicense = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  environment.systemPackages = [ pkgs.cudaPackages.cudatoolkit ];
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
+      enable32Bit = true;
     };
 
     nvidia = {

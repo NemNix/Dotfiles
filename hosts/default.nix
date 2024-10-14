@@ -28,12 +28,12 @@
         ./modules/boot.nix
         ./modules/users.nix
         ./modules/nvidia.nix
-        ./modules/ollama.nix
+        #./modules/ollama.nix
         ./modules/fstrim.nix
         ./modules/system.nix
         ./modules/battery.nix
         ./modules/network.nix
-        ./modules/lanzaboot.nix
+        #./modules/lanzaboot.nix
       ]
     else
       [ ];

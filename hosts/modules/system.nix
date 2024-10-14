@@ -1,13 +1,7 @@
 {
-  username,
-  pkgs,
-  ...
-}:
-{
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "Europe/Rome";
   system.stateVersion = "24.05";
-  environment.systemPackages = [ pkgs.cachix ];
 
   nix = {
     optimise = {
@@ -21,7 +15,6 @@
         "nix-command"
         "flakes"
       ];
-      trusted-users = [ "${username}" ];
       substituters = [
         "https://cache.nixos.org"
         "https://hyprland.cachix.org"

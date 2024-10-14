@@ -22,7 +22,6 @@
         pdfjs = true;
       };
       qt = {
-        force_software_rendering = "chromium";
         highdpi = false;
       };
       scrolling = {
