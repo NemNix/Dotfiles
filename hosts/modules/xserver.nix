@@ -5,6 +5,4 @@
     xkb.variant = "";
     excludePackages = [pkgs.xterm];
   };
-
-  console.keyMap = "fr";
 }

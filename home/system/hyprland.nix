@@ -2,8 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   # ------------------------------------------------
   # Needed Packages
   # ------------------------------------------------
@@ -28,8 +27,9 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    systemd.enable = true;
     xwayland.enable = false;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
     # ------------------------------------------------
     # Configuration
@@ -271,8 +271,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = [ "~/dotfiles/wallpapers/nixos.png" ];
-      wallpaper = [ ",~/dotfiles/wallpapers/nixos.png" ];
+      preload = ["~/dotfiles/wallpapers/nixos.png"];
+      wallpaper = [",~/dotfiles/wallpapers/nixos.png"];
     };
   };
 
@@ -285,7 +285,6 @@
     settings = {
       general = {
         lock_cmd = "pidof hyprlock || hyprlock";
-        before_sleep_cmd = "loginctl lock-session ";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
 

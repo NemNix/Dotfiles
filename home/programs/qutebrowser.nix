@@ -1,6 +1,6 @@
 {
   programs.qutebrowser = {
-    enable = true;
+    enable = false;
 
     searchEngines = {
       "DEFAULT" = "https://duckduckgo.com/?q={}&ia=web";
@@ -22,7 +22,7 @@
         pdfjs = true;
       };
       qt = {
-        highdpi = false;
+        highdpi = true;
       };
       scrolling = {
         bar = "never";

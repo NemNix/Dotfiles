@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     # DEV
     inputs.alejandra.defaultPackage.${system}
@@ -11,6 +12,7 @@
     mpv # Video
     imv # Image
     ventoy-full
+    networkmanagerapplet
 
     # APPS
     protonvpn-cli_2
@@ -21,7 +23,7 @@
     qalculate-gtk
 
     vesktop
-    gparted
+    thunderbird-bin
     nautilus
     file-roller
 

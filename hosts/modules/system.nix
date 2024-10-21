@@ -1,12 +1,44 @@
-{
-  i18n.defaultLocale = "en_US.UTF-8";
+{hostname, ...}: {
   time.timeZone = "Europe/Rome";
-  system.stateVersion = "24.05";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  services = {
+    logind = {
+      lidSwitch = "ignore";
+      lidSwitchExternalPower =
+        if hostname == "server"
+        then "ignore"
+        else "suspend-then-hibernate";
+    };
+  };
+
+  system = {
+    stateVersion = "24.05";
+    switch = {
+      enable = false;
+      enableNg = true;
+    };
+  };
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
+  documentation = {
+    enable = false;
+    doc.enable = false;
+    man.enable = false;
+    dev.enable = false;
+    info.enable = false;
+    nixos.enable = false;
+  };
 
   nix = {
     optimise = {
       automatic = true;
-      dates = [ "daily" ];
+      dates = ["daily"];
     };
 
     settings = {
@@ -26,19 +58,5 @@
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
       ];
     };
-  };
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
-  documentation = {
-    enable = false;
-    doc.enable = false;
-    man.enable = true;
-    dev.enable = false;
-    info.enable = false;
-    nixos.enable = false;
   };
 }

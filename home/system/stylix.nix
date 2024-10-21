@@ -2,9 +2,8 @@
   inputs,
   pkgs,
   ...
-}:
-{
-  imports = [ inputs.stylix.homeManagerModules.stylix ];
+}: {
+  imports = [inputs.stylix.homeManagerModules.stylix];
 
   gtk.iconTheme.package = pkgs.papirus-icon-theme;
   gtk.iconTheme.name = "Papirus-Dark";
@@ -49,17 +48,17 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
         name = "DroidSansMono";
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
         name = "DroidSansMono";
       };
 
       serif = {
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
         name = "DroidSansMono";
       };
     };

@@ -3,9 +3,8 @@
   username,
   hostname,
   ...
-}:
-{
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+}: {
+  imports = [inputs.home-manager.nixosModules.home-manager];
 
   home-manager = {
     useGlobalPkgs = true;
@@ -15,7 +14,7 @@
     };
 
     users.${username} = {
-      imports = [ ../../home/home.nix ];
+      imports = [../../home/home.nix];
       home.stateVersion = "24.05";
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
