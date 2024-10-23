@@ -1,6 +1,7 @@
 {
   programs = {
     zoxide.enable = true;
+
     eza = {
       enable = true;
       extraOptions = [
@@ -10,12 +11,14 @@
       ];
       icons = "auto";
     };
+
     starship = {
       enable = true;
       settings = {
         add_newline = true;
       };
     };
+
     zellij = {
       enable = true;
       settings = {
@@ -25,6 +28,7 @@
         };
       };
     };
+
     bash = {
       enable = true;
       enableCompletion = true;

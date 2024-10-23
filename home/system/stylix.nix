@@ -2,22 +2,33 @@
   inputs,
   pkgs,
   ...
-}: {
-  imports = [inputs.stylix.homeManagerModules.stylix];
+}:
+{
+  imports = [ inputs.stylix.homeManagerModules.stylix ];
 
-  gtk.iconTheme.package = pkgs.papirus-icon-theme;
-  gtk.iconTheme.name = "Papirus-Dark";
+  qt = {
+    enable = true;
+  };
+
+  gtk.iconTheme = {
+    name = "Papirus-Dark";
+    package = pkgs.papirus-icon-theme;
+  };
 
   stylix = {
     enable = true;
     autoEnable = true;
-    targets.foot.enable = false;
-    targets.wofi.enable = false;
-    targets.vscode.enable = false;
-    targets.waybar.enable = false;
-    targets.hyprland.enable = false;
 
-    image = /home/nel/Dotfiles/home/wallpapers/nixppuccin.png;
+    targets = {
+      foot.enable = false;
+      wofi.enable = false;
+      vscode.enable = false;
+      waybar.enable = false;
+      hyprland.enable = false;
+    };
+
+    image = ../wallpapers/nixppuccin.png;
+
     base16Scheme = {
       base00 = "1e1e2e"; # base
       base01 = "181825"; # mantle
@@ -48,17 +59,17 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
+        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
         name = "DroidSansMono";
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
+        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
         name = "DroidSansMono";
       };
 
       serif = {
-        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
+        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
         name = "DroidSansMono";
       };
     };

@@ -2,34 +2,35 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   home.packages = with pkgs; [
     # DEV
     inputs.alejandra.defaultPackage.${system}
     python3
+
     # MEDIA
-    mpv # Video
-    imv # Image
-    ventoy-full
+    mpv
+    imv
+    pwvucontrol
+
+    # CONNECTIONS
+    overskride
+    protonvpn-cli_2
     networkmanagerapplet
 
     # APPS
-    protonvpn-cli_2
     spotube
+    vesktop
     keepassxc
 
     libreoffice
     qalculate-gtk
 
-    vesktop
-    thunderbird-bin
+    inputs.zen-browser.packages.${system}.specific
+
+    # Utilities
+    ventoy-full
     nautilus
     file-roller
-
-    overskride
-    pwvucontrol
-
-    inputs.zen-browser.packages.${system}.specific
   ];
 }

@@ -1,13 +1,13 @@
 {
   programs.git = {
     enable = true;
-    userEmail = "pynel@prout.com";
-    userName = "Pynel";
+
+    userName = "PyNEL";
+    userEmail = "pynel@noreply.codeberg.org";
+
     extraConfig = {
-      pull.rebase = "false";
-      init = {
-        defaultBranch = "main";
-      };
+      init.defaultBranch = "main";
+      push.autoSetupRemote = true;
     };
   };
 }

@@ -1,6 +1,7 @@
 {
   programs.freetube = {
     enable = true;
+
     settings = {
       allowDashAv1Formats = true;
       defaultQuality = "1080";

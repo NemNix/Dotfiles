@@ -2,13 +2,9 @@
   pkgs,
   username,
   ...
-}:
-{
-  # Add user to libvirtd group
-  users.users.${username}.extraGroups = [ "libvirtd" ];
-  boot.kernel.sysctl = {
-    "vm.max_map_count" = 2147483642;
-  };
+}: {
+  users.users.${username}.extraGroups = ["libvirtd"];
+  boot.kernel.sysctl = {"vm.max_map_count" = 2147483642;};
 
   # Install necessary packages
   environment.systemPackages = with pkgs; [
@@ -22,17 +18,17 @@
     adwaita-icon-theme
   ];
 
-  # Manage the virtualisation services
+  services.spice-vdagentd.enable = true;
+
   virtualisation = {
+    spiceUSBRedirection.enable = true;
     libvirtd = {
       enable = true;
       qemu = {
         swtpm.enable = true;
         ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
+        ovmf.packages = [pkgs.OVMFFull.fd];
       };
     };
-    spiceUSBRedirection.enable = true;
   };
-  services.spice-vdagentd.enable = true;
 }

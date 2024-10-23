@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   # ------------------------------------------------
   # Needed Packages
   # ------------------------------------------------
@@ -61,24 +62,19 @@
         "NIXOS_OZONE_WL,1"
 
         "DISABLE_QT5_COMPAT,1"
-        "QT_SCALE_FACTOR,1.5"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,0"
-        "QT_QPA_PLATFORM=wayland,xcb"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_QPA_PLATFORM,wayland"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
 
         "GTK_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
-
-        #"AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
       ];
 
       # ------------------------------------------------
       # Startup
       # ------------------------------------------------
 
-      exec-once = [
-        "waybar"
-      ];
+      exec-once = [ "waybar" ];
 
       # ------------------------------------------------
       # Monitors
@@ -98,9 +94,6 @@
         "float, ^($terminal)$"
         "size 45% 45%,^($terminal)$"
 
-        "float, ^(foot)$"
-        "size 45% 45%,^(foot)$"
-
         "float, ^($password-manager)$"
         "size 50% 40%,^($password-manager)$"
 
@@ -110,9 +103,8 @@
         "float,  ^($audio-manager)$"
         "size 50% 30%,^($audio-manager)$"
 
-        # Steam
         "noblur,    class:^(steam)"
-        "forcergbx, class:^(steam)" # Force rgbx color (needed if steam show strange coloration)
+        "forcergbx, class:^(steam)"
       ];
 
       # ------------------------------------------------
@@ -126,18 +118,17 @@
         "ALT, code:12, exec, $Tfile-manager"
 
         # System
-        "SUPER, RETURN, exec,$terminal"
-        "SUPER, X, exec, powermenu"
-        "SUPER, R, exec, $launcher"
-        "SUPER, L, exec, hyprlock --immediate"
+        "SUPER, RETURN, exec, $terminal"
+        "SUPER, X,      exec, powermenu"
+        "SUPER, R,      exec, $launcher"
 
         "SUPER, Q, killactive"
         "SUPER, F, fullscreen"
         "SUPER, T, togglefloating"
 
         # Screenshot
-        "ALT, S , exec , hyprshot -m region --clipboard-only"
-        "CONTROL&ALT , S , exec ,hyprshot -m region "
+        "ALT, S ,                  exec , hyprshot -m region --clipboard-only"
+        "CONTROL&ALT , S ,         exec , hyprshot -m region "
         "CONTROL&ALT&SHIFT_L , S , exec , hyprshot -m output"
 
         # Window Focus
@@ -185,21 +176,25 @@
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
 
-        ", XF86MonBrightnessUp, exec, brightnessctl -q s 5%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl -q s 5%-"
-
-        #", XF86kbdBrightnessDown, exec, brightnessctl -sd asus::kbd_backlight set 1-"
-        #p", XF86kbdBrightnessUp, exec, brightnessctl -sd asus::kbd_backlight set 1+"
-
         ", XF86AudioPlay , exec , playerctl play-pause"
         ", XF86AudioStop , exec , playerctl pause"
-        ", XF86AudioPrev , exec ,  playerctl previous"
+        ", XF86AudioPrev , exec , playerctl previous"
         ", XF86AudioNext , exec , playerctl next"
+
+        ", XF86MonBrightnessUp,   exec, brightnessctl -q s 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl -q s 5%-"
       ];
 
       # ------------------------------------------------
       # Sections
       # ------------------------------------------------
+
+      xwayland = {
+        enabled = false;
+      };
+      opengl = {
+        force_introspection = 1;
+      };
 
       general = {
         gaps_in = 5;
@@ -210,6 +205,9 @@
         layout = "dwindle";
       };
 
+      animations = {
+        enabled = false;
+      };
       decoration = {
         drop_shadow = false;
         blur = {
@@ -217,31 +215,15 @@
         };
       };
 
-      animations = {
-        enabled = false;
-      };
-
       misc = {
         vfr = true;
         vrr = 1;
 
+        focus_on_activate = true;
+
         disable_autoreload = true;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
-
-        focus_on_activate = true;
-        new_window_takes_over_fullscreen = 2;
-      };
-
-      opengl = {
-        force_introspection = 1;
-      };
-      xwayland = {
-        enabled = false;
-      };
-
-      gestures = {
-        workspace_swipe = true;
       };
 
       input = {
@@ -250,7 +232,7 @@
 
         follow_mouse = 1;
         accel_profile = "flat";
-        sensitivity = 0.8;
+        sensitivity = 0.6;
         repeat_delay = 300;
         repeat_rate = 50;
 
@@ -271,8 +253,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = ["~/dotfiles/wallpapers/nixos.png"];
-      wallpaper = [",~/dotfiles/wallpapers/nixos.png"];
+      preload = [ "~/dotfiles/wallpapers/nixos.png" ];
+      wallpaper = [ ",~/dotfiles/wallpapers/nixos.png" ];
     };
   };
 

@@ -1,4 +1,6 @@
 {
-  services.desktopManager.plasma6enable = true;
-  services.desktopManager.plasma6.enableQt5Integration = false;
+  services.desktopManager = {
+    plasma6.enable = true;
+    enableQt5Integration = false;
+  };
 }

@@ -3,13 +3,9 @@
   pkgs,
   inputs,
   ...
-}:
-{
-  imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
-  environment.systemPackages = [
-    # For debugging and troubleshooting Secure Boot.
-    pkgs.sbctl
-  ];
+}: {
+  imports = [inputs.lanzaboote.nixosModules.lanzaboote];
+  environment.systemPackages = [pkgs.sbctl];
   boot = {
     loader.systemd-boot.enable = lib.mkForce false;
 
