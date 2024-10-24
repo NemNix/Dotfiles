@@ -19,16 +19,6 @@
       submodules = true;
     };
 
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-browser = {
-      url = "github:MarceColl/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,18 +30,21 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: {
+  outputs = { nixpkgs, ... } @inputs: {
+
     nixosConfigurations = {
+
       laptop = nixpkgs.lib.nixosSystem {
-        modules = [./hosts];
+        modules = [ ./hosts ];
         specialArgs = {
           inherit inputs;
           username = "nel";
           hostname = "laptop";
         };
       };
+
       server = nixpkgs.lib.nixosSystem {
-        modules = [./hosts];
+        modules = [ ./hosts ];
         specialArgs = {
           inherit inputs;
           username = "nel";

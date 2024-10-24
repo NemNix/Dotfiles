@@ -1,9 +1,5 @@
+{ config, lib, modulesPath, ... }:
 {
-  config,
-  lib,
-  modulesPath,
-  ...
-}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -18,16 +14,16 @@
         "sd_mod"
         "sdhci_pci"
       ];
-      kernelModules = [];
+      kernelModules = [ ];
     };
 
     kernelModules = [
       "kvm-amd"
       "zenpower"
     ];
-    kernelParams = ["amd_pstate=active"];
-    extraModulePackages = [config.boot.kernelPackages.zenpower];
-    blacklistedKernelModules = ["k10temp"];
+    kernelParams = [ "amd_pstate=active" ];
+    extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+    blacklistedKernelModules = [ "k10temp" ];
   };
 
   hardware = {
@@ -53,7 +49,7 @@
     };
   };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

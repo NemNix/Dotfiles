@@ -1,7 +1,7 @@
-{hostname, ...}: {
+{ hostname, ... }:
+{
   imports =
-    if hostname == "laptop"
-    then [
+    if hostname == "laptop" then [
       ./laptop.nix
 
       ./modules/nh.nix
@@ -18,8 +18,7 @@
       ./modules/bluetooth.nix
       ./modules/lanzaboot.nix
     ]
-    else if hostname == "server"
-    then [
+    else if hostname == "server" then [
       ./server.nix
 
       ./modules/nh.nix
@@ -34,5 +33,5 @@
       ./modules/network.nix
       #./modules/lanzaboot.nix
     ]
-    else [];
+    else [ ];
 }

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 {
   # ------------------------------------------------
   # Needed Packages
@@ -37,13 +33,14 @@
     # ------------------------------------------------
 
     settings = {
+
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
       "$Alt_L" = "ALT";
 
       # App
       "$terminal" = "foot";
-      "$browser" = "zen-bin";
+      "$browser" = "librewolf";
       "$file-manager" = "nautilus";
       "$launcher" = "wofi -S drun -I";
       "$Tfile-manager" = "$terminal -e yazi";
@@ -189,12 +186,8 @@
       # Sections
       # ------------------------------------------------
 
-      xwayland = {
-        enabled = false;
-      };
-      opengl = {
-        force_introspection = 1;
-      };
+      xwayland = { enabled = false; };
+      opengl = { force_introspection = 1; };
 
       general = {
         gaps_in = 5;
@@ -205,15 +198,8 @@
         layout = "dwindle";
       };
 
-      animations = {
-        enabled = false;
-      };
-      decoration = {
-        drop_shadow = false;
-        blur = {
-          enabled = false;
-        };
-      };
+      animations = { enabled = false; };
+      decoration = { drop_shadow = false; blur = { enabled = false; }; };
 
       misc = {
         vfr = true;
@@ -271,6 +257,7 @@
       };
 
       listener = [
+
         {
           timeout = 60;
           on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
@@ -304,6 +291,7 @@
     enable = true;
 
     settings = {
+
       general = {
         grace = 5;
         no_fade_in = true;

@@ -1,10 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar.overrideAttrs (oa: {mesonFlags = (oa.mesonFlags or []) ++ ["-Dexperimental=true"];});
+    package = pkgs.waybar.overrideAttrs (oa: { mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ]; });
 
     settings.mainBar = {
-      output = ["eDP-1"];
+
+      output = [ "eDP-1" ];
       exclusive = true;
       fixed-center = true;
 
@@ -48,6 +50,7 @@
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       "hyprland/workspaces" = {
+
         on-click = "activate";
         format = "{icon} {windows}";
         format-icons = {
@@ -69,11 +72,11 @@
         };
 
         persistent-workspaces = {
-          "1" = [];
-          "2" = [];
-          "3" = [];
-          "4" = [];
-          "5" = [];
+          "1" = [ ];
+          "2" = [ ];
+          "3" = [ ];
+          "4" = [ ];
+          "5" = [ ];
         };
       };
 
@@ -105,7 +108,7 @@
 
       backlight = {
         format = "{icon}  {percent}%";
-        format-icons = ["" "" "" "" "" "" "" "" ""];
+        format-icons = [ "" "" "" "" "" "" "" "" "" ];
       };
 
       memory = {
@@ -126,7 +129,7 @@
         format-muted = "󰝟";
         on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         on-click-right = "pwvucontrol";
-        format-icons = ["" "" "" "" ""];
+        format-icons = [ "" "" "" "" "" ];
       };
 
       cpu = {
@@ -138,8 +141,8 @@
       battery = {
         format = " {icon} {capacity}% ";
         format-icons = {
-          charging = ["󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
-          default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          charging = [ "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
+          default = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
         };
         format-full = "󰁹 ";
         interval = 10;

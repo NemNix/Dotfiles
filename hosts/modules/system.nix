@@ -1,4 +1,5 @@
-{hostname, ...}: {
+{ hostname, ... }:
+{
   time.timeZone = "Europe/Rome";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -38,7 +39,7 @@
   nix = {
     optimise = {
       automatic = true;
-      dates = ["daily"];
+      dates = [ "daily" ];
     };
 
     settings = {

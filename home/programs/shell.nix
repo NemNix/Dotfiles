@@ -35,7 +35,7 @@
       shellAliases = {
         fetch = "fastfetch";
         rebuild = "nh os switch";
-        update = "sudo nix flake update ~/Dotfiles";
+        update = "nh os switch --update";
         garbage = "nh clean all && sudo bootctl cleanup ";
 
         hxd = "hx ~/Dotfiles/";

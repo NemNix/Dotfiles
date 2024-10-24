@@ -1,11 +1,9 @@
+{ pkgs
+, ...
+}:
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   home.packages = with pkgs; [
     # DEV
-    inputs.alejandra.defaultPackage.${system}
     python3
 
     # MEDIA
@@ -22,11 +20,13 @@
     spotube
     vesktop
     keepassxc
+    whatsapp-for-linux
 
     libreoffice
     qalculate-gtk
 
-    inputs.zen-browser.packages.${system}.specific
+    floorp
+    librewolf
 
     # Utilities
     ventoy-full

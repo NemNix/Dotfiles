@@ -1,13 +1,6 @@
+{ pkgs, hostname, inputs, ... }:
 {
-  pkgs,
-  hostname,
-  inputs,
-  ...
-}: {
-  imports =
-    if hostname == "laptop"
-    then [inputs.chaotic.nixosModules.default]
-    else [];
+  imports = if hostname == "laptop" then [ inputs.chaotic.nixosModules.default ] else [ ];
 
   boot = {
     tmp.cleanOnBoot = true;
@@ -23,10 +16,8 @@
     };
 
     kernelPackages =
-      if hostname == "laptop"
-      then pkgs.linuxPackages_cachyos # pkgs.linuxPackages_zen #linuxPackages #linuxPackages_latest #linuxPackages_xanmod_latest
-      else if hostname == "server"
-      then pkgs.linuxPackages
+      if hostname == "laptop" then pkgs.linuxPackages_cachyos # pkgs.linuxPackages_zen #linuxPackages #linuxPackages_latest #linuxPackages_xanmod_latest
+      else if hostname == "server" then pkgs.linuxPackages
       else pkgs.linuxPackages_zen;
   };
 }

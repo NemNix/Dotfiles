@@ -15,6 +15,7 @@
         ./programs/vscodium.nix
         ./programs/spicetify.nix
         ./programs/fastfetch.nix
+        ./programs/qutebrowser.nix
 
         ./system/tofi.nix
         ./system/wofi.nix

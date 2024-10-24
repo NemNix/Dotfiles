@@ -1,21 +1,20 @@
+{ config, hostname, ... }:
 {
-  config,
-  hostname,
-  ...
-}: {
   boot = {
-    kernelModules = ["acpi_call"];
-    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+    kernelModules = [ "acpi_call" ];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
   services.tlp = {
     enable = true;
 
     settings = {
+
       TLP_DEFAULT_MODE =
         if hostname == "laptop"
         then "BAT"
         else "AC";
+
       TLP_PERSISTENT_DEFAULT =
         if hostname == "laptop"
         then 0
