@@ -6,7 +6,13 @@
 
   home.packages = with pkgs; [
     hyprshot
+    hyprshade
     hyprpicker
+    inputs.hyprsunset.packages."${pkgs.system}".hyprsunset
+    inputs.hyprsysteminfo.packages."${pkgs.system}".hyprsysteminfo
+    inputs.hyprpolkitagent.packages."${pkgs.system}".hyprpolkitagent
+
+    xdg-desktop-portal-hyprland
 
     wev
     wlr-randr
@@ -14,10 +20,7 @@
     wf-recorder
     playerctl
     brightnessctl
-
-    xdg-desktop-portal-hyprland
   ];
-
   # ------------------------------------------------
   # Hyprland Config
   # ------------------------------------------------
@@ -40,7 +43,7 @@
 
       # App
       "$terminal" = "foot";
-      "$browser" = "librewolf";
+      "$browser" = "floorp";
       "$file-manager" = "nautilus";
       "$launcher" = "wofi -S drun -I";
       "$Tfile-manager" = "$terminal -e yazi";
@@ -71,7 +74,10 @@
       # Startup
       # ------------------------------------------------
 
-      exec-once = [ "waybar" ];
+      exec-once = [
+        "waybar"
+        "systemctl --user start hyprpolkitagent"
+      ];
 
       # ------------------------------------------------
       # Monitors
@@ -218,7 +224,7 @@
 
         follow_mouse = 1;
         accel_profile = "flat";
-        sensitivity = 0.6;
+        sensitivity = 0.4;
         repeat_delay = 300;
         repeat_rate = 50;
 

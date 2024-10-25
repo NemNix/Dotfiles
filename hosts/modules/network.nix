@@ -6,6 +6,15 @@
   networking = {
     hostName = "${hostname}";
     firewall.enable = true;
-    networkmanager.enable = true;
+
+    wireless = {
+      enable = false;
+      iwd.enable = true;
+    };
+
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
   };
 }

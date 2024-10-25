@@ -3,13 +3,17 @@
   programs.helix = {
     enable = true;
 
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # languages Configuration 
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     languages = {
       language = [
 
         {
           name = "nix";
           auto-format = true;
-          language-servers = [ "nil" "nixd" ];
+          language-servers = [ "nixd" "nil" ];
           formatter = {
             command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
             # command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
@@ -23,11 +27,7 @@
           language-servers = [ "bash-language-server" ];
           formatter = {
             command = "${pkgs.shfmt}/bin/shfmt";
-            args = [
-              "-i"
-              "2"
-              "-ci"
-            ];
+            args = [ "-i" "2" "-ci" ];
           };
         }
 
@@ -37,10 +37,7 @@
           language-servers = [ "pyright" ];
           formatter = {
             command = "${pkgs.black}/bin/black";
-            args = [
-              "--quiet"
-              "-"
-            ];
+            args = [ "--quiet" "-" ];
           };
         }
 
@@ -49,18 +46,14 @@
           auto-format = false;
           file-types = [ "rs" ];
           language-servers = [ "rust-analyzer" ];
-          formatter = {
-            command = "${pkgs.rustfmt}/bin/rustfmt";
-          };
+          formatter = { command = "${pkgs.rustfmt}/bin/rustfmt"; };
         }
 
         {
           name = "zig";
           auto-format = true;
           language-servers = [ "zsl" ];
-          formatter = {
-            command = "${pkgs.zig}/bin/zig";
-          };
+          formatter = { command = "${pkgs.zig}/bin/zig"; };
         }
 
         {
@@ -76,14 +69,19 @@
         }
       ];
 
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      # Language Server Protocol Configuration 
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
       language-servers = {
+
+        nixd = { command = "${pkgs.nixd}/bin/nixd"; };
+
         rust-analyzer = {
           config = {
-            check = {
-              command = "${pkgs.clippy}/bin/cargo-clippy";
-            };
+            check = { command = "${pkgs.clippy}/bin/cargo-clippy"; };
             # cargo.features = "all";
-            checkOnSave.command = "c${pkgs.clippy}/bin/cargo-clippy";
+            checkOnSave.command = "${pkgs.clippy}/bin/cargo-clippy";
             completion.autoimport.enable = true;
           };
         };
@@ -94,6 +92,10 @@
         };
       };
     };
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Needed Packages
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     extraPackages = with pkgs; [
       # DEBUG

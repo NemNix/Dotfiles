@@ -1,7 +1,18 @@
 {
   inputs = {
+
     nixpkgs.url = "nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
+    hyprsunset.url = "github:hyprwm/hyprsunset";
+    hyprsysteminfo.url = "github:/hyprwm/hyprsysteminfo";
+    hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
+
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    };
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
@@ -11,12 +22,6 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
     };
 
     spicetify-nix = {

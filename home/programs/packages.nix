@@ -1,11 +1,8 @@
-{ pkgs
-, ...
-}:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     # DEV
     python3
-
     # MEDIA
     mpv
     imv
@@ -17,20 +14,18 @@
     networkmanagerapplet
 
     # APPS
+    floorp
     spotube
     vesktop
+    nautilus
     keepassxc
     whatsapp-for-linux
 
     libreoffice
     qalculate-gtk
 
-    floorp
-    librewolf
-
     # Utilities
     ventoy-full
-    nautilus
     file-roller
   ];
 }
