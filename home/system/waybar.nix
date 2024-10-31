@@ -14,7 +14,7 @@
       layer = "top";
 
       margin-top = 0;
-      margin-bottom = 5;
+      margin-bottom = 3;
       margin-left = 0;
       margin-right = 0;
 
@@ -54,21 +54,12 @@
         on-click = "activate";
         format = "{icon} {windows}";
         format-icons = {
-          "1" = "Web:";
-          "2" = "Dev:";
-          "3" = "Work";
-          "4" = "Chat:";
-          "5" = "Music:";
-        };
-
-        format-windows-separator = "  ";
-        window-rewrite-default = "";
-        window-rewrite = {
-          "foot" = "";
-          "codium" = "󰨞";
-          "zen" = "";
-          "Spotube" = "";
-          "steam" = "";
+          "1" = " ";
+          "2" = " ";
+          "3" = " ";
+          "4" = " ";
+          "5" = " ";
+          "6" = "";
         };
 
         persistent-workspaces = {
@@ -77,6 +68,7 @@
           "3" = [ ];
           "4" = [ ];
           "5" = [ ];
+          "6" = [ ];
         };
       };
 
@@ -103,36 +95,40 @@
 
       clock = {
         interval = 60;
-        format = "{:%a, %d, %b, %H:%M}";
+        format = " {:%a, %d, %b, %H:%M} ";
       };
 
       backlight = {
-        format = "{icon}  {percent}%";
+        tooltip = false;
+        format = " {icon}  {percent}% ";
         format-icons = [ "" "" "" "" "" "" "" "" "" ];
       };
 
       memory = {
-        format = "   {used}";
+        tooltip = false;
+        format = "    {used} ";
         interval = 2;
       };
 
       network = {
-        format-wifi = "   {signalStrength}%";
-        format-ethernet = " ";
+        format-wifi = "    {signalStrength}% ";
+        format-ethernet = "  ";
         tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
         format-linked = "{ifname} (No IP)";
         format-disconnected = "󰖪 ";
       };
 
       pulseaudio = {
+        tooltip = false;
         format = " {icon}   {volume}% ";
-        format-muted = "󰝟";
+        format-muted = " 󰝟 ";
         on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         on-click-right = "pwvucontrol";
         format-icons = [ "" "" "" "" "" ];
       };
 
       cpu = {
+        tooltip = false;
         format = "   {usage}% ";
         format-alt = "  {avg_frequency} GHz";
         interval = 2;
@@ -157,25 +153,25 @@
     # CSS Styling
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     style = ''
-      * {
-        font-family: nerdfonts;
-        font-weight: 800;
+          * {
+        font-family: DroidSansMono;
+        font-weight: 600;
         background: transparent;
+        padding-top : 1px;
+        padding-bottom : 1px;
       }
 
-      #workspaces,
-      #tray,
-      #bluetooth,
-      #idle_inhibitor,
-      #clock,
-      #backlight,
-      #memory,
-      #network,
-      #clock
       #cpu
+      #tray
+      #clock
       #battery
-      #pulseaudio {
-        font-size: 14px;
+      #memory
+      #network
+      #backlight
+      #bluetooth
+      #pulseaudio
+      #workspaces {
+        font-size: 13px;
         padding-right: 10px;
         padding-left: 10px;
       }
@@ -183,14 +179,16 @@
       #privacy,
       #bluetooth,
       #idle_inhibitor {
-         font-size: 18px;
-         }
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 18px;
+      }
 
       #workspaces {
         font-size: 15px;
         font-weight: 700;
         color: #EE99A0;
-        border: 3px solid #EE99A0;
+        border: 2px solid #EE99A0;
       }
 
       #tray {
@@ -200,37 +198,37 @@
 
       #clock {
         color: #CAD3F5;
-        border: 3px solid #CAD3F5;
+        border: 2px solid #CAD3F5;
       }
 
       #cpu {
         color: #eba0ac;
-        border: 3px solid #eba0ac;
+        border: 2px solid #eba0ac;
       }
 
       #memory {
         color: #f5c2e7;
-        border: 3px solid #f5c2e7;
+        border: 2px solid #f5c2e7;
       }
 
       #network {
         color: #C6A0F6;
-        border: 3px solid #C6A0F6;
+        border: 2px solid #C6A0F6;
       }
 
       #pulseaudio {
         color: #8AADF4;
-        border: 3px solid #8AADF4;
+        border: 2px solid #8AADF4;
       }
 
       #backlight {
         color: #f9e2af;
-        border: 3px solid #f9e2af;
+        border: 2px solid #f9e2af;
       }
 
       #battery {
         color: #A6DA95;
-        border: 3px solid #A6DA95;
+        border: 2px solid #A6DA95;
       }
     '';
   };

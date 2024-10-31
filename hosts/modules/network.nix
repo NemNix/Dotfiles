@@ -9,12 +9,12 @@
 
     wireless = {
       enable = false;
-      iwd.enable = true;
+      iwd.enable = false;
     };
 
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
+      wifi.backend = "wpa_supplicant";
     };
   };
 }

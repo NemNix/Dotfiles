@@ -3,11 +3,14 @@
   # ------------------------------------------------
   # Needed Packages
   # ------------------------------------------------
-
   home.packages = with pkgs; [
+    qt6ct
+    qt6.qtwayland
+
     hyprshot
     hyprshade
     hyprpicker
+
     inputs.hyprsunset.packages."${pkgs.system}".hyprsunset
     inputs.hyprsysteminfo.packages."${pkgs.system}".hyprsysteminfo
     inputs.hyprpolkitagent.packages."${pkgs.system}".hyprpolkitagent
@@ -44,8 +47,8 @@
       # App
       "$terminal" = "foot";
       "$browser" = "floorp";
-      "$file-manager" = "nautilus";
       "$launcher" = "wofi -S drun -I";
+      "$file-manager" = "nautilus";
       "$Tfile-manager" = "$terminal -e yazi";
       "$audio-manager" = "com.saivert.pwvucontrol";
       "$password-manager" = "org.keepassxc.KeePassXC";
@@ -59,15 +62,16 @@
         "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_DESKTOP,Hyprland"
-        "NIXOS_OZONE_WL,1"
 
         "DISABLE_QT5_COMPAT,1"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM,wayland"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
 
-        "GTK_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "NIXOS_OZONE_WL,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
+
+        "GTK_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
 
       # ------------------------------------------------
@@ -195,17 +199,17 @@
       xwayland = { enabled = false; };
       opengl = { force_introspection = 1; };
 
+      animations = { enabled = false; };
+      decoration = { drop_shadow = false; blur = { enabled = false; }; };
+
       general = {
-        gaps_in = 5;
+        gaps_in = 4;
         gaps_out = 0;
-        border_size = 3;
+        border_size = 2;
         "col.active_border" = "rgb(F5A97F) rgb(ED8796) rgb(C6A0F6) rgb(8AADF4) rgb(A6DA95) rgb(EED49F)";
 
         layout = "dwindle";
       };
-
-      animations = { enabled = false; };
-      decoration = { drop_shadow = false; blur = { enabled = false; }; };
 
       misc = {
         vfr = true;
@@ -245,8 +249,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = [ "~/dotfiles/wallpapers/nixos.png" ];
-      wallpaper = [ ",~/dotfiles/wallpapers/nixos.png" ];
+      preload = [ "~/Dotfiles/home/wallpapers/nixppuccin.png" ];
+      wallpaper = [ ",~/Dotfiles/home/wallpapers/nixppuccin.png" ];
     };
   };
 

@@ -16,7 +16,7 @@
     };
 
     kernelPackages =
-      if hostname == "laptop" then pkgs.linuxPackages_cachyos # pkgs.linuxPackages_zen #linuxPackages #linuxPackages_latest #linuxPackages_xanmod_latest
+      if hostname == "laptop" then pkgs.linuxPackages_cachyos #linuxPackages_zen #linuxPackages #linuxPackages_latest #linuxPackages_xanmod_latest
       else if hostname == "server" then pkgs.linuxPackages
       else pkgs.linuxPackages_zen;
   };

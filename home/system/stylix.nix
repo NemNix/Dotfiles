@@ -3,7 +3,9 @@
   imports = [ inputs.stylix.homeManagerModules.stylix ];
 
   qt = {
-    enable = true;
+    enable = false;
+    style.name = "gtk2";
+    platformTheme.name = "gtk";
   };
 
   gtk.iconTheme = {
@@ -18,6 +20,7 @@
     targets = {
       foot.enable = false;
       wofi.enable = false;
+      tofi.enable = false;
       vscode.enable = false;
       waybar.enable = false;
       hyprland.enable = false;
@@ -44,9 +47,11 @@
       base0F = "f2cdcd"; # flamingo
     };
 
-    cursor.size = 24;
-    cursor.name = "Bibata-Modern-Ice";
-    cursor.package = pkgs.bibata-cursors;
+    cursor = {
+      size = 24;
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+    };
 
     fonts = {
       emoji = {

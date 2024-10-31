@@ -1,6 +1,5 @@
 {
   inputs = {
-
     nixpkgs.url = "nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
@@ -17,6 +16,7 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pre-commit-hooks-nix.follows = "";
     };
 
     home-manager = {

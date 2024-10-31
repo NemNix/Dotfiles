@@ -30,9 +30,12 @@
           "formatting" = {
             "command" = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
           };
-          "options" = {
-            "nixos" = {
-              "expr" = "(builtins.getFlake \"/home/nel/Dotfiles/flake.nix\").nixosConfigurations.laptop.options";
+          "nixpkgs" = {
+            "expr" = "import <nixpkgs> { }";
+            "options" = {
+              "nixos" = {
+                "expr" = "(builtins.getFlake \"/home/nel/Dotfiles\").nixosConfigurations.laptop.options";
+              };
             };
           };
         };

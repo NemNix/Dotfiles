@@ -1,4 +1,4 @@
-{ hostname, nixpkgs, inputs, ... }:
+{ hostname, inputs, ... }:
 {
   time.timeZone = "Europe/Rome";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -6,15 +6,12 @@
   services = {
     logind = {
       lidSwitch = "ignore";
-      lidSwitchExternalPower =
-        if hostname == "server"
-        then "ignore"
-        else "suspend-then-hibernate";
+      lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate";
     };
   };
 
   system = {
-    stateVersion = "24.05";
+    stateVersion = "24.11";
     switch = {
       enable = false;
       enableNg = true;
@@ -40,7 +37,6 @@
     daemonCPUSchedPolicy = "batch";
     channel.enable = false;
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-
 
     optimise = {
       automatic = true;
