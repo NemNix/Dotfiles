@@ -1,5 +1,5 @@
-<h1 align="center">My NixOS Configurations</h1>
-<h3 align="center">My configurations have been built with the perspective of newbies who want clear and understandable configurations without complicated things, using Flake and Home Manager. I also care about performance; everything is either in C or Rust for the system. Hope you'll enjoy!</h3>
+<h1 align="center">My NixOS Dotfiles</h1>
+<h3 align="center"><em>Simple & aesthetic | Performant & efficient. Perfect for newbies</em></h3>
 
 ![Home](./assets/home.png)
 
@@ -8,37 +8,27 @@
 ## What Do I Use
 
 ### System
-- **Kernel:** CachyOS default kernel
 - **Shell:** ```bash```
+- **Kernel:** CachyOS default kernel
+- **Display Manager:** [tuigreet](https://github.com/apognu/tuigreet) ![rust][rs]
 - **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland) ![C++][cpp]
-- **Display Manager:** [tuigreet](https://github.com/apognu/tuigreet) ![rust][rs] 
-- **Graphics:** - Nvidia for server, Amd for laptop
-  
-### Tools
 
 #### Hypr Ecosystem
-- [hyprlock](https://github.com/hyprwm/hyprlock) ![C++][cpp]
-- [hypridle](https://github.com/hyprwm/hypridle) ![C++][cpp]
+- [Hyprlock](https://github.com/hyprwm/hyprlock) ![C++][cpp]
+- [Hypridle](https://github.com/hyprwm/hypridle) ![C++][cpp]
 - [Hyprshot](https://github.com/Gustash/Hyprshot) ![shell][sh]
-- [hyprpaper](https://github.com/hyprwm/hyprpaper) ![C++][cpp]
-- [hyprpicker](https://github.com/hyprwm/hyprpicker) ![C++][cpp]
+- [Hyprpaper](https://github.com/hyprwm/hyprpaper) ![C++][cpp]
+- [Hyprpicker](https://github.com/hyprwm/hyprpicker) ![C++][cpp]
 
-#### Status Bar
-- [Waybar](https://github.com/Alexays/Waybar) ![C++][cpp]
+- **Status Bar:** [Waybar](https://github.com/Alexays/Waybar) ![C++][cpp]
 
-#### Notification Daemon
-- [dunst](https://dunst-project.org/) ![C][c]
+- **Notification Daemon:** [dunst](https://dunst-project.org/) ![C][c]
 
-#### Application Launcher
-- [Wofi](https://gitlab.com/dgirault/wofi) ![C][c]
+- **Application Launcher:** [Wofi](https://gitlab.com/dgirault/wofi) ![C][c]
 
-#### Display
-- [wlr-randr](https://sr.ht/~emersion/wlr-randr/) ![C][c]
-- [kanshi](https://git.sr.ht/~emersion/kanshi) ![C][c]
+- **Display:** [kanshi](https://git.sr.ht/~emersion/kanshi) ![C][c] [wlr-randr](https://sr.ht/~emersion/wlr-randr/) ![C][c]
 
-#### Recording
-- [wf-recorder](https://github.com/ammen99/wf-recorder) ![C++][cpp]
-- [wl-screenrec](https://github.com/russelltg/wl-screenrec) ![Rust][rs]
+- **Recording:** [wf-recorder](https://github.com/ammen99/wf-recorder) ![C++][cpp] [wl-screenrec](https://github.com/russelltg/wl-screenrec) ![Rust][rs]
 
 ### Apps
 
