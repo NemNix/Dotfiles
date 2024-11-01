@@ -1,6 +1,25 @@
-<h1 align="center">My NixOS Dotfiles</h1>
-<h3 align="center"><em>Simple & aesthetic | Performant & efficient. Perfect for newbies</em></h3>
-
+<h1 align="center">
+   <img src="./assets/nixos.png" width="100px" /> 
+   <br>
+      Simple & aesthetic | NixOS For NEWBIES | Performant & efficient
+   <br>
+      <img src="./assets/macchiato.png" width="600px" /> <br>
+   <div align="center">
+      <p></p>
+      <div align="center">
+         <a href="https://codeberg.org/PyNEL/Dotfiles/stargazers">
+         <img src="https://img.shields.io/codeberg.org/stars/PyNEL/Dotfiles/?color=FABD2F&labelColor=282828&style=for-the-badge&logo=starship&logoColor=FABD2F">
+         </a>
+         <a href="https://codeberg.org/PyNEL/Dotfiles/">
+            <img src="https://img.shields.io/codeberg/repo-size/PyNEL/Dotfiles/?color=B16286&labelColor=282828&style=for-the-badge&logo=github&logoColor=B16286">
+         </a>
+         <a = href="https://nixos.org">
+            <img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=282828&logo=NixOS&logoColor=458588&color=458588">
+         </a>
+      </div>
+      <br>
+   </div>
+</h1>
 
 ![Home](./assets/home.png)
 
@@ -44,6 +63,26 @@
 - **IDE:** [Helix](https://helix-editor.com/) ![Rust][rs] [Vscodium](https://github.com/VSCodium/vscodium)
 
 - **System Monitor:** [Btop](https://github.com/aristocratos/btop) ![C++][cpp]
+
+## Architecture
+
+### 🏠 Home
+
+These are the dotfiles and configuration files for user-level configuration.
+
+**Subfolders:**
+
+- `programs` contains all of my configurations declared with Home Manager.
+- `system` contains all of my window manager system configurations.
+
+### 💻 Hosts
+
+These are the host-specific configurations.
+
+**Subfolders:**
+
+- `modules` contains all of the system configurations divided into modules.
+
 
 ## Installation
 TO DO
