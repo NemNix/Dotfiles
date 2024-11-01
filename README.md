@@ -8,15 +8,12 @@
 ## What Do I Use
 
 ### System
-- **Kernel:** Cachy OS default.
-- **Shell:** bash
-- **Window Manager:**
-  - Hyprland DE (C++)
-- **Display Manager:**
-  - [tuigreet](https://github.com/apognu/tuigreet) ![rust][rs] 
-- **Graphics:**
-  - Nvidia for server, AMD for laptop
-
+- **Kernel:** CachyOS default kernel
+- **Shell:** ```bash```
+- **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland) ![C++][cpp]
+- **Display Manager:** [tuigreet](https://github.com/apognu/tuigreet) ![rust][rs] 
+- **Graphics:** - Nvidia for server, Amd for laptop
+  
 ### Tools
 
 #### Hypr Ecosystem
@@ -65,3 +62,32 @@
 
 ## Installation
 TO DO
+
+
+
+
+<!-- Links -->
+
+<!-- Languages -->
+<!-- Rust -->
+[rs]: https://img.shields.io/badge/-rust-orange
+<!-- Nim -->
+[nim]: https://img.shields.io/badge/-nim-%23ffe953
+<!-- Shell/Bash -->
+[sh]: https://img.shields.io/badge/-shell-green
+<!-- Golang -->
+[go]: https://img.shields.io/badge/-go-68D7E2
+<!-- C++ -->
+[cpp]: https://img.shields.io/badge/-c%2B%2B-red
+<!-- C -->
+[c]: https://img.shields.io/badge/-c-lightgrey
+<!-- Zig -->
+[z]: https://img.shields.io/badge/-zig-yellow
+<!-- Vala -->
+[va]: https://img.shields.io/badge/-vala-blueviolet
+<!-- Dart -->
+[da]: https://img.shields.io/badge/-dart-02D3B3
+<!-- Python -->
+[py]: https://img.shields.io/badge/-python-blue
+<!-- TypeScript -->
+[ts]: https://img.shields.io/badge/-TS-007BCD
