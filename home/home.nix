@@ -34,6 +34,5 @@
         ./programs/helix.nix
         ./programs/fastfetch.nix
       ]
-    else
-      [ ];
+    else [ ];
 }

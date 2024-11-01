@@ -2,97 +2,121 @@
   programs.fastfetch = {
     enable = true;
     settings = {
+
       "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
-      display = {
-        separator = " : ";
+
+      logo = {
+        type = "kitty";
+        height = 20;
+        padding = {
+          top = 0;
+          right = 2;
+        };
       };
+
+      display = {
+        separator = " ➜  ";
+      };
+
       modules = [
-        {
-          type = "custom";
-          format = "Hardware";
-        }
-        {
-          type = "custom";
-          format = "┌──────────────────────────────────────────┐";
-        }
+        "break"
         {
           type = "os";
-          key = "   OS";
-          keyColor = "red";
+          key = "OS   ";
+          keyColor = "31";
+          format = "{2} {8}";
         }
         {
           type = "kernel";
-          key = "   Kernel";
-          keyColor = "red";
+          key = " ├  ";
+          keyColor = "31";
+          format = "{2}";
         }
         {
           type = "packages";
-          key = "   Packages";
-          keyColor = "green";
+          format = "{} (nixpkgs)";
+          key = " ├ 󰏖 ";
+          keyColor = "31";
         }
         {
-          type = "display";
-          key = "  󰍹 Display";
-          keyColor = "green";
+          type = "shell";
+          key = " └  ";
+          keyColor = "31";
         }
+        "break"
         {
           type = "wm";
-          key = "  󱂬 WM";
-          keyColor = "yellow";
+          key = "WM   ";
+          keyColor = "32";
+          format = "{2}";
+        }
+        {
+          type = "wmtheme";
+          key = " ├ 󰉼 ";
+          keyColor = "32";
+        }
+        {
+          type = "icons";
+          key = " ├ 󰀻 ";
+          keyColor = "32";
+        }
+        {
+          type = "cursor";
+          key = " ├  ";
+          keyColor = "32";
         }
         {
           type = "terminal";
-          key = "   Terminal";
-          keyColor = "yellow";
+          key = " ├  ";
+          keyColor = "32";
         }
         {
-          type = "custom";
-          format = "└──────────────────────────────────────────┘";
+          type = "terminalfont";
+          key = " └  ";
+          keyColor = "32";
         }
         "break"
         {
-          type = "title";
-          key = "  ";
-        }
-        {
-          type = "custom";
-          format = "┌──────────────────────────────────────────┐";
+          type = "host";
+          format = "{5} {1}";
+          key = "PC   ";
+          keyColor = "33";
         }
         {
           type = "cpu";
-          format = "{1}";
-          key = "   CPU";
-          keyColor = "blue";
+          format = "AMD Ryzen 7 8845HS";
+          key = " ├  ";
+          keyColor = "33";
         }
         {
           type = "gpu";
-          format = "{2}";
-          key = "   GPU";
-          keyColor = "blue";
-        }
-        {
-          type = "gpu";
-          format = "{3}";
-          key = "   GPU Driver";
-          keyColor = "magenta";
+          format = "AMD Radeon 780M";
+          key = " ├ 󰢮 ";
+          keyColor = "33";
         }
         {
           type = "memory";
-          key = "  ﬙ Memory";
-          keyColor = "magenta";
+          key = " ├  ";
+          keyColor = "33";
         }
         {
-          type = "custom";
-          format = "└──────────────────────────────────────────┘";
+          type = "swap";
+          key = " ├ 󰓡 ";
+          keyColor = "33";
         }
-        "break"
         {
-          type = "colors";
-          paddingLeft = 2;
-          symbol = "circle";
+          type = "disk";
+          key = " ├ 󰋊 ";
+          keyColor = "33";
         }
-        "break"
+        {
+          type = "monitor";
+          key = " └  ";
+          keyColor = "33";
+          format = "{2}x{3} px";
+        }
       ];
     };
   };
 }
+

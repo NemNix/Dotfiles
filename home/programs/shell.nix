@@ -4,12 +4,12 @@
 
     eza = {
       enable = true;
+      icons = "auto";
       extraOptions = [
         "--group-directories-first"
         "--header"
         "--icons"
       ];
-      icons = "auto";
     };
 
     starship = {

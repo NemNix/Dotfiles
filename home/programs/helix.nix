@@ -75,7 +75,7 @@
 
       language-servers = {
 
-        nixd = { command = "${pkgs.nixd}/bin/nixd"; };
+        nil = { command = "${pkgs.nixd}/bin/nixd"; };
 
         rust-analyzer = {
           config = {
