@@ -115,7 +115,7 @@
         format-ethernet = "  ";
         tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
         format-linked = "{ifname} (No IP)";
-        format-disconnected = " 󰖪 ";
+        format-disconnected = " 󰖪  ";
       };
 
       pulseaudio = {
