@@ -1,7 +1,10 @@
 <h1 align="center">My NixOS Dotfiles</h1>
 <h3 align="center"><em>Simple & aesthetic | Performant & efficient. Perfect for newbies</em></h3>
 
+
 ![Home](./assets/home.png)
+
+![File](./assets/file.png)
 
 ![Dev](./assets/dev.png)
 
@@ -32,27 +35,18 @@
 
 ### Apps
 
-#### Terminal
-- [Foot](https://codeberg.org/dnkl/foot) ![C][c]
+- **Terminal:** [Foot](https://codeberg.org/dnkl/foot) ![C][c]
+ 
+- **Browser:** [Floorp](https://github.com/Floorp-Projects/Floorp)
 
-#### Browser
-- [Floorp](https://github.com/Floorp-Projects/Floorp)
+- **File Manager:** [Yazi](https://github.com/sxyazi/yazi) ![Rust][rs] [Nautilus](https://github.com/GNOME/nautilus) ![C][c]
 
-#### File Manager
-- [Yazi](https://github.com/sxyazi/yazi) ![Rust][rs]
-- [Nautilus](https://github.com/GNOME/nautilus) ![C][c]
+- **IDE:** [Helix](https://helix-editor.com/) ![Rust][rs] [Vscodium](https://github.com/VSCodium/vscodium)
 
-#### IDE
-- [Helix](https://helix-editor.com/) ![Rust][rs]
-- [Vscodium](https://github.com/VSCodium/vscodium)
-
-#### System Monitor
-- [Btop](https://github.com/aristocratos/btop) ![C++][cpp]
-
+- **System Monitor:** [Btop](https://github.com/aristocratos/btop) ![C++][cpp]
 
 ## Installation
 TO DO
-
 
 
 
