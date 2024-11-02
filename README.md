@@ -70,7 +70,6 @@ These are the host-specific configurations.
 
 - `modules` contains all of the system configurations divided into modules.
 
-
 ## Installation
 
 - `Laptop`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles --option extra-experimental-features "flakes nix-command"```
