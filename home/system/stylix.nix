@@ -28,7 +28,7 @@
 
     image = ../wallpapers/nixppuccin.png;
 
-    base16Scheme = {
+    override = {
       base00 = "1e1e2e"; # base
       base01 = "181825"; # mantle
       base02 = "313244"; # surface0

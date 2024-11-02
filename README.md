@@ -3,7 +3,7 @@
    <br>
       NixOS For NEWBIES
    <br>
-      <img src="./assets/macchiato.png" width="600px" /> <br>s
+      <img src="./assets/macchiato.png" width="600px" /> <br>
       <br>
    </div>
 </h1>
