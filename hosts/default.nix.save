@@ -9,14 +9,14 @@
       ./modules/boot.nix
       ./modules/users.nix
       ./modules/greetd.nix
+      ./modules/system.nix
       ./modules/fstrim.nix
       ./modules/network.nix
       ./modules/security.nix
       ./modules/pipewire.nix
       ./modules/gsettings.nix
       ./modules/bluetooth.nix
-      ./modules/lanzaboot.nix
-      ./modules/configuration.nix
+      ./modules/lanzaboot.ni
     ]
     else if hostname == "server" then [
       ./server.nix
@@ -31,7 +31,6 @@
       ./modules/fstrim.nix
       ./modules/system.nix
       ./modules/network.nix
-      ./modules/configuration.nix
       #./modules/lanzaboot.nix
     ]
     else [ ];
