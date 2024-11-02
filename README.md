@@ -3,7 +3,7 @@
    <br>
       NixOS For NEWBIES
    <br>
-      <img src="./assets/macchiato.png" width="600px" /> <br>
+      <img src="./assets/macchiato.png" width="600px" /> <br>s
       <br>
    </div>
 </h1>
@@ -19,7 +19,7 @@
 ### System
 - **Shell:** ```bash```
 - **Kernel:** CachyOS default kernel
-- **Display Manager:** [tuigreet](https://github.com/apognu/tuigreet) ![rust][rs]
+- **Display Manager:** [Tuigreet](https://github.com/apognu/tuigreet) ![rust][rs]
 - **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland) ![C++][cpp]
 
 #### Hypr Ecosystem
@@ -31,11 +31,11 @@
 
 - **Status Bar:** [Waybar](https://github.com/Alexays/Waybar) ![C++][cpp]
 
-- **Notification Daemon:** [dunst](https://dunst-project.org/) ![C][c]
+- **Notification Daemon:** [Dunst](https://dunst-project.org/) ![C][c]
 
 - **Application Launcher:** [Wofi](https://gitlab.com/dgirault/wofi) ![C][c]
 
-- **Display:** [kanshi](https://git.sr.ht/~emersion/kanshi) ![C][c] [wlr-randr](https://sr.ht/~emersion/wlr-randr/) ![C][c]
+- **Display:** [Kanshi](https://git.sr.ht/~emersion/kanshi) ![C][c] [wlr-randr](https://sr.ht/~emersion/wlr-randr/) ![C][c]
 
 - **Recording:** [wf-recorder](https://github.com/ammen99/wf-recorder) ![C++][cpp] [wl-screenrec](https://github.com/russelltg/wl-screenrec) ![Rust][rs]
 
