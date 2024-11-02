@@ -23,6 +23,7 @@
     wdisplays
     wf-recorder
     wl-screenrec
+
     playerctl
     brightnessctl
   ];

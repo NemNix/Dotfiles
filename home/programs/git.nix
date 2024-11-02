@@ -2,8 +2,8 @@
   programs.git = {
     enable = true;
 
-    userName = "PyNEL";
-    userEmail = "pynel@noreply.codeberg.org";
+    userName = "NemNix";
+    userEmail = "NemNix@noreply.codeberg.org";
 
     extraConfig = {
       init.defaultBranch = "main";
