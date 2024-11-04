@@ -169,20 +169,20 @@
         "SUPER, j, movefocus, d"
 
         # Switch workspaces with mainMod + [0-9]
-        "SUPER, code:10, workspace,  1"
         "SUPER, code:10, workspace,  6"
+        "SUPER, code:10, workspace,  1"
 
-        "SUPER, code:11, workspace,  2"
         "SUPER, code:11, workspace,  7"
+        "SUPER, code:11, workspace,  2"
 
-        "SUPER, code:12, workspace,  3"
         "SUPER, code:12, workspace,  8"
+        "SUPER, code:12, workspace,  3"
 
-        "SUPER, code:13, workspace,  4"
         "SUPER, code:13, workspace,  9"
+        "SUPER, code:13, workspace,  4"
 
-        "SUPER, code:14, workspace,  5"
         "SUPER, code:14, workspace,  10"
+        "SUPER, code:14, workspace,  5"
 
         # Move active window to a workspace with mainMod + SHIFT + [0-9]
         "SUPER SHIFT, code:10, movetoworkspace,  1"
