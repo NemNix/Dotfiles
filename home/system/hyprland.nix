@@ -5,8 +5,6 @@
   # ------------------------------------------------
 
   home.packages = with pkgs; [
-    qt6ct
-    qt6.qtwayland
 
     hyprshot
     hyprshade
@@ -21,8 +19,8 @@
     wev
     wlr-randr
     wdisplays
-    wf-recorder
-    wl-screenrec
+
+    gpu-screen-recorder-gtk
 
     playerctl
     brightnessctl
@@ -36,7 +34,7 @@
     enable = true;
     systemd.enable = true;
     xwayland.enable = false;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
     # ------------------------------------------------
     # Configuration
@@ -92,9 +90,8 @@
       # ------------------------------------------------
 
       monitor = [
-        #"eDP-1, 1920x1200@120, auto , 1"
+        "desc:BOE Display 0x00000144, 2560x1440@144 , auto-right , 1.25"
         "eDP-1, 2880x1800@120, auto , 1.5"
-        "DP-1 , highrr, auto-left, 1, transform, 3 "
       ];
 
       # ------------------------------------------------
@@ -116,6 +113,29 @@
 
         "noblur,    class:^(steam)"
         "forcergbx, class:^(steam)"
+      ];
+
+      windowrulev2 = [
+        "workspace:1, class:($browser)"
+        "workspace:4, class:(vesktop)"
+      ];
+
+      # ------------------------------------------------
+      # Workspace Rules
+      # ------------------------------------------------
+
+      workspace = [
+        "1, monitor:eDP-1, default:true"
+        "2, monitor:eDP-1"
+        "3, monitor:eDP-1"
+        "4, monitor:eDP-1"
+        "5, monitor:eDP-1"
+
+        "6, monitor:desc:BOE Display 0x00000144, default:true"
+        "7, monitor:desc:BOE Display 0x00000144"
+        "8, monitor:desc:BOE Display 0x00000144"
+        "9, monitor:desc:BOE Display 0x00000144"
+        "10, monitor:desc:BOE Display 0x00000144"
       ];
 
       # ------------------------------------------------
@@ -150,15 +170,19 @@
 
         # Switch workspaces with mainMod + [0-9]
         "SUPER, code:10, workspace,  1"
+        "SUPER, code:10, workspace,  6"
+
         "SUPER, code:11, workspace,  2"
+        "SUPER, code:11, workspace,  7"
+
         "SUPER, code:12, workspace,  3"
+        "SUPER, code:12, workspace,  8"
+
         "SUPER, code:13, workspace,  4"
+        "SUPER, code:13, workspace,  9"
+
         "SUPER, code:14, workspace,  5"
-        "SUPER, code:15, workspace,  6"
-        "SUPER, code:16, workspace,  7"
-        "SUPER, code:17, workspace,  8"
-        "SUPER, code:18, workspace,  9"
-        "SUPER, code:19, workspace, 10"
+        "SUPER, code:14, workspace,  10"
 
         # Move active window to a workspace with mainMod + SHIFT + [0-9]
         "SUPER SHIFT, code:10, movetoworkspace,  1"
@@ -217,7 +241,7 @@
 
       misc = {
         vfr = true;
-        vrr = 1;
+        vrr = 0;
 
         focus_on_activate = true;
 

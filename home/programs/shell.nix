@@ -1,5 +1,6 @@
 {
   programs = {
+    mcfly.enable = true;
     zoxide.enable = true;
 
     eza = {

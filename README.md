@@ -37,7 +37,7 @@
 
 - **Display:** [Kanshi](https://git.sr.ht/~emersion/kanshi) ![C][c] [wlr-randr](https://sr.ht/~emersion/wlr-randr/) ![C][c]
 
-- **Recording:** [wf-recorder](https://github.com/ammen99/wf-recorder) ![C++][cpp] [wl-screenrec](https://github.com/russelltg/wl-screenrec) ![Rust][rs]
+- **Recording:** [gpu-screen-recorder-gtk](https://git.dec05eba.com/gpu-screen-recorder-gtk/about/) ![C++][cpp] 
 
 ### Apps
 
@@ -75,7 +75,10 @@ These are the host-specific configurations.
 - `Laptop`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles --option extra-experimental-features "flakes nix-command"```
 - `Server`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles --option extra-experimental-features "flakes nix-command"```
 
+## To do !
 
+- Declare Browser
+- Remove unused config
 
 <!-- Links -->
 

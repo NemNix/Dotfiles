@@ -130,7 +130,6 @@
       cpu = {
         tooltip = false;
         format = "   {usage}% ";
-        format-alt = "  {avg_frequency} GHz";
         interval = 2;
       };
 
