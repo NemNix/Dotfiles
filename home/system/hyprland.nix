@@ -21,6 +21,7 @@
     wdisplays
 
     gpu-screen-recorder-gtk
+    gpu-screen-recorder
 
     playerctl
     brightnessctl

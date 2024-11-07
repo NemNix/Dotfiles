@@ -18,6 +18,7 @@
     spotube
     vesktop
     nautilus
+    chromium
     keepassxc
     whatsapp-for-linux
 

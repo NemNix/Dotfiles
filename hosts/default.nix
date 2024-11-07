@@ -7,6 +7,7 @@
       ./modules/nh.nix
       ./modules/tlp.nix
       ./modules/boot.nix
+      ./modules/time.nix
       ./modules/users.nix
       ./modules/greetd.nix
       ./modules/fstrim.nix
@@ -25,11 +26,11 @@
       ./modules/tlp.nix
       ./modules/ssh.nix
       ./modules/boot.nix
+      ./modules/time.nix
       ./modules/users.nix
       ./modules/nvidia.nix
       ./modules/ollama.nix
       ./modules/fstrim.nix
-      ./modules/system.nix
       ./modules/network.nix
       ./modules/configuration.nix
       #./modules/lanzaboot.nix

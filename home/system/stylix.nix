@@ -27,7 +27,7 @@
     };
 
     image = ../wallpapers/nixppuccin.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     # override = {
     #   base00 = "1e1e2e"; # base

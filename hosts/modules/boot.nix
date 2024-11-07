@@ -19,5 +19,8 @@
       if hostname == "laptop" then pkgs.linuxPackages_cachyos #linuxPackages_zen #linuxPackages #linuxPackages_latest #linuxPackages_xanmod_latest
       else if hostname == "server" then pkgs.linuxPackages
       else pkgs.linuxPackages_zen;
+
+
+    kernelParams = [ "amd_pstate=active" "mitigations=off" "rcutree.enable_rcu_lazy=1" ];
   };
 }

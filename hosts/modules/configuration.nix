@@ -1,7 +1,13 @@
 { hostname, inputs, ... }:
 {
-  time.timeZone = "Europe/Rome";
-  i18n.defaultLocale = "en_US.UTF-8";
+  documentation = {
+    enable = false;
+    doc.enable = false;
+    man.enable = false;
+    dev.enable = false;
+    info.enable = false;
+    nixos.enable = false;
+  };
 
   hardware.graphics = {
     enable = true;
@@ -15,6 +21,7 @@
     };
   };
 
+
   system = {
     stateVersion = "24.05";
     switch = {
@@ -24,15 +31,6 @@
   };
 
   nixpkgs = { config = { allowUnfree = true; }; };
-
-  documentation = {
-    enable = false;
-    doc.enable = false;
-    man.enable = false;
-    dev.enable = false;
-    info.enable = false;
-    nixos.enable = false;
-  };
 
   nix = {
     daemonCPUSchedPolicy = "batch";
