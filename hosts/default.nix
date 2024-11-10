@@ -1,4 +1,4 @@
-{ hostname, ... }:
+{ hostname, config, ... }:
 {
   imports =
     if hostname == "laptop" then [
@@ -34,6 +34,22 @@
       ./modules/network.nix
       ./modules/configuration.nix
       #./modules/lanzaboot.nix
+    ]
+    else if config.services.xserver.desktopManager.gnome.enable == true then [
+      ./modules/nh.nix
+      ./modules/tlp.nix
+      ./modules/boot.nix
+      ./modules/time.nix
+      ./modules/users.nix
+      ./modules/greetd.nix
+      ./modules/fstrim.nix
+      ./modules/network.nix
+      ./modules/security.nix
+      ./modules/pipewire.nix
+      ./modules/gsettings.nix
+      ./modules/bluetooth.nix
+      ./modules/lanzaboot.nix
+      ./modules/configuration.nix
     ]
     else [ ];
 }

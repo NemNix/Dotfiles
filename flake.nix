@@ -33,6 +33,11 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:fufexan/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, ... } @inputs: {
@@ -54,6 +59,18 @@
           inherit inputs;
           username = "nel";
           hostname = "server";
+        };
+      };
+
+      iso = nixpkgs.lib.nixosSystem {
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+          ./hosts
+        ];
+        specialArgs = {
+          inherit inputs;
+          username = "nel";
+          hostname = "laptop";
         };
       };
     };

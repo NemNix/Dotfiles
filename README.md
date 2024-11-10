@@ -72,8 +72,8 @@ These are the host-specific configurations.
 
 ## Installation
 
-- `Laptop`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles --option extra-experimental-features "flakes nix-command"```
-- `Server`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles --option extra-experimental-features "flakes nix-command"```
+- `Laptop`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles#laptop```
+- `Server`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles#server```
 
 ## To do !
 

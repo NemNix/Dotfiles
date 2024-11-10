@@ -18,12 +18,19 @@
     autoEnable = true;
 
     targets = {
-      foot.enable = false;
+      foot.enable = true;
       wofi.enable = false;
       tofi.enable = false;
       vscode.enable = false;
       waybar.enable = false;
       hyprland.enable = false;
+    };
+
+    opacity = {
+      applications = 1.0;
+      terminal = 0.9;
+      desktop = 1.0;
+      popups = 0.8;
     };
 
     image = ../wallpapers/nixppuccin.png;
@@ -61,18 +68,25 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
-        name = "DroidSansMono";
+        package = pkgs.nerdfonts;
+        name = "DroidSansM Nerd Font Mono";
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
-        name = "DroidSansMono";
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
       };
 
       serif = {
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
-        name = "DroidSansMono";
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sizes = {
+        applications = 12;
+        terminal = 12;
+        desktop = 10;
+        popups = 10;
       };
     };
   };

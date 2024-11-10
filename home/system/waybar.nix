@@ -153,7 +153,6 @@
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     style = ''
           * {
-        font-family: DroidSansMono;
         font-weight: 600;
         background: transparent;
         padding-top : 1px;

@@ -9,6 +9,7 @@
         ./programs/foot.nix
         ./programs/shell.nix
         ./programs/helix.nix
+        ./programs/bottom.nix
         ./programs/zathura.nix
         ./programs/packages.nix
         ./programs/freetube.nix

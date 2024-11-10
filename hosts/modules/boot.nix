@@ -1,4 +1,4 @@
-{ pkgs, hostname, inputs, ... }:
+{ pkgs, hostname, inputs, lib, ... }:
 {
   imports = if hostname == "laptop" then [ inputs.chaotic.nixosModules.default ] else [ ];
 
@@ -6,7 +6,7 @@
     tmp.cleanOnBoot = true;
 
     loader = {
-      timeout = 3;
+      timeout = lib.mkForce 3;
       efi.canTouchEfiVariables = true;
 
       systemd-boot = {
@@ -20,7 +20,9 @@
       else if hostname == "server" then pkgs.linuxPackages
       else pkgs.linuxPackages_zen;
 
-
-    kernelParams = [ "amd_pstate=active" "mitigations=off" "rcutree.enable_rcu_lazy=1" ];
+    kernelParams = [
+      "amd_pstate=active"
+      "rcutree.enable_rcu_lazy=1"
+    ];
   };
 }

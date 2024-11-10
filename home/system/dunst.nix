@@ -10,7 +10,7 @@
       global = {
         follow = "mouse";
 
-        width = "0 , 600";
+        width = "(0 , 600)";
         height = "400";
 
         origin = "top-center";

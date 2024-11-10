@@ -229,7 +229,7 @@
       opengl = { force_introspection = 1; };
 
       animations = { enabled = false; };
-      decoration = { drop_shadow = false; blur = { enabled = false; }; };
+      decoration = { shadow = { enabled = false; }; blur = { enabled = false; }; };
 
       general = {
         gaps_in = 4;
@@ -243,7 +243,7 @@
       misc = {
         vfr = true;
         vrr = 0;
-
+        render_ahead_safezone = 0;
         focus_on_activate = true;
 
         disable_autoreload = true;
@@ -262,9 +262,8 @@
         repeat_rate = 50;
 
         touchpad = {
+          scroll_factor = 0.5;
           natural_scroll = true;
-          clickfinger_behavior = true;
-          disable_while_typing = true;
         };
       };
     };
@@ -291,7 +290,9 @@
 
     settings = {
       general = {
+        ignore_dbus_inhibit = true;
         lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
 
@@ -311,7 +312,7 @@
 
         {
           timeout = 100;
-          on-timeout = "hyprctl dispatch dpms off ";
+          on-timeout = "loginctl lock-session && hyprctl dispatch dpms off ";
           on-resume = "hyprctl dispatch dpms on";
         }
 
