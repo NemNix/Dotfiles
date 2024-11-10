@@ -14,7 +14,6 @@
     networkmanagerapplet
 
     # APPS
-    inputs.zen-browser.packages."${system}".generic
     floorp
     spotube
     vesktop

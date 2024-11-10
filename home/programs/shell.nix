@@ -41,6 +41,7 @@
 
         hxd = "hx ~/Dotfiles/";
         hxc = "hx ~/code/";
+        g = "git";
 
         ls = "eza";
         la = "eza -a";

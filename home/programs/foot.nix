@@ -1,21 +1,13 @@
 {
-  programs.alacritty.enable = true;
   programs.foot = {
     enable = true;
 
     settings = {
-      main = {
-        pad = "5x0";
-        # dpi-aware = "no";
-      };
+      main = { pad = "5x0"; };
 
-      mouse = {
-        hide-when-typing = "yes";
-      };
+      mouse = { hide-when-typing = "yes"; };
 
-      tweak = {
-        font-monospace-warn = "no";
-      };
+      tweak = { font-monospace-warn = "no"; };
 
       # colors = {
       #   foreground = "cdd6f4";

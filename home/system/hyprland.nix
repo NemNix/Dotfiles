@@ -14,6 +14,7 @@
     inputs.hyprsysteminfo.packages."${pkgs.system}".hyprsysteminfo
     inputs.hyprpolkitagent.packages."${pkgs.system}".hyprpolkitagent
 
+    xdg-desktop-portal-wlr
     xdg-desktop-portal-hyprland
 
     wev
@@ -21,7 +22,6 @@
     wdisplays
 
     gpu-screen-recorder-gtk
-    gpu-screen-recorder
 
     playerctl
     brightnessctl
@@ -62,12 +62,14 @@
       # ------------------------------------------------
 
       env = [
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_DESKTOP,Hyprland"
+        "EDITOR, hx"
+        "TERMINAL,$terminal"
+        "XDG_SESSION_TYPE, wayland"
+        "XDG_CURRENT_DESKTOP, Hyprland"
+        "XDG_SESSION_DESKTOP, Hyprland"
 
-        "DISABLE_QT5_COMPAT,1"
-        "QT_QPA_PLATFORM,wayland"
+        "DISABLE_QT5_COMPAT, 1"
+        "QT_QPA_PLATFORM, wayland"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
 
@@ -117,8 +119,11 @@
       ];
 
       windowrulev2 = [
-        "workspace:1, class:($browser)"
-        "workspace:4, class:(vesktop)"
+        "workspace 1, class:($browser)"
+        "workspace 3, class:(codium)"
+        "workspace 4, class:(vesktop)"
+        "workspace 5, class:(FreeTube)"
+        "workspace special, class:(spotify)"
       ];
 
       # ------------------------------------------------
@@ -151,7 +156,8 @@
 
         # System
         "SUPER, RETURN, exec, $terminal"
-        "SUPER, X,      exec, powermenu"
+        "SUPER, Backspace, exec, $terminal -F"
+
         "SUPER, R,      exec, $launcher"
 
         "SUPER, Q, killactive"
@@ -185,6 +191,8 @@
         "SUPER, code:14, workspace,  10"
         "SUPER, code:14, workspace,  5"
 
+        "SUPER, grave, exec, hyprctl dispatch togglespecialworkspace"
+
         # Move active window to a workspace with mainMod + SHIFT + [0-9]
         "SUPER SHIFT, code:10, movetoworkspace,  1"
         "SUPER SHIFT, code:11, movetoworkspace,  2"
@@ -196,6 +204,7 @@
         "SUPER SHIFT, code:17, movetoworkspace,  8"
         "SUPER SHIFT, code:18, movetoworkspace,  9"
         "SUPER SHIFT, code:19, movetoworkspace, 10"
+        "SUPER SHIFT, grave,  movetoworkspace, special"
       ];
 
       bindm = [
@@ -297,7 +306,6 @@
       };
 
       listener = [
-
         {
           timeout = 60;
           on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
@@ -312,7 +320,12 @@
 
         {
           timeout = 100;
-          on-timeout = "loginctl lock-session && hyprctl dispatch dpms off ";
+          on-timeout = "loginctl lock-session";
+        }
+
+        {
+          timeout = 100;
+          on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
 
