@@ -3,7 +3,7 @@
     enable = true;
 
     settings = {
-      main = { pad = "5x0"; };
+      main = { pad = "10x0"; };
 
       mouse = { hide-when-typing = "yes"; };
 

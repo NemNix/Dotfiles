@@ -27,27 +27,28 @@
         # Browser
         # ----------------------------------------------
 
-        browser = {
-          uidensity = 1;
-          compactmode.show = true;
-          tabs.warnOnClose = false;
+        browser.aboutConfig.showWarning = false;
 
-          aboutConfig.showWarning = false;
-          aboutwelcome.enabled = false;
-          bookmarks.restore_default_bookmarks = false;
-          contentblocking.category = "standard";
-          ctrlTab.sortByRecentlyUsed = true;
 
-          newtabpage = {
-            enabled = false;
+        browser.uidensity = 1;
+        compactmode.show = true;
+        tabs.warnOnClose = false;
 
-            activity-stream = {
-              showSearch = false;
-              newtabpage.activity-stream.showSponsored = false;
-              newtabpage.activity-stream.showSponsoredTopSites = false;
-              newtabpage.activity-stream.showWeather = false;
-              newtabpage.activity-stream.system.showSponsored = false;
-            };
+
+        aboutwelcome.enabled = false;
+        bookmarks.restore_default_bookmarks = false;
+        contentblocking.category = "standard";
+        ctrlTab.sortByRecentlyUsed = true;
+
+        newtabpage = {
+          enabled = false;
+
+          activity-stream = {
+            showSearch = false;
+            newtabpage.activity-stream.showSponsored = false;
+            newtabpage.activity-stream.showSponsoredTopSites = false;
+            newtabpage.activity-stream.showWeather = false;
+            newtabpage.activity-stream.system.showSponsored = false;
           };
         };
 

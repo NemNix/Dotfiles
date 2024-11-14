@@ -120,6 +120,7 @@
 
       windowrulev2 = [
         "workspace 1, class:($browser)"
+        "workspace 2, class:(org.pwmt.zathura)"
         "workspace 3, class:(codium)"
         "workspace 4, class:(vesktop)"
         "workspace 5, class:(FreeTube)"
@@ -214,7 +215,7 @@
 
       bindl = [
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",switch:Lid Switch, exec, pidof hyprlock || hyprlock"
+        ",switch:Lid Switch, exec, loginctl lock-session && systemctl suspend"
       ];
 
       bindle = [

@@ -6,7 +6,7 @@
     tmp.cleanOnBoot = true;
 
     loader = {
-      timeout = lib.mkForce 3;
+      timeout = lib.mkForce 0;
       efi.canTouchEfiVariables = true;
 
       systemd-boot = {

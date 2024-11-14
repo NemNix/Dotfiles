@@ -55,6 +55,22 @@
 
         startupctl = "systemctl list-unit-files --type=service | grep enabled";
       };
+
+      historyIgnore = [
+        "ls"
+        "cd"
+        "z"
+        "zoxide"
+        "yazi"
+        "rebuild"
+        "update"
+        "garbage"
+        "hx"
+        "btop"
+        "cat"
+        "nh"
+        "mkdir"
+      ];
     };
   };
 }

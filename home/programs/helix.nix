@@ -2,14 +2,42 @@
 {
   programs.helix = {
     enable = true;
+    defaultEditor = true;
+
+    settings = {
+
+      editor = {
+        color-modes = true;
+        statusline = {
+          left = [ "mode" "spinner" ];
+          center = [ "file-name" ];
+          right = [ "diagnostics" "version-control" ];
+          separator = "│";
+          mode.normal = "NORMAL";
+          mode.insert = "INSERT";
+          mode.select = "SELECT";
+        };
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+      };
+
+      keys.normal = {
+        space.space = ":w";
+        space.q = ":wq";
+        esc = [ "collapse_selection" "keep_primary_selection" ];
+      };
+    };
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # languages Configuration 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     languages = {
-      language = [
 
+      language = [
         {
           name = "nix";
           auto-format = true;

@@ -18,19 +18,11 @@
     autoEnable = true;
 
     targets = {
-      foot.enable = true;
       wofi.enable = false;
       tofi.enable = false;
       vscode.enable = false;
       waybar.enable = false;
       hyprland.enable = false;
-    };
-
-    opacity = {
-      applications = 1.0;
-      terminal = 0.9;
-      desktop = 1.0;
-      popups = 0.8;
     };
 
     image = ../wallpapers/nixppuccin.png;
