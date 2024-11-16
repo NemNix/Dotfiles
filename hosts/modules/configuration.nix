@@ -1,4 +1,5 @@
 { hostname, inputs, ... }:
+
 {
   documentation = {
     enable = false;

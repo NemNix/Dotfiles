@@ -4,6 +4,7 @@
     if hostname == "laptop" then [
       ./laptop.nix
 
+      # ./modules/adb.nix
       ./modules/nh.nix
       ./modules/tlp.nix
       ./modules/boot.nix

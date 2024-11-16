@@ -18,6 +18,7 @@
     autoEnable = true;
 
     targets = {
+      fish.enable = false;
       wofi.enable = false;
       tofi.enable = false;
       vscode.enable = false;
@@ -61,7 +62,7 @@
 
       monospace = {
         package = pkgs.nerdfonts;
-        name = "DroidSansM Nerd Font Mono";
+        name = "DroidSansM Nerd Font";
       };
 
       sansSerif = {

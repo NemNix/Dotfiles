@@ -9,6 +9,8 @@
 
       tweak = { font-monospace-warn = "no"; };
 
+      bell = { urgent = "yes"; notify = "yes"; visual = "yes"; };
+
       # colors = {
       #   foreground = "cdd6f4";
       #   background = "1e1e2e";

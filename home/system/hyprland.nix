@@ -48,7 +48,7 @@
       "$Alt_L" = "ALT";
 
       # App
-      "$terminal" = "foot";
+      "$terminal" = "footclient";
       "$browser" = "floorp";
       "$launcher" = "wofi -S drun -I";
       "$file-manager" = "nautilus";
@@ -62,21 +62,20 @@
       # ------------------------------------------------
 
       env = [
-        "EDITOR, hx"
-        "TERMINAL,$terminal"
-        "XDG_SESSION_TYPE, wayland"
-        "XDG_CURRENT_DESKTOP, Hyprland"
-        "XDG_SESSION_DESKTOP, Hyprland"
+        "TERMINAL                            , $terminal "
+        "XDG_SESSION_TYPE                    ,  wayland  "
+        "XDG_CURRENT_DESKTOP                 ,  Hyprland "
+        "XDG_SESSION_DESKTOP                 ,  Hyprland "
 
-        "DISABLE_QT5_COMPAT, 1"
-        "QT_QPA_PLATFORM, wayland"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "DISABLE_QT5_COMPAT                  , 1         "
+        "QT_QPA_PLATFORM                     ,  wayland  "
+        "QT_AUTO_SCREEN_SCALE_FACTOR         , 1         "
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION , 1         "
 
-        "NIXOS_OZONE_WL,1"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "NIXOS_OZONE_WL                      , 1         "
+        "ELECTRON_OZONE_PLATFORM_HINT        , auto      "
 
-        "GTK_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "GTK_WAYLAND_DISABLE_WINDOWDECORATION, 1         "
       ];
 
       # ------------------------------------------------
@@ -85,6 +84,7 @@
 
       exec-once = [
         "waybar"
+        "foot --server"
         "systemctl --user start hyprpolkitagent"
       ];
 
@@ -93,8 +93,8 @@
       # ------------------------------------------------
 
       monitor = [
+        "eDP-1                      , 2880x1800@120 , auto       , 1.5"
         "desc:BOE Display 0x00000144, 2560x1440@144 , auto-right , 1.25"
-        "eDP-1, 2880x1800@120, auto , 1.5"
       ];
 
       # ------------------------------------------------
@@ -102,28 +102,28 @@
       # ------------------------------------------------
 
       windowrule = [
-        "float, ^($terminal)$"
-        "size 45% 45%,^($terminal)$"
+        "float       , ^($terminal)$"
+        "size 45% 45%, ^($terminal)$"
 
-        "float, ^($password-manager)$"
-        "size 50% 40%,^($password-manager)$"
+        "float       , ^($password-manager)$"
+        "size 50% 40%, ^($password-manager)$"
 
-        "float, ^($bluetooth-manager)$"
-        "size 50% 60%,^($bluetooth-manager)$"
+        "float       , ^($bluetooth-manager)$"
+        "size 50% 60%, ^($bluetooth-manager)$"
 
-        "float,  ^($audio-manager)$"
-        "size 50% 30%,^($audio-manager)$"
+        "float       , ^($audio-manager)$"
+        "size 50% 30%, ^($audio-manager)$"
 
-        "noblur,    class:^(steam)"
-        "forcergbx, class:^(steam)"
+        "noblur      , class:^(steam)"
+        "forcergbx   , class:^(steam)"
       ];
 
       windowrulev2 = [
-        "workspace 1, class:($browser)"
-        "workspace 2, class:(org.pwmt.zathura)"
-        "workspace 3, class:(codium)"
-        "workspace 4, class:(vesktop)"
-        "workspace 5, class:(FreeTube)"
+        "workspace 1,       class:($browser)"
+        "workspace 2,       class:(org.pwmt.zathura)"
+        "workspace 3,       class:(codium)"
+        "workspace 4,       class:(vesktop)"
+        "workspace 5,       class:(FreeTube)"
         "workspace special, class:(spotify)"
       ];
 
@@ -132,16 +132,16 @@
       # ------------------------------------------------
 
       workspace = [
-        "1, monitor:eDP-1, default:true"
-        "2, monitor:eDP-1"
-        "3, monitor:eDP-1"
-        "4, monitor:eDP-1"
-        "5, monitor:eDP-1"
+        "1,  monitor:eDP-1, default:true"
+        "2,  monitor:eDP-1"
+        "3,  monitor:eDP-1"
+        "4,  monitor:eDP-1"
+        "5,  monitor:eDP-1"
 
-        "6, monitor:desc:BOE Display 0x00000144, default:true"
-        "7, monitor:desc:BOE Display 0x00000144"
-        "8, monitor:desc:BOE Display 0x00000144"
-        "9, monitor:desc:BOE Display 0x00000144"
+        "6,  monitor:desc:BOE Display 0x00000144, default:true"
+        "7,  monitor:desc:BOE Display 0x00000144"
+        "8,  monitor:desc:BOE Display 0x00000144"
+        "9,  monitor:desc:BOE Display 0x00000144"
         "10, monitor:desc:BOE Display 0x00000144"
       ];
 
@@ -155,42 +155,41 @@
         "ALT, code:11, exec, $file-manager"
         "ALT, code:12, exec, $Tfile-manager"
 
-        # System
-        "SUPER, RETURN, exec, $terminal"
-        "SUPER, Backspace, exec, $terminal -F"
-
-        "SUPER, R,      exec, $launcher"
-
-        "SUPER, Q, killactive"
-        "SUPER, F, fullscreen"
-        "SUPER, T, togglefloating"
-
-        # Screenshot
-        "ALT, S ,                  exec , hyprshot -m region --clipboard-only"
-        "CONTROL&ALT , S ,         exec , hyprshot -m region "
-        "CONTROL&ALT&SHIFT_L , S , exec , hyprshot -m output"
-
         # Window Focus
         "SUPER, h, movefocus, l"
         "SUPER, l, movefocus, r"
         "SUPER, k, movefocus, u"
         "SUPER, j, movefocus, d"
 
+        # System
+        "SUPER, Q, killactive"
+        "SUPER, F, fullscreen"
+        "SUPER, T, togglefloating"
+
+        "SUPER, R        , exec , $launcher"
+        "SUPER, RETURN   , exec , $terminal"
+        "SUPER, Backspace, exec , $terminal -F"
+
+        # Screenshot
+        "SUPER                 , S , exec , hyprshot -m region --clipboard-only"
+        "CONTROL&SUPER         , S , exec , hyprshot -m region "
+        "CONTROL&SUPER&SHIFT_L , S , exec , hyprshot -m output"
+
         # Switch workspaces with mainMod + [0-9]
-        "SUPER, code:10, workspace,  6"
-        "SUPER, code:10, workspace,  1"
+        "SUPER, code:10, workspace, 6"
+        "SUPER, code:10, workspace, 1"
 
-        "SUPER, code:11, workspace,  7"
-        "SUPER, code:11, workspace,  2"
+        "SUPER, code:11, workspace, 7"
+        "SUPER, code:11, workspace, 2"
 
-        "SUPER, code:12, workspace,  8"
-        "SUPER, code:12, workspace,  3"
+        "SUPER, code:12, workspace, 8"
+        "SUPER, code:12, workspace, 3"
 
-        "SUPER, code:13, workspace,  9"
-        "SUPER, code:13, workspace,  4"
+        "SUPER, code:13, workspace, 9"
+        "SUPER, code:13, workspace, 4"
 
-        "SUPER, code:14, workspace,  10"
-        "SUPER, code:14, workspace,  5"
+        "SUPER, code:14, workspace, 10"
+        "SUPER, code:14, workspace, 5"
 
         "SUPER, grave, exec, hyprctl dispatch togglespecialworkspace"
 
@@ -214,8 +213,8 @@
       ];
 
       bindl = [
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",switch:Lid Switch, exec, loginctl lock-session && systemctl suspend"
+        ", XF86AudioMute,     exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", switch:Lid Switch, exec, loginctl lock-session && systemctl suspend"
       ];
 
       bindle = [
@@ -249,6 +248,8 @@
 
         layout = "dwindle";
       };
+
+      dwindle = { pseudotile = true; };
 
       misc = {
         vfr = true;
@@ -342,7 +343,7 @@
   # Hyprlock
   #################################
   programs.hyprlock = {
-    enable = true;
+    enable = false;
 
     settings = {
 
@@ -353,29 +354,29 @@
         disable_loading_bar = false;
       };
 
-      background = {
-        monitor = "";
-        path = "~/Dotfiles/home/wallpapers/lock.jpg";
-      };
+      # background = {
+      #   monitor = "";
+      #   path = "~/Dotfiles/home/wallpapers/lock.jpg";
+      # };
 
-      input-field = [
-        {
-          monitor = "";
-          size = "200 , 50";
-          outline_thickness = 7;
+      # input-field = [
+      #   {
+      #     monitor = "";
+      #     size = "200 , 50";
+      #     outline_thickness = 7;
 
-          dots_size = 0.2;
-          dots_spacing = 0.2;
-          dots_center = true;
+      #     dots_size = 0.2;
+      #     dots_spacing = 0.2;
+      #     dots_center = true;
 
-          fade_on_empty = true;
-          fade_timeout = "1000";
+      #     fade_on_empty = true;
+      #     fade_timeout = "1000";
 
-          position = "0, -20";
-          halign = "center";
-          valign = "center";
-        }
-      ];
+      #     position = "0, -20";
+      #     halign = "center";
+      #     valign = "center";
+      #   }
+      # ];
     };
   };
 }

@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     # DEV
     python3
+    python312Packages.ansicolors
     # MEDIA
     mpv
     imv

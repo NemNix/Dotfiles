@@ -56,18 +56,6 @@
           hostname = "server";
         };
       };
-
-      iso = nixpkgs.lib.nixosSystem {
-        modules = [
-          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
-          ./hosts
-        ];
-        specialArgs = {
-          inherit inputs;
-          username = "nel";
-          hostname = "laptop";
-        };
-      };
     };
   };
 }

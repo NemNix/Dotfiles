@@ -6,17 +6,29 @@
 
     settings = {
 
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      # Helix config
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       editor = {
-        color-modes = true;
+
+        bufferline = "multiple";
+        shell = [ "bash" "-c" ];
+
         statusline = {
-          left = [ "mode" "spinner" ];
-          center = [ "file-name" ];
-          right = [ "diagnostics" "version-control" ];
           separator = "│";
           mode.normal = "NORMAL";
           mode.insert = "INSERT";
           mode.select = "SELECT";
+          left = [ "mode" "spinner" ];
+          center = [ "file-name" ];
+          right = [ "diagnostics" "version-control" ];
         };
+
+        lsp = {
+          display-messages = false;
+          display-inlay-hints = true;
+        };
+
         cursor-shape = {
           insert = "bar";
           normal = "block";
@@ -24,16 +36,28 @@
         };
       };
 
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      # Keybindings 
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       keys.normal = {
-        space.space = ":w";
         space.q = ":wq";
+        space.space = ":w";
+
+        C-q = ":wq";
+        C-a = "select_all";
+
+        space.p = [ ":vsplit-new" ":insert-output python main.py" ];
+        space.m = [ ":sh foot @ send-text --match 'title:^Terminal' 'clear \\python main.py \\n'" ];
+        space.c = [ ":sh foot @ send-text --match 'title:^Terminal' 'clear \\ncargo test \\n'" ];
+
+        del = ":buffer-close!";
         esc = [ "collapse_selection" "keep_primary_selection" ];
       };
     };
 
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # --------------------------------
     # languages Configuration 
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # --------------------------------
 
     languages = {
 
@@ -41,34 +65,21 @@
         {
           name = "nix";
           auto-format = true;
-          language-servers = [ "nixd" "nil" ];
-          formatter = {
-            command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-            # command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-            # command = "${pkgs.alejandra}/bin/alejandra";
-          };
+          language-servers = [ "nil" ];
+          formatter = { command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"; };
         }
-
         {
           name = "bash";
           auto-format = true;
           language-servers = [ "bash-language-server" ];
-          formatter = {
-            command = "${pkgs.shfmt}/bin/shfmt";
-            args = [ "-i" "2" "-ci" ];
-          };
+          formatter = { command = "${pkgs.shfmt}/bin/shfmt"; args = [ "-i" "2" "-ci" ]; };
         }
-
         {
           name = "python";
           auto-format = true;
           language-servers = [ "pyright" ];
-          formatter = {
-            command = "${pkgs.black}/bin/black";
-            args = [ "--quiet" "-" ];
-          };
+          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" ]; };
         }
-
         {
           name = "rust";
           auto-format = false;
@@ -76,20 +87,17 @@
           language-servers = [ "rust-analyzer" ];
           formatter = { command = "${pkgs.rustfmt}/bin/rustfmt"; };
         }
-
         {
           name = "zig";
           auto-format = true;
           language-servers = [ "zsl" ];
           formatter = { command = "${pkgs.zig}/bin/zig"; };
         }
-
         {
           name = "html";
           auto-format = true;
           language-servers = [ "vscode-langservers-extracted" ];
         }
-
         {
           name = "javascript";
           auto-format = true;
@@ -107,10 +115,10 @@
 
         rust-analyzer = {
           config = {
-            check = { command = "${pkgs.clippy}/bin/cargo-clippy"; };
             # cargo.features = "all";
-            checkOnSave.command = "${pkgs.clippy}/bin/cargo-clippy";
             completion.autoimport.enable = true;
+            check = { command = "${pkgs.clippy}/bin/cargo-clippy"; };
+            checkOnSave.command = "${pkgs.clippy}/bin/cargo-clippy";
           };
         };
 

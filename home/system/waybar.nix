@@ -109,11 +109,11 @@
       };
 
       network = {
-        format-wifi = "    {signalStrength}% ";
+        format-wifi = "    {essid} ";
         format-ethernet = "  ";
         tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
         format-linked = "{ifname} (No IP)";
-        format-disconnected = " 󰖪  ";
+        format-disconnected = "";
       };
 
       pulseaudio = {
@@ -151,7 +151,8 @@
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     style = ''
           * {
-        font-weight: 600;
+        font-family: DejaVu Sans;
+        font-weight: 700;
         background: transparent;
         padding-top : 1px;
         padding-bottom : 1px;
