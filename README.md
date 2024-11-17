@@ -76,7 +76,7 @@ These are the host-specific configurations.
 - `Server`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles#server```
 
 ## To do !
-
+- Python dev shell
 - Declare Browser
 - Remove unused config
 

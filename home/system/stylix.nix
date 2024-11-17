@@ -18,6 +18,7 @@
     autoEnable = true;
 
     targets = {
+      tmux.enable = false;
       fish.enable = false;
       wofi.enable = false;
       tofi.enable = false;

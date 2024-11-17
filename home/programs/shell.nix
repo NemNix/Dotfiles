@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{
   programs = {
     bat.enable = true;
     fzf.enable = true;
@@ -24,78 +24,71 @@
 
     tmux = {
       enable = true;
-      keyMode = "vi";
-      terminal = "screen-256color";
-      plugins = with pkgs.tmuxPlugins; [ catppuccin ];
-
       extraConfig = ''
-        set -g @catppuccin_flavor "mocha"
-        set -g status-right-length 100
-        set -g status-left-length 100
-        set -g status-left ""
-        set -g status-right "#{E:@catppuccin_status_application}"
-        set -ag status-right "#{E:@catppuccin_status_session}"
-        set -g prefix C-s
-        set-option -g status-position top
+        # =========================================================================================
+        # Settings
+        # =========================================================================================
+        set -s default-terminal 'tmux-256color'
+        bind r source-file ~/.config/tmux/tmux.conf
 
-        bind-key h select-pane -L
-        bind-key j select-pane -D
-        bind-key k select-pane -U
-        bind-key l select-pane -R
-        
-        bind '"' split-window -v -c  "#{pane_current_path}"
-        bind % split-window -h -c  "#{pane_current_path}"
+        set-window-option -g automatic-rename on
+        set-option -g set-titles on
+
+        unbind C-b
+        set -g prefix C-s
+       
+        # =========================================================================================
+        # Bar 
+        # =========================================================================================
+        set -g status off
+
+        # =========================================================================================
+        # Panes
+        # =========================================================================================
+        bind -n M-h select-pane -L
+        bind -n M-l select-pane -R
+        bind -n M-k select-pane -U
+        bind -n M-j select-pane -D
+
+        unbind %
+        unbind '"'
+        bind _ split-window -v -c "#{pane_current_path}"
+        bind - split-window -h -c "#{pane_current_path}"
       '';
     };
 
     bash = {
       enable = true;
       # enableVteIntegration = true;
+      historyIgnore = [ "ls" "cd" "z" "zoxide" "yazi" "rebuild" "update" "garbage" "hx" "btop" "cat" "nh" "mkdir" ];
 
       shellAliases = {
         cat = "bat";
-        fetch = "fastfetch";
-
-        rebuild = "clear && nh os switch";
-        update = "clear && nh os switch --update";
-        garbage = "clear && nh clean all && sudo bootctl cleanup ";
-
-        hxd = "hx ~/Dotfiles/";
-        hxc = "hx ~/Code/";
-        g = "git";
-
         ls = "eza";
         la = "eza -a";
         ll = "eza -l";
         lr = "eza -R";
-        tree = "eza -T";
-
         ".." = "cd ..";
-
         grep = "grep --color=auto";
 
+        # System
+        fetch = "fastfetch";
         startupctl = "systemctl list-unit-files --type=service | grep enabled";
 
+        # NixOS
+        rebuild = "clear && nh os switch";
+        update = "clear && nh os switch --update";
+        garbage = "clear && nh clean all && sudo bootctl cleanup ";
 
         # Dev
-        p = "clear && python main.py";
-      };
+        hxd = "hx ~/Dotfiles/";
+        hxc = "hx ~/Code/";
+        lg = "lazygit";
+        g = "git";
 
-      historyIgnore = [
-        "ls"
-        "cd"
-        "z"
-        "zoxide"
-        "yazi"
-        "rebuild"
-        "update"
-        "garbage"
-        "hx"
-        "btop"
-        "cat"
-        "nh"
-        "mkdir"
-      ];
+        p = " clear && echo -e '\e[1;34m================= Main.py =====================\e[0m' && python main.py && echo -e '\e[1;34m===============================================\e[0m' ";
+
+      };
     };
   };
 }
