@@ -10,8 +10,8 @@
       exclusive = true;
       fixed-center = true;
 
-      position = "top";
       layer = "top";
+      position = "top";
 
       margin-top = 0;
       margin-bottom = 3;

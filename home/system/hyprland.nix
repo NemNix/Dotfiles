@@ -7,7 +7,6 @@
   home.packages = with pkgs; [
 
     hyprshot
-    hyprshade
     hyprpicker
 
     inputs.hyprsunset.packages."${pkgs.system}".hyprsunset
@@ -48,7 +47,7 @@
       "$Alt_L" = "ALT";
 
       # App
-      "$terminal" = "footclient";
+      "$terminal" = "foot";
       "$browser" = "floorp";
       "$launcher" = "wofi -S drun -I";
       "$file-manager" = "nautilus";
@@ -84,7 +83,6 @@
 
       exec-once = [
         "waybar"
-        "foot --server"
         "systemctl --user start hyprpolkitagent"
       ];
 
@@ -254,7 +252,7 @@
       misc = {
         vfr = true;
         vrr = 0;
-        render_ahead_safezone = 0;
+        render_ahead_safezone = 1;
         focus_on_activate = true;
 
         disable_autoreload = true;
@@ -343,7 +341,7 @@
   # Hyprlock
   #################################
   programs.hyprlock = {
-    enable = false;
+    enable = true;
 
     settings = {
 
@@ -354,29 +352,17 @@
         disable_loading_bar = false;
       };
 
-      # background = {
-      #   monitor = "";
-      #   path = "~/Dotfiles/home/wallpapers/lock.jpg";
-      # };
+      input-field = {
+        size = "100%, 100%";
+        outline_thickness = 3;
 
-      # input-field = [
-      #   {
-      #     monitor = "";
-      #     size = "200 , 50";
-      #     outline_thickness = 7;
+        fade_on_empty = false;
+        rounding = 15;
 
-      #     dots_size = 0.2;
-      #     dots_spacing = 0.2;
-      #     dots_center = true;
-
-      #     fade_on_empty = true;
-      #     fade_timeout = "1000";
-
-      #     position = "0, -20";
-      #     halign = "center";
-      #     valign = "center";
-      #   }
-      # ];
+        position = "0, -20";
+        halign = "center";
+        valign = "center";
+      };
     };
   };
 }

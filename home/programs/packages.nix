@@ -15,6 +15,7 @@
     networkmanagerapplet
 
     # APPS
+    notes
     floorp
     spotube
     vesktop

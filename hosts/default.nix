@@ -6,6 +6,7 @@
 
       # ./modules/adb.nix
       ./modules/nh.nix
+      ./modules/vm.nix
       ./modules/tlp.nix
       ./modules/boot.nix
       ./modules/time.nix

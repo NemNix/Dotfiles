@@ -25,6 +25,7 @@
     tmux = {
       enable = true;
       extraConfig = ''
+
         # =========================================================================================
         # Settings
         # =========================================================================================
@@ -54,7 +55,39 @@
         unbind '"'
         bind _ split-window -v -c "#{pane_current_path}"
         bind - split-window -h -c "#{pane_current_path}"
+
       '';
+    };
+
+    fish = {
+      enable = false;
+      interactiveShellInit = ''set fish_greeting # Disable greeting direnv hook fish | source'';
+      shellAliases = {
+        cat = "bat";
+        ls = "eza";
+        la = "eza -a";
+        ll = "eza -l";
+        lr = "eza -R";
+        ".." = "cd ..";
+        grep = "grep --color=auto";
+
+        # System
+        fetch = "fastfetch";
+        startupctl = "systemctl list-unit-files --type=service | grep enabled";
+
+        # NixOS
+        rebuild = "clear && nh os switch";
+        update = "clear && nh os switch --update";
+        garbage = "clear && nh clean all && sudo bootctl cleanup ";
+
+        # Dev
+        hxd = "hx ~/Dotfiles/";
+        hxc = "hx ~/Code/";
+        lg = "lazygit";
+        g = "git";
+
+        p = " clear && echo -e '\e[1;34m================= Main.py =====================\e[0m' && python main.py && echo -e '\e[1;34m===============================================\e[0m' ";
+      };
     };
 
     bash = {
@@ -86,8 +119,7 @@
         lg = "lazygit";
         g = "git";
 
-        p = " clear && echo -e '\e[1;34m================= Main.py =====================\e[0m' && python main.py && echo -e '\e[1;34m===============================================\e[0m' ";
-
+        p = " clear && echo -e '================= Main.py =====================' && python main.py && echo -e '===============================================' ";
       };
     };
   };

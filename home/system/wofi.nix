@@ -9,7 +9,6 @@
       orientation = "vertical";
       halign = "fill";
       show = "drun";
-      prompt = "Apps";
       normal_window = true;
       layer = "top";
       gtk_dark = true;
@@ -40,7 +39,6 @@
       #window {
           background-color: @theme_base_color;
           color: @theme_text_color;
-          border-radius: 10px;
       }
 
       #outer-box {
@@ -96,7 +94,6 @@
       #entry:selected {
           border-radius: 20px;
       }
-
     '';
   };
 }
