@@ -4,6 +4,7 @@
 
   boot = {
     tmp.cleanOnBoot = true;
+    supportedFilesystems.zfs = lib.mkForce false;
 
     loader = {
       timeout = lib.mkForce 0;

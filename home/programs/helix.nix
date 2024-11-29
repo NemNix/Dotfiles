@@ -10,6 +10,7 @@
       # Helix config
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       editor = {
+        color-modes = true;
 
         bufferline = "multiple";
         shell = [ "bash" "-c" ];
@@ -25,7 +26,7 @@
         };
 
         lsp = {
-          display-messages = false;
+          display-messages = true;
           display-inlay-hints = true;
         };
 
@@ -40,15 +41,11 @@
       # Keybindings 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       keys.normal = {
-        space.q = ":wq";
+        space.q = ":q";
         space.space = ":w";
 
         C-q = ":wq";
         C-a = "select_all";
-
-        space.p = [ ":vsplit-new" ":insert-output python main.py" ];
-        space.m = [ ":sh foot @ send-text --match 'title:^Terminal' 'clear \\python main.py \\n'" ];
-        space.c = [ ":sh foot @ send-text --match 'title:^Terminal' 'clear \\ncargo test \\n'" ];
 
         del = ":buffer-close!";
         esc = [ "collapse_selection" "keep_primary_selection" ];
@@ -78,7 +75,7 @@
           name = "python";
           auto-format = true;
           language-servers = [ "pyright" ];
-          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" ]; };
+          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" ]; };
         }
         {
           name = "rust";
@@ -111,21 +108,8 @@
 
       language-servers = {
 
-        nil = { command = "${pkgs.nixd}/bin/nixd"; };
+        nil = { command = "${pkgs.nil}/bin/nil"; };
 
-        rust-analyzer = {
-          config = {
-            # cargo.features = "all";
-            completion.autoimport.enable = true;
-            check = { command = "${pkgs.clippy}/bin/cargo-clippy"; };
-            checkOnSave.command = "${pkgs.clippy}/bin/cargo-clippy";
-          };
-        };
-
-        typescript-language-server = {
-          command = "${pkgs.nodePackages_latest.typescript-language-server}/bin/typescript-language-server";
-          args = [ "--stdio" ];
-        };
       };
     };
 
