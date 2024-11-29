@@ -51,6 +51,9 @@
       RADEON_POWER_PROFILE_ON_AC = "default";
       RADEON_POWER_PROFILE_ON_BAT = "low";
 
+      AMDGPU_ABM_LEVEL_ON_AC = 0;
+      AMDGPU_ABM_LEVEL_ON_BAT = 0;
+
       PLATFORM_PROFILE_ON_AC = "performance";
       PLATFORM_PROFILE_ON_BAT = "low-power";
 

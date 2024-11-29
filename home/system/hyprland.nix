@@ -13,7 +13,7 @@
     inputs.hyprsysteminfo.packages."${pkgs.system}".hyprsysteminfo
     inputs.hyprpolkitagent.packages."${pkgs.system}".hyprpolkitagent
 
-    xdg-desktop-portal-wlr
+    xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
 
     wev
@@ -47,7 +47,7 @@
       "$Alt_L" = "ALT";
 
       # App
-      "$terminal" = "foot";
+      "$terminal" = "footclient";
       "$browser" = "floorp";
       "$launcher" = "wofi -S drun -I";
       "$file-manager" = "nautilus";
@@ -71,6 +71,7 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR         , 1         "
         "QT_WAYLAND_DISABLE_WINDOWDECORATION , 1         "
 
+        "MOZ_ENABLE_WAYLAND                  , 1         "
         "NIXOS_OZONE_WL                      , 1         "
         "ELECTRON_OZONE_PLATFORM_HINT        , auto      "
 
@@ -83,6 +84,7 @@
 
       exec-once = [
         "waybar"
+        "foot --server"
         "systemctl --user start hyprpolkitagent"
       ];
 
@@ -92,7 +94,7 @@
 
       monitor = [
         "eDP-1                      , 2880x1800@120 , auto       , 1.5"
-        "desc:BOE Display 0x00000144, 2560x1440@144 , auto-right , 1.25"
+        "desc:BOE Display 0x00000144, 2560x1440@144 , auto-left  , 1.25"
       ];
 
       # ------------------------------------------------
@@ -100,8 +102,8 @@
       # ------------------------------------------------
 
       windowrule = [
-        "float       , ^($terminal)$"
-        "size 45% 45%, ^($terminal)$"
+        # "float       , ^($terminal)$"
+        # "size 45% 45%, ^($terminal)$"
 
         "float       , ^($password-manager)$"
         "size 50% 40%, ^($password-manager)$"
@@ -132,13 +134,13 @@
       workspace = [
         "1,  monitor:eDP-1, default:true"
         "2,  monitor:eDP-1"
-        "3,  monitor:eDP-1"
+        "3,  monitor:eDP-1, gapsin:0, bordersize:1"
         "4,  monitor:eDP-1"
         "5,  monitor:eDP-1"
 
         "6,  monitor:desc:BOE Display 0x00000144, default:true"
         "7,  monitor:desc:BOE Display 0x00000144"
-        "8,  monitor:desc:BOE Display 0x00000144"
+        "8,  monitor:desc:BOE Display 0x00000144, gapsin:0, bordersize:1"
         "9,  monitor:desc:BOE Display 0x00000144"
         "10, monitor:desc:BOE Display 0x00000144"
       ];
@@ -244,7 +246,7 @@
         border_size = 2;
         "col.active_border" = "rgb(F5A97F) rgb(ED8796) rgb(C6A0F6) rgb(8AADF4) rgb(A6DA95) rgb(EED49F)";
 
-        layout = "dwindle";
+        layout = "master";
       };
 
       dwindle = { pseudotile = true; };
@@ -301,34 +303,23 @@
       general = {
         ignore_dbus_inhibit = true;
         lock_cmd = "pidof hyprlock || hyprlock";
-        before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
       };
 
       listener = [
-        {
-          timeout = 60;
-          on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
-          on-resume = "brightnessctl -rd asus::kbd_backlight";
-        }
-
         {
           timeout = 80;
           on-timeout = "brightnessctl -s set 0";
           on-resume = "brightnessctl -r";
         }
-
         {
-          timeout = 100;
+          timeout = 90;
           on-timeout = "loginctl lock-session";
         }
-
         {
           timeout = 100;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
-
         {
           timeout = 150;
           on-timeout = "systemctl suspend";
@@ -359,7 +350,7 @@
         fade_on_empty = false;
         rounding = 15;
 
-        position = "0, -20";
+        position = "0, -40";
         halign = "center";
         valign = "center";
       };

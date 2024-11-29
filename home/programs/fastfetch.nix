@@ -78,7 +78,7 @@
         "break"
         {
           type = "host";
-          format = "{5} {1}";
+          format = "{5}";
           key = "PC   ";
           keyColor = "33";
         }

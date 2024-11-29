@@ -42,8 +42,15 @@
     };
 
     settings = {
+      show-trace = true;
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
+
+      system-features = [
+        "kvm"
+        "big-parallel"
+        "gccarch-skylake"
+      ];
 
       substituters = [
         "https://hyprland.cachix.org"
