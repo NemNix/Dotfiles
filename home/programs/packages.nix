@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     # DEV
     python3
-    python312Packages.ansicolors
+
     # MEDIA
     mpv
     imv
@@ -16,15 +16,13 @@
 
     # APPS
     notes
-    floorp
+    librewolf
     spotube
-    vesktop
     nautilus
     keepassxc
     whatsapp-for-linux
     ungoogled-chromium
 
-    libreoffice
     qalculate-gtk
 
     # Utilities

@@ -3,20 +3,12 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
-    hyprsunset.url = "github:hyprwm/hyprsunset";
-    hyprsysteminfo.url = "github:/hyprwm/hyprsysteminfo";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
 
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
-    };
-
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks-nix.follows = "";
     };
 
     home-manager = {
@@ -43,7 +35,7 @@
         modules = [ ./hosts ];
         specialArgs = {
           inherit inputs;
-          username = "nel";
+          username = "nem";
           hostname = "laptop";
         };
       };
@@ -52,7 +44,7 @@
         modules = [ ./hosts ];
         specialArgs = {
           inherit inputs;
-          username = "nel";
+          username = "nem";
           hostname = "server";
         };
       };
