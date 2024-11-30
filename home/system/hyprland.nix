@@ -8,9 +8,6 @@
 
     hyprshot
     hyprpicker
-
-    inputs.hyprsunset.packages."${pkgs.system}".hyprsunset
-    inputs.hyprsysteminfo.packages."${pkgs.system}".hyprsysteminfo
     inputs.hyprpolkitagent.packages."${pkgs.system}".hyprpolkitagent
 
     xdg-desktop-portal-gtk
@@ -48,7 +45,7 @@
 
       # App
       "$terminal" = "footclient";
-      "$browser" = "floorp";
+      "$browser" = "librewolf";
       "$launcher" = "wofi -S drun -I";
       "$file-manager" = "nautilus";
       "$Tfile-manager" = "$terminal -e yazi";
