@@ -1,6 +1,9 @@
 { hostname, inputs, ... }:
-
 {
+  # ---------------------------------------------------------
+  # Documentation
+  # ---------------------------------------------------------
+
   documentation = {
     enable = false;
     doc.enable = false;
@@ -10,31 +13,26 @@
     nixos.enable = false;
   };
 
+  # ---------------------------------------------------------
+  # System
+  # ---------------------------------------------------------
+
   hardware.graphics = {
     enable = true;
     # enable32Bit = true;
   };
 
-  services = {
-    logind = {
-      lidSwitch = "ignore";
-      lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate";
-    };
-  };
+  services = { logind = { lidSwitch = "ignore"; lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate"; }; };
 
-  system = {
-    stateVersion = "24.05";
-    switch = {
-      enable = false;
-      enableNg = true;
-    };
-  };
+  system = { stateVersion = "24.11"; };
 
+  # ---------------------------------------------------------
+  # Nix
+  # ---------------------------------------------------------
   nixpkgs = { config = { allowUnfree = true; }; };
 
   nix = {
     channel.enable = false;
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
     optimise = {
       automatic = true;

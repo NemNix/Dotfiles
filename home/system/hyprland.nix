@@ -10,7 +10,6 @@
     hyprpicker
     inputs.hyprpolkitagent.packages."${pkgs.system}".hyprpolkitagent
 
-    xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
 
     wev
@@ -40,8 +39,8 @@
     settings = {
 
       "$mod" = "SUPER";
-      "$shiftMod" = "SUPER_SHIFT";
       "$Alt_L" = "ALT";
+      "$shiftMod" = "SUPER_SHIFT";
 
       # App
       "$terminal" = "footclient";
@@ -99,9 +98,6 @@
       # ------------------------------------------------
 
       windowrule = [
-        # "float       , ^($terminal)$"
-        # "size 45% 45%, ^($terminal)$"
-
         "float       , ^($password-manager)$"
         "size 50% 40%, ^($password-manager)$"
 
@@ -231,6 +227,8 @@
       # Sections
       # ------------------------------------------------
 
+      debug = { watchdog_timeout = 0; };
+
       xwayland = { enabled = false; };
       opengl = { force_introspection = 1; };
 
@@ -238,7 +236,7 @@
       decoration = { shadow = { enabled = false; }; blur = { enabled = false; }; };
 
       general = {
-        gaps_in = 4;
+        gaps_in = 3;
         gaps_out = 0;
         border_size = 2;
         "col.active_border" = "rgb(F5A97F) rgb(ED8796) rgb(C6A0F6) rgb(8AADF4) rgb(A6DA95) rgb(EED49F)";
@@ -249,9 +247,6 @@
       dwindle = { pseudotile = true; };
 
       misc = {
-        vfr = true;
-        vrr = 0;
-        render_ahead_safezone = 1;
         focus_on_activate = true;
 
         disable_autoreload = true;
@@ -264,10 +259,8 @@
         kb_variant = "";
 
         follow_mouse = 1;
-        accel_profile = "flat";
         sensitivity = 0.4;
-        repeat_delay = 300;
-        repeat_rate = 50;
+        accel_profile = "flat";
 
         touchpad = {
           scroll_factor = 0.5;
@@ -283,7 +276,7 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      ipc = "off";
+      ipc = "on";
       splash = false;
       preload = [ "~/Dotfiles/home/wallpapers/nixppuccin.png" ];
       wallpaper = [ ",~/Dotfiles/home/wallpapers/nixppuccin.png" ];

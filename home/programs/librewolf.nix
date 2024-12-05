@@ -2,8 +2,13 @@
   programs.librewolf = {
     enable = true;
     settings = {
+
+
       "browser.sessionstore.resume_from_crash" = false;
-      "DisableSystemAddonUpdate" = true;
+
+
+      "privacy.clearOnShutdown.history" = false;
+      "privacy.clearOnShutdown.downloads" = false;
       "DisableSetDesktopBackground" = true;
     };
   };
