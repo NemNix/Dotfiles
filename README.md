@@ -72,11 +72,10 @@ These are the host-specific configurations.
 
 ## Installation
 
-- `Laptop`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles#laptop```
-- `Server`: ```sudo nixos-rebuild switch --flake github:NemNix/Dotfiles#server```
+- Install script coming
 
 ## To do !
-- Python dev shell
+
 - Declare Browser
 - Remove unused config
 

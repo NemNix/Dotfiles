@@ -132,6 +132,7 @@
       };
 
       battery = {
+        tooltip = false;
         format = " {icon} {capacity}% ";
         format-icons = {
           charging = [ "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
@@ -150,12 +151,11 @@
     # CSS Styling
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     style = ''
-          * {
-        font-family: DejaVu Sans;
-        font-weight: 700;
-        background: transparent;
-        padding-top : 1px;
-        padding-bottom : 1px;
+    
+    * {
+      min-height: 0;
+      font-weight: 600;
+      background: transparent;
       }
 
       #cpu
@@ -166,11 +166,8 @@
       #network
       #backlight
       #bluetooth
-      #pulseaudio
-      #workspaces {
-        font-size: 13px;
-        padding-right: 10px;
-        padding-left: 10px;
+      #pulseaudio {
+        font-size: 8px;
       }
 
       #privacy,
@@ -179,12 +176,10 @@
         padding-right: 10px;
         padding-left: 10px;
         font-size: 18px;
-        font-weight: 800;
       }
 
       #workspaces {
         font-size: 15px;
-        font-weight: 700;
         color: #EE99A0;
         border: 2px solid #EE99A0;
       }

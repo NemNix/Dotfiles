@@ -1,6 +1,8 @@
-{ pkgs, hostname, inputs, lib, ... }:
+{ pkgs, hostname, inputs, lib, config, ... }:
 {
   imports = if hostname == "laptop" then [ inputs.chaotic.nixosModules.default ] else [ ];
+
+  # services.scx.enable = true;
 
   boot = {
     tmp.cleanOnBoot = true;
@@ -17,7 +19,7 @@
     };
 
     kernelPackages =
-      if hostname == "laptop" then pkgs.linuxPackages_cachyos #linuxPackages_zen #linuxPackages #linuxPackages_latest #linuxPackages_xanmod_latest
+      if hostname == "laptop" then pkgs.linuxPackages_zen #linuxPackages_zen #linuxPackages #linuxPackages_latest #linuxPackages_xanmod_latest
       else if hostname == "server" then pkgs.linuxPackages
       else pkgs.linuxPackages_zen;
 
@@ -25,5 +27,6 @@
       "amd_pstate=active"
       "rcutree.enable_rcu_lazy=1"
     ];
+
   };
 }

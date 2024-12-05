@@ -44,8 +44,7 @@
         space.q = ":q";
         space.space = ":w";
 
-        C-q = ":wq";
-        C-a = "select_all";
+        C-q = ":q!";
 
         del = ":buffer-close!";
         esc = [ "collapse_selection" "keep_primary_selection" ];
@@ -75,7 +74,7 @@
           name = "python";
           auto-format = true;
           language-servers = [ "pyright" ];
-          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" ]; };
+          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" ]; };
         }
         {
           name = "rust";
