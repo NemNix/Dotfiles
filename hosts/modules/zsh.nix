@@ -1,7 +1,12 @@
+{ pkgs, username, ... }:
 {
+  users.users.${username}.shell = pkgs.zsh;
 
-  programs.bash = {
-    blesh.enable = true;
+  programs.zsh = {
+    enable = true;
+    vteIntegration = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
 
     shellAliases = {
       cat = "bat";
@@ -34,4 +39,3 @@
     };
   };
 }
-

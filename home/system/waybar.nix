@@ -14,7 +14,7 @@
       position = "top";
 
       margin-top = 0;
-      margin-bottom = 3;
+      margin-bottom = 4;
       margin-left = 0;
       margin-right = 0;
 
@@ -53,6 +53,7 @@
 
         on-click = "activate";
         format = "{icon} {windows}";
+
         format-icons = {
           "1" = " ";
           "2" = " ";
@@ -86,14 +87,14 @@
       idle_inhibitor = {
         format = "{icon}";
         format-icons = {
-          "activated" = "";
-          "deactivated" = "󰾪";
+          "activated" = "󰅶 ";
+          "deactivated" = "󰾪 ";
         };
       };
 
       clock = {
         interval = 60;
-        format = " {:%a, %d, %b, %H:%M} ";
+        format = " {:%a  %d  %b | %H:%M} ";
       };
 
       backlight = {
@@ -150,33 +151,31 @@
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # CSS Styling
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     style = ''
     
     * {
-      min-height: 0;
-      font-weight: 600;
-      background: transparent;
-      }
-
-      #cpu
-      #tray
-      #clock
-      #battery
-      #memory
-      #network
-      #backlight
-      #bluetooth
-      #pulseaudio {
-        font-size: 8px;
+        padding: 0;
+        border-radius: 0;
+        min-height: 0;
+        margin: 0;
+        border: none;
+        text-shadow: none;
+        transition: none;
+        box-shadow: none;
+        font-weight: 600;
+        background: transparent;
       }
 
       #privacy,
       #bluetooth,
       #idle_inhibitor {
-        padding-right: 10px;
-        padding-left: 10px;
-        font-size: 18px;
+        font-size: 16px;
       }
+
+      /* ================================ */
+      /*       workspaces module          */
+      /* ================================ */
 
       #workspaces {
         font-size: 15px;
@@ -184,43 +183,60 @@
         border: 2px solid #EE99A0;
       }
 
-      #tray {
-        padding-left: 3px;
-        padding-right: 3px;
+      #workspaces button {
+        padding: 0 0.5rem;
+        margin: 0.20em;
+      }
+
+      #workspaces button.active {
+        color : #EE99A0;
+      }
+
+     #tray {
+        font-size: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
       }
 
       #clock {
-        color: #CAD3F5;
-        border: 2px solid #CAD3F5;
+        color: #CAD4F5;
+        font-size : 14px;
+        border: 2px solid #CAD4F5;
       }
 
       #cpu {
         color: #eba0ac;
+        font-size : 14px;
         border: 2px solid #eba0ac;
       }
 
       #memory {
         color: #f5c2e7;
+        font-size : 14px;
         border: 2px solid #f5c2e7;
       }
 
       #network {
         color: #C6A0F6;
+        font-size : 14px;
         border: 2px solid #C6A0F6;
       }
 
       #pulseaudio {
         color: #8AADF4;
+        font-size : 14px;
         border: 2px solid #8AADF4;
       }
 
       #backlight {
         color: #f9e2af;
+        font-size : 14px;
         border: 2px solid #f9e2af;
       }
 
       #battery {
         color: #A6DA95;
+        font-size : 14px;
         border: 2px solid #A6DA95;
       }
     '';

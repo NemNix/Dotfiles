@@ -148,11 +148,16 @@
         "ALT, code:11, exec, $file-manager"
         "ALT, code:12, exec, $Tfile-manager"
 
-        # Window Focus
-        "SUPER, h, movefocus, l"
-        "SUPER, l, movefocus, r"
-        "SUPER, k, movefocus, u"
-        "SUPER, j, movefocus, d"
+        # Window 
+        "SUPER, H, movefocus, l"
+        "SUPER, L, movefocus, r"
+        "SUPER, K, movefocus, u"
+        "SUPER, J, movefocus, d"
+
+        "CONTROL&SUPER, H, resizeactive, -20 0"
+        "CONTROL&SUPER, L, resizeactive, 20 0"
+        "CONTROL&SUPER, K, resizeactive, 0 -20"
+        "CONTROL&SUPER, J, resizeactive, 0 20"
 
         # System
         "SUPER, Q, killactive"
@@ -184,7 +189,7 @@
         "SUPER, code:14, workspace, 10"
         "SUPER, code:14, workspace, 5"
 
-        "SUPER, grave, exec, hyprctl dispatch togglespecialworkspace"
+        "SUPER, Escape, exec, hyprctl dispatch togglespecialworkspace"
 
         # Move active window to a workspace with mainMod + SHIFT + [0-9]
         "SUPER SHIFT, code:10, movetoworkspace,  1"
@@ -197,7 +202,7 @@
         "SUPER SHIFT, code:17, movetoworkspace,  8"
         "SUPER SHIFT, code:18, movetoworkspace,  9"
         "SUPER SHIFT, code:19, movetoworkspace, 10"
-        "SUPER SHIFT, grave,  movetoworkspace, special"
+        "SUPER SHIFT, Escape,  movetoworkspace, special"
       ];
 
       bindm = [
@@ -292,7 +297,9 @@
     settings = {
       general = {
         ignore_dbus_inhibit = true;
-        lock_cmd = "pidof hyprlock || hyprlock";
+        lock_cmd = "pidof hyprlock || hyprlock"; # avoid starting multiple hyprlock instances.
+        before_sleep_cmd = "loginctl lock-session"; # lock before suspend.
+        after_sleep_cmd = "hyprctl dispatch dpms on"; # to avoid having to press a key twice to turn on the display.
       };
 
       listener = [
@@ -300,15 +307,6 @@
           timeout = 80;
           on-timeout = "brightnessctl -s set 0";
           on-resume = "brightnessctl -r";
-        }
-        {
-          timeout = 90;
-          on-timeout = "loginctl lock-session";
-        }
-        {
-          timeout = 100;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
         }
         {
           timeout = 150;
