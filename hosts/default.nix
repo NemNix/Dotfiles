@@ -7,9 +7,12 @@
 
         # ./modules/adb.nix
         ./modules/nh.nix
-        # ./modules/vm.nix
+        ./modules/vm.nix
         ./modules/tlp.nix
+
+        ./modules/zsh.nix
         ./modules/bash.nix
+
         ./modules/boot.nix
         ./modules/time.nix
         ./modules/users.nix

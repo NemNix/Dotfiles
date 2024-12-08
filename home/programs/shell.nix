@@ -1,5 +1,6 @@
 {
   programs = {
+    zsh.enable = true;
     bash.enable = true;
 
     bat.enable = true;
@@ -8,59 +9,25 @@
 
     eza = {
       enable = true;
-      extraOptions = [
-        "--group-directories-first"
-        "--header"
-        "--icons"
-      ];
+      extraOptions =
+        [
+          "--group-directories-first"
+          "--header"
+          "--icons"
+        ];
     };
 
     starship = {
       enable = true;
       settings = {
+
+        format = "$directory$character";
+        right_format = "$all";
+
         add_newline = true;
         command_timeout = 1000;
         line_break.disabled = true;
       };
-    };
-
-    tmux = {
-      enable = false;
-      extraConfig = ''
-
-      # =========================================================================================
-      # Settings
-      # =========================================================================================
-      set - s default-terminal 'tmux-256color'
-      bind
-      r
-      source-file ~/.config/tmux/tmux.conf
-
-      set-window-option - g automatic-rename on
-      set-option - g set-titles on
-
-      unbind
-      C-b
-      set - g prefix C-s
-
-      # =========================================================================================
-      # Bar 
-      # =========================================================================================
-      set - g status off
-
-      # =========================================================================================
-      # Panes
-      # =========================================================================================
-      bind - n M-h select-pane - L
-      bind - n M-l select-pane - R
-      bind - n M-k select-pane - U
-      bind - n M-j select-pane - D
-
-      unbind %
-      unbind '"'
-      bind _ split-window -v -c "#{pane_current_path}"
-      bind - split-window - h - c "#{pane_current_path}"
-      '';
     };
   };
 }
