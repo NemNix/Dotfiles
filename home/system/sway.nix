@@ -17,19 +17,20 @@
     gpu-screen-recorder-gtk
 
     autotiling-rs
+    gnome-color-manager
 
     playerctl
     brightnessctl
+
   ];
 
-  # ------------------------------------------------
-  # Sway Config
-  # ------------------------------------------------
+  # ================================================================================================
+  # Sway 
+  # ================================================================================================
 
   wayland.windowManager.sway = {
     enable = true;
     xwayland = false;
-    swaynag.enable = true;
     systemd.enable = true;
     wrapperFeatures.gtk = true;
 
@@ -38,14 +39,14 @@
     # ------------------------------------------------
 
     extraSessionCommands = ''
-     
+
       export DISABLE_QT5_COMPAT=1
       export QT_QPA_PLATFORM="wayland"
       export QT_AUTO_SCREEN_SCALE_FACTOR=1
       export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
-      export MOZ_ENABLE_WAYLAND=1
       export NIXOS_OZONE_WL=1
+      export MOZ_ENABLE_WAYLAND=1
       export ELECTRON_OZONE_PLATFORM_HINT="auto"
 
       export GTK_WAYLAND_DISABLE_WINDOWDECORATION=1 '';
@@ -91,7 +92,8 @@
         { command = "waybar"; }
         { command = "foot --server"; }
         { command = "autotiling-rs"; }
-        { command = "swaybg -i ~/Dotfiles/home/wallpapers/nixppuccin.png -m fill"; }
+        { command = "WLR_RENDERER=vulkan"; }
+        { command = "swaybg -i ~/Dotfiles/home/wallpapers/nixos-wallpaper.png"; }
       ];
 
       # ------------------------------------------------
@@ -99,12 +101,18 @@
       # ------------------------------------------------
 
       output = {
+
         "eDP-1" = {
           resolution = "2880x1800";
           adaptive_sync = "on";
           position = "0,0";
           scale = "1.5";
+          max_render_time = "off";
+          color_profile = "srgb";
+          subpixel = "rgb";
+          # render_bit_depth = "10";
         };
+
         "HDMI-A-1" = {
           resolution = "1920x1080";
           position = "1920,0";
@@ -145,7 +153,6 @@
       # "workspace 4 output" = "eDP-1";
       # "workspace 5 output" = "eDP-1";
 
-
       # ------------------------------------------------
       # Keybindings
       # ------------------------------------------------
@@ -165,6 +172,7 @@
         "mod4+Control+Shift+s" = "exec hyprshot -m output";
 
         # Multimedia
+        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1";
         "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-";
         "XF86MonBrightnessUp" = "exec brightnessctl -q s 5%+";
@@ -210,6 +218,31 @@
         "mod4+Shift+9" = "move container to workspace number 9";
         "mod4+Shift+0" = " move container to workspace number 10";
       };
+    };
+  };
+
+  # ================================================================================================
+  # SwayIDLE
+  # ================================================================================================
+
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      { timeout = 60; command = "${pkgs.swaylock}/bin/swaylock -fe"; }
+      { timeout = 90; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+    ];
+  };
+
+  # ================================================================================================
+  # SwayLOCK
+  # ================================================================================================
+
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      indicator-idle-visible = false;
+      indicator-radius = 50;
+      show-failed-attempts = true;
     };
   };
 }
