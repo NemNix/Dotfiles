@@ -18,6 +18,7 @@
     autoEnable = true;
 
     targets = {
+      sway.enable = false;
       tmux.enable = false;
       fish.enable = false;
       wofi.enable = false;

@@ -17,7 +17,7 @@
 ## What Do I Use
 
 ### System
-- **Shell:** ```bash```
+- **Shell:** ```zsh```
 - **Kernel:** CachyOS default kernel
 - **Display Manager:** [Tuigreet](https://github.com/apognu/tuigreet) ![rust][rs]
 - **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland) ![C++][cpp]

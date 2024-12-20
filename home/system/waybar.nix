@@ -14,7 +14,7 @@
       position = "top";
 
       margin-top = 0;
-      margin-bottom = 4;
+      margin-bottom = 5;
       margin-left = 0;
       margin-right = 0;
 
@@ -25,7 +25,7 @@
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       modules-left = [
-        "hyprland/workspaces"
+        "sway/workspaces"
         "tray"
         "idle_inhibitor"
         "privacy"
@@ -49,7 +49,7 @@
       # Modules configuration
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      "hyprland/workspaces" = {
+      "sway/workspaces" = {
 
         on-click = "activate";
         format = "{icon} {windows}";
@@ -188,7 +188,7 @@
         margin: 0.20em;
       }
 
-      #workspaces button.active {
+      #workspaces button.focused {
         color : #EE99A0;
       }
 

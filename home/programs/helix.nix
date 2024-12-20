@@ -58,6 +58,11 @@
     languages = {
 
       language = [
+        # {
+        #   name = "kdl";
+        #   auto-format = true;
+        #   formatter = { command = "${pkgs.kdlfmt}/bin/kdlfmt"; };
+        # }
         {
           name = "nix";
           auto-format = true;
@@ -72,9 +77,9 @@
         }
         {
           name = "python";
-          auto-format = true;
+          auto-format = false;
           language-servers = [ "pyright" ];
-          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" ]; };
+          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" "--line-length=100" ]; };
         }
         {
           name = "rust";
