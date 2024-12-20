@@ -21,7 +21,7 @@
     enable = true;
     # enable32Bit = true;
   };
-
+  hardware.display.edid.enable = true;
   services = { logind = { lidSwitch = "ignore"; lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate"; }; };
 
   system = { stateVersion = "24.11"; };

@@ -2,11 +2,11 @@
 {
   users.users.${username}.shell = pkgs.zsh;
 
-  programs.niri.enable = true;
-
   programs.zsh = {
+
+    loginShellInit = '' [ "$(tty)" = "/dev/tty1" ] && exec sway '';
+
     enable = true;
-    vteIntegration = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 

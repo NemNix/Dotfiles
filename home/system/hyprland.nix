@@ -252,6 +252,7 @@
 
       misc = {
         focus_on_activate = true;
+        render_ahead_safezone = 0;
 
         disable_autoreload = true;
         disable_hyprland_logo = true;

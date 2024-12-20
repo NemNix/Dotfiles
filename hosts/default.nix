@@ -18,7 +18,7 @@
         ./modules/boot.nix
         ./modules/time.nix
         ./modules/users.nix
-        ./modules/greetd.nix
+        # ./modules/greetd.nix
         ./modules/fstrim.nix
         ./modules/network.nix
         ./modules/pipewire.nix

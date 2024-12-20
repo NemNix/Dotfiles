@@ -23,7 +23,9 @@
         ./system/stylix.nix
         ./system/waybar.nix
         ./system/wlsunset.nix
-        ./system/hyprland.nix
+        # ./system/hyprland.nix
+
+        ./system/sway.nix
       ]
     else if hostname == "server" then
       [

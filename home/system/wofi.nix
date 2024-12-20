@@ -9,7 +9,7 @@
       orientation = "vertical";
       halign = "fill";
       show = "drun";
-      normal_window = false;
+      normal_window = true;
       layer = "top";
       gtk_dark = true;
       line_wrap = "off";
