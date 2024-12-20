@@ -2,6 +2,8 @@
 {
   users.users.${username}.shell = pkgs.zsh;
 
+  programs.niri.enable = true;
+
   programs.zsh = {
     enable = true;
     vteIntegration = true;
