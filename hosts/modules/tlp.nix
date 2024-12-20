@@ -55,6 +55,9 @@
       AMDGPU_ABM_LEVEL_ON_AC = 0;
       AMDGPU_ABM_LEVEL_ON_BAT = 0;
 
+      PCIE_ASPM_ON_BAT = "powersupersave";
+      PCIE_ASPM_ON_AC = "default";
+
       PLATFORM_PROFILE_ON_AC = "performance";
       PLATFORM_PROFILE_ON_BAT = "low-power";
 

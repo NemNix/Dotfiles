@@ -5,12 +5,11 @@
       [
         ./laptop.nix
 
-
         # ./modules/adb.nix
-        ./modules/qtile.nix
         ./modules/nh.nix
         ./modules/vm.nix
         ./modules/tlp.nix
+        ./modules/nix.nix
 
         ./modules/zsh.nix
         ./modules/bash.nix
@@ -41,8 +40,6 @@
         ./modules/fstrim.nix
         ./modules/network.nix
         ./modules/configuration.nix
-
       ]
-
     else [ ];
 }
