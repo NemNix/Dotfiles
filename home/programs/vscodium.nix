@@ -13,7 +13,7 @@
 
     userSettings = {
 
-      "editor.fontSize" = 18;
+      "editor.fontSize" = 16;
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = true;
       "git.openRepositoryInParentFolders" = "never";

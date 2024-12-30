@@ -110,11 +110,6 @@
       # Language Server Protocol Configuration 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      language-servers = {
-
-        nil = { command = "${pkgs.nil}/bin/nil"; };
-
-      };
     };
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -132,12 +127,10 @@
       # = < NIX > =
       # = Language Server Protocol =
       nil
-      nixd
       # = DAP =
 
       # = Formatter =
       # nixfmt
-      nixfmt-rfc-style
       # alejandra
 
       # = < Bash > =

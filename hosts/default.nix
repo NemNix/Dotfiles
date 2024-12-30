@@ -5,9 +5,9 @@
       [
         ./laptop.nix
 
-        # ./modules/adb.nix
         ./modules/nh.nix
-        ./modules/vm.nix
+        # ./modules/vm.nix
+        # ./modules/adb.nix
         ./modules/tlp.nix
         ./modules/nix.nix
 

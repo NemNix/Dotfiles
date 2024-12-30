@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   # ------------------------------------------------
   # Needed Packages
@@ -7,17 +7,13 @@
   home.packages = with pkgs; [
 
     swaybg
+    autotiling-rs
+
     hyprshot
     hyprpicker
 
-    wev
+    wlay
     wlr-randr
-    wdisplays
-
-    gpu-screen-recorder-gtk
-
-    autotiling-rs
-    gnome-color-manager
 
     playerctl
     brightnessctl
@@ -32,7 +28,6 @@
     enable = true;
     xwayland = false;
     systemd.enable = true;
-    wrapperFeatures.gtk = true;
 
     # ------------------------------------------------
     # Envirronement variables
@@ -70,18 +65,11 @@
 
       default_border pixel 2
 
-     '';
+           '';
 
     config = {
 
-      bars = [ ];
-      colors.focused = {
-        background = "#CAD4F5";
-        border = "#CAD4F5";
-        childBorder = "#CAD4F5";
-        indicator = "#CAD4F5";
-        text = "#CAD4F5";
-      };
+      floating.modifier = "mod4";
       defaultWorkspace = "workspace number 1";
 
       # ------------------------------------------------
@@ -92,7 +80,6 @@
         { command = "waybar"; }
         { command = "foot --server"; }
         { command = "autotiling-rs"; }
-        { command = "WLR_RENDERER=vulkan"; }
         { command = "swaybg -i ~/Dotfiles/home/wallpapers/nixos-wallpaper.png"; }
       ];
 
@@ -102,20 +89,26 @@
 
       output = {
 
-        "eDP-1" = {
-          resolution = "2880x1800";
-          adaptive_sync = "on";
-          position = "0,0";
+        eDP-1 = {
           scale = "1.5";
+          position = "0,0";
+          resolution = "2880x1800";
+
+          adaptive_sync = "on";
           max_render_time = "off";
-          color_profile = "srgb";
+
           subpixel = "rgb";
+          color_profile = "srgb";
           # render_bit_depth = "10";
         };
 
-        "HDMI-A-1" = {
-          resolution = "1920x1080";
+        HDMI-A-1 = {
+          scale = "1.25";
           position = "1920,0";
+          resolution = "2560x1440";
+
+          adaptive_sync = "off";
+          max_render_time = "off";
         };
       };
 
@@ -124,10 +117,18 @@
       # ------------------------------------------------
 
       input = {
+
         "type:touchpad" = {
           dwt = "enabled";
           tap = "enabled";
+          pointer_accel = "1";
+          accel_profile = "flat";
           natural_scroll = "enabled";
+        };
+
+        "type:mouse" = {
+          pointer_accel = "1";
+          accel_profile = "flat";
         };
       };
 
@@ -136,26 +137,55 @@
       # ------------------------------------------------
 
       assigns = {
-        "1" = [{ class = "^librewolf$"; }];
-        "2" = [{ class = "^org.pwmt.zathura$"; }];
-        "3" = [{ class = "^codium$"; }];
-        "4" = [{ class = "^whatsapp-for-linux$"; }];
-        "5" = [{ class = "^Freetube$"; }];
+        "1" = [{ app_id = "^librewolf$"; }];
+        "2" = [{ app_id = "^org.pwmt.zathura$"; }];
+        "3" = [{ app_id = "^codium$"; }];
+        "4" = [{ app_id = "^whatsapp-for-linux$"; }];
+        "5" = [{ app_id = "^Freetube$"; }];
       };
 
       # ------------------------------------------------
       # Workspace Rules
       # ------------------------------------------------
 
-      # workspace1output = "eDP-1";
-      # "workspace 2 output" = "eDP-1";
-      # "workspace 3 output" = "eDP-1";
-      # "workspace 4 output" = "eDP-1";
-      # "workspace 5 output" = "eDP-1";
+      workspaceOutputAssign = [
+        { workspace = "1"; output = "eDP-1"; }
+        { workspace = "2"; output = "eDP-1"; }
+        { workspace = "3"; output = "eDP-1"; }
+        { workspace = "4"; output = "eDP-1"; }
+        { workspace = "5"; output = "eDP-1"; }
+
+        { workspace = "6"; output = "HDMI-A-1"; }
+        { workspace = "7"; output = "HDMI-A-1"; }
+        { workspace = "8"; output = "HDMI-A-1"; }
+        { workspace = "9"; output = "HDMI-A-1"; }
+        { workspace = "10"; output = "HDMI-A-1"; }
+      ];
 
       # ------------------------------------------------
       # Keybindings
       # ------------------------------------------------
+
+      keycodebindings = {
+        # Switch workspaces with mainMod + [0-5]
+        "mod4+10" = "workspace number 6, workspace number 1";
+        "mod4+11" = "workspace number 7, workspace number 2";
+        "mod4+12" = "workspace number 8, workspace number 3";
+        "mod4+13" = "workspace number 9, workspace number 4";
+        "mod4+14" = "workspace number 10, workspace number 5";
+
+        # Switch workspaces with mainMod + [0-9]
+        "mod4+Shift+10" = "move container to workspace number 1";
+        "mod4+Shift+11" = "move container to workspace number 2";
+        "mod4+Shift+12" = "move container to workspace number 3";
+        "mod4+Shift+13" = "move container to workspace number 4";
+        "mod4+Shift+14" = "move container to workspace number 5";
+        "mod4+Shift+15" = "move container to workspace number 6";
+        "mod4+Shift+16" = "move container to workspace number 7";
+        "mod4+Shift+17" = "move container to workspace number 8";
+        "mod4+Shift+18" = "move container to workspace number 9";
+        "mod4+Shift+19" = "move container to workspace number 10";
+      };
 
       keybindings = {
 
@@ -169,19 +199,24 @@
         # Screenshot
         "mod4+s" = "exec hyprshot -m region --clipboard-only";
         "mod4+Control+s" = "exec hyprshot -m region";
-        "mod4+Control+Shift+s" = "exec hyprshot -m output";
+        "mod4+Control+mod1+s" = "exec hyprshot -m output";
 
         # Multimedia
-        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1";
-        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-";
         "XF86MonBrightnessUp" = "exec brightnessctl -q s 5%+";
         "XF86MonBrightnessDown" = "exec brightnessctl -q s 5%-";
+        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-";
+        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1";
 
         # System
         "mod4+q" = "kill";
         "mod4+t" = "floating toggle";
         "mod4+f" = "fullscreen toggle";
+        "mod4+Shift+r" = "exec notify-send --urgency=critical 'Sway Restart', restart";
+        "mod4+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+
+        "mod4+Shift+Control+s" = "exec systemctl suspend";
+        "mod4+Shift+Control+p" = "exec systemctl poweroff";
 
         # Window
         "mod4+h" = "focus left";
@@ -189,34 +224,57 @@
         "mod4+k" = "focus up";
         "mod4+j" = "focus down";
 
-        "mod4+Control+h" = "resize shrink width 5 px or 5 ppt";
-        "mod4+Control+l" = "resize grow width 5 px or 5 ppt";
-        "mod4+Control+k" = "resize shrink height 5 px or 5 ppt";
-        "mod4+Control+j" = "resize grow height 5 px or 5 ppt";
+        "mod4+Shift+h" = "move left";
+        "mod4+Shift+l" = "move right";
+        "mod4+Shift+k" = "move up";
+        "mod4+Shift+j" = "move down";
 
-        # Switch workspaces with mainMod + [0-9]
-        "mod4+1" = "workspace number 1";
-        "mod4+2" = "workspace number 2";
-        "mod4+3" = "workspace number 3";
-        "mod4+4" = "workspace number 4";
-        "mod4+5" = "workspace number 5";
-        "mod4+6" = "workspace number 6";
-        "mod4+7" = "workspace number 7";
-        "mod4+8" = "workspace number 8";
-        "mod4+9" = "workspace number 9";
-        "mod4+0" = "workspace  number 10";
+        "mod4+Control+h" = "resize shrink width 20 px ";
+        "mod4+Control+l" = "resize grow width 20 px ";
+        "mod4+Control+k" = "resize shrink height 20 px ";
+        "mod4+Control+j" = "resize grow height 20 px ";
 
-        # Switch workspaces with mainMod + [0-9]
-        "mod4+Shift+1" = "move container to workspace number 1";
-        "mod4+Shift+2" = "move container to workspace number 2";
-        "mod4+Shift+3" = "move container to workspace number 3";
-        "mod4+Shift+4" = "move container to workspace number 4";
-        "mod4+Shift+5" = "move container to workspace number 5";
-        "mod4+Shift+6" = "move container to workspace number 6";
-        "mod4+Shift+7" = "move container to workspace number 7";
-        "mod4+Shift+8" = "move container to workspace number 8";
-        "mod4+Shift+9" = "move container to workspace number 9";
-        "mod4+Shift+0" = " move container to workspace number 10";
+      };
+
+      # ------------------------------------------------
+      # Style
+      # ------------------------------------------------
+
+      bars = [ ];
+
+      gaps = {
+        # inner = 0;
+        # outer = 0;
+        # right = 0;
+        # left = 0;
+        # smartGaps = true;
+        smartBorders = "on";
+      };
+
+      colors = {
+        focused = {
+          background = "#1E1E2E";
+          border = "#CAD4F5";
+          childBorder = "#CAD4F5";
+          indicator = "#CAD4F5";
+          text = "#CAD4F5";
+        };
+
+        unfocused = {
+          background = "#1E1E2E";
+          border = "#1E1E2E";
+          childBorder = "#1E1E2E";
+          indicator = "#1E1E2E";
+          text = "#1E1E2E";
+        };
+
+        focusedInactive = {
+          background = "#1E1E2E";
+          border = "#1E1E2E";
+          childBorder = "#1E1E2E";
+          indicator = "#1E1E2E";
+          text = "#1E1E2E";
+        };
       };
     };
   };
@@ -228,8 +286,10 @@
   services.swayidle = {
     enable = true;
     timeouts = [
-      { timeout = 60; command = "${pkgs.swaylock}/bin/swaylock -fe"; }
+      { timeout = 60; command = "${pkgs.brightnessctl}/bim/brightnessctl -s set 0"; resumeCommand = "${pkgs.brightnessctl}/bim/brightnessctl -r"; }
+      { timeout = 70; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
       { timeout = 90; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+      { timeout = 1800; command = "${pkgs.systemd}/bin/systemctl poweroff"; }
     ];
   };
 
@@ -239,11 +299,7 @@
 
   programs.swaylock = {
     enable = true;
-    settings = {
-      indicator-idle-visible = false;
-      indicator-radius = 50;
-      show-failed-attempts = true;
-    };
+    settings = { indicator-caps-lock = true; };
   };
 }
 

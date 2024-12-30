@@ -1,4 +1,4 @@
-{ hostname, inputs, ... }:
+{ hostname, ... }:
 {
   # ---------------------------------------------------------
   # Documentation
@@ -18,6 +18,7 @@
   # ---------------------------------------------------------
 
   system = { stateVersion = "24.11"; };
+  security.pam.services.swaylock = { };
 
   hardware.graphics = {
     enable = true;
@@ -25,7 +26,6 @@
   };
 
   services = {
-    colord.enable = true;
     chrony.enable = true;
     logind = { lidSwitch = "ignore"; lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate"; };
   };
@@ -51,14 +51,6 @@
     "94e2d5" # teal
     "89b4fa" # blue
     "cba6f7" # mauve
-    "f2cdcd" # flamingo
-    "181825" # mantle - darker background
-    "11111b" # crust - darkest background
-    "eba0ac" # maroon - bright red
-    "f5e0dc" # rosewater - bright yellow
-    "a6e3a1" # green - bright green
-    "89dceb" # sky - bright cyan
-    "74c7ec" # sapphire - bright blue
-    "f5c2e7" # pink - bright purple];
+    "f2cdcd" # flamingo 
   ];
 }
