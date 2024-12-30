@@ -16,14 +16,15 @@
 
     # APPS
     notes
+    tor-browser
     librewolf
-    spotube
     nautilus
     keepassxc
     whatsapp-for-linux
     ungoogled-chromium
 
     qalculate-gtk
+    gpu-screen-recorder-gtk
 
     # Utilities
     ventoy-full

@@ -28,7 +28,7 @@
       hyprland.enable = false;
     };
 
-    image = ../wallpapers/nixppuccin.png;
+    image = ../wallpapers/nixos-wallpaper.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     cursor = {

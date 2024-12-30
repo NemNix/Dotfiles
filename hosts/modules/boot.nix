@@ -2,7 +2,7 @@
 {
   imports = if hostname == "laptop" then [ inputs.chaotic.nixosModules.default ] else [ ];
 
-  services.scx.enable = true;
+  # services.scx.enable = true;
 
   boot = {
     tmp.cleanOnBoot = true;
@@ -33,17 +33,16 @@
       "pcie_aspm.policy=powersupersave"
     ];
 
-    blacklistedKernelModules = [ "sp5100_tco" ];
-
     kernel.sysctl = {
-      "vm.swappiness" = 100;
-      "vm.vfs_cache_pressure" = 50;
-      "vm.dirty_background_bytes" = 134217728;
-      "vm.dirty_bytes" = 268435456;
       "vm.laptop_mode" = 5;
-      "sched_mc_power_savings" = 1;
+      "vm.vfs_cache_pressure" = 50;
+      "vm.dirty_bytes" = 268435456;
       "vm.dirty_writeback_centisecs" = 6000;
+      "vm.dirty_background_bytes" = 67108864;
+
+      "sched_mc_power_savings" = 1;
       "devices.system.cpu.sched_mc_power_savings" = 1;
+
       "module.pcie_aspm.parameters.policy" = "powersave";
       "module.snd_ac97_codec.parameters.power_save" = "Y";
 
@@ -58,6 +57,19 @@
       "net.core.wmem_max" = 26214400;
       "net.ipv4.ip_local_port_range" = "1025 65535";
     };
+
+    blacklistedKernelModules = [
+      "sp5100_tco"
+      "asus_wmi"
+      "intel_rapl_msr"
+      "intel_rapl_common"
+      "snd_intel_dspcfg"
+      "snd_intel_sdw_acpi"
+      "ghash_clmulni_intel"
+      "aesni_intel"
+      "crypto_simd"
+      "crc32c_intel"
+    ];
   };
 }
       
