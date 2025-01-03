@@ -20,7 +20,7 @@
 - **Shell:** ```zsh```
 - **Kernel:** CachyOS default kernel
 - **Display Manager:** [Tuigreet](https://github.com/apognu/tuigreet) ![rust][rs]
-- **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland) ![C++][cpp]
+- **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland) ![C++][cpp] [Sway](https://github.com/swaywm/sway) ![C][c]
 
 #### Hypr Ecosystem
 - [Hyprlock](https://github.com/hyprwm/hyprlock) ![C++][cpp]
@@ -28,6 +28,11 @@
 - [Hyprshot](https://github.com/Gustash/Hyprshot) ![shell][sh]
 - [Hyprpaper](https://github.com/hyprwm/hyprpaper) ![C++][cpp]
 - [Hyprpicker](https://github.com/hyprwm/hyprpicker) ![C++][cpp]
+
+#### Sway Ecosystem
+- [Swaybg](https://github.com/swaywm/swaybg) ![C][c]
+- [Swaylock](https://github.com/swaywm/swaylock) ![C][c]
+- [Swayidle](https://github.com/swaywm/swayidle) ![C][c]
 
 - **Status Bar:** [Waybar](https://github.com/Alexays/Waybar) ![C++][cpp]
 

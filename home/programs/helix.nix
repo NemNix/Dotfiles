@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs.helix = {
     enable = true;
+    package = inputs.helix.packages.${pkgs.system}.helix;
     defaultEditor = true;
 
     settings = {
@@ -14,6 +15,7 @@
 
         bufferline = "multiple";
         shell = [ "bash" "-c" ];
+        line-number = "relative";
 
         statusline = {
           separator = "│";
@@ -64,6 +66,18 @@
         #   formatter = { command = "${pkgs.kdlfmt}/bin/kdlfmt"; };
         # }
         {
+          name = "c";
+          auto-format = true;
+          language-servers = [ "clangd" ];
+          formatter = { command = "${pkgs.clang-tools}/bin/clang-format"; };
+        }
+        {
+          name = "zig";
+          auto-format = true;
+          language-servers = [ "zsl" ];
+          formatter = { command = "${pkgs.zig}/bin/zig"; };
+        }
+        {
           name = "nix";
           auto-format = true;
           language-servers = [ "nil" ];
@@ -76,23 +90,16 @@
           formatter = { command = "${pkgs.shfmt}/bin/shfmt"; args = [ "-i" "2" "-ci" ]; };
         }
         {
-          name = "python";
-          auto-format = false;
-          language-servers = [ "pyright" ];
-          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" "--line-length=100" ]; };
-        }
-        {
           name = "rust";
-          auto-format = false;
-          file-types = [ "rs" ];
+          auto-format = true;
           language-servers = [ "rust-analyzer" ];
           formatter = { command = "${pkgs.rustfmt}/bin/rustfmt"; };
         }
         {
-          name = "zig";
+          name = "python";
           auto-format = true;
-          language-servers = [ "zsl" ];
-          formatter = { command = "${pkgs.zig}/bin/zig"; };
+          language-servers = [ "pyright" ];
+          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" "--line-length=100" ]; };
         }
         {
           name = "html";
@@ -117,77 +124,27 @@
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     extraPackages = with pkgs; [
-      # DEBUG
       lldb_18
-
-      # lldb-vscode :
-      # c
-      # cpp
-
-      # = < NIX > =
-      # = Language Server Protocol =
       nil
-      # = DAP =
-
-      # = Formatter =
-      # nixfmt
-      # alejandra
-
-      # = < Bash > =
-      # = Language Server Protocol =
+      clang-tools
       nodePackages.bash-language-server
-      # = DAP =
-      # = Formatter =
       shfmt
-
-      # = < Python > =
-      # = Language Server Protocol =
       pyright
-      # = DAP =
-      # = Formatter =
       black
-
-      # = < Rust > =
-      # = Language Server Protocol =
+      python313Packages.debugpy
       rust-analyzer
-      # = DAP =
       lldb
-      # = Formatter =
-      # rust-fmt
-      clippy # Good place ?
-
-      # = < lua > =
-      # = Language Server Protocol =
-      lua-language-server
-      # = DAP =
-      # = Formatter =
-
-      # = < Zig > =
-      # = Language Server Protocol =
+      clippy
       zls
-      # = DAP =
-      # lldb (commented because already called)
-      # = Formatter =
       zig
-
-      # = < HTML > =
-      # = Language Server Protocol =
-      # vscode-html-language-server
       vscode-langservers-extracted
-      # = DAP =
-      # = Formatter =
-
-      # = < CSS > =
-      # = Language Server Protocol =
       nodePackages_latest.typescript-language-server
-      # = DAP =
-      # = Formatter =
-
-      # = Language Server Protocol =
       docker-compose-language-service
       dockerfile-language-server-nodejs
       yaml-language-server
       ansible-language-server
+      marksman
+      lsp-ai
     ];
   };
 }

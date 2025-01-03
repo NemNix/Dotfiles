@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     # DEV
     python3
+    gcc
 
     # MEDIA
     mpv
@@ -15,19 +16,22 @@
     networkmanagerapplet
 
     # APPS
-    notes
-    tor-browser
     librewolf
-    nautilus
-    keepassxc
-    whatsapp-for-linux
+    tor-browser
     ungoogled-chromium
 
+    nautilus
+    file-roller
+
+    keepassxc
+
+    element-desktop
+    whatsapp-for-linux
+
     qalculate-gtk
+
     gpu-screen-recorder-gtk
 
-    # Utilities
     ventoy-full
-    file-roller
   ];
 }

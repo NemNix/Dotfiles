@@ -18,6 +18,9 @@
     playerctl
     brightnessctl
 
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-wlr
+
   ];
 
   # ================================================================================================
@@ -30,7 +33,7 @@
     systemd.enable = true;
 
     # ------------------------------------------------
-    # Envirronement variables
+    # Session variables
     # ------------------------------------------------
 
     extraSessionCommands = ''
@@ -51,8 +54,6 @@
     # ------------------------------------------------
 
     extraConfig = '' 
-      set $mod  mod4
-      set $alt  mod1
 
       set $terminal   footclient
       set $browser   librewolf
@@ -61,14 +62,10 @@
       set $Tfile-manager  $terminal -e yazi
       set $audio-manager  com.saivert.pwvucontrol
       set $password-manager  org.keepassxc.KeePassXC
-      set $bluetooth-manager  io.github.kaii_lb.Overskride
-
-      default_border pixel 2
-
-           '';
+      set $bluetooth-manager  io.github.kaii_lb.Overskride '';
 
     config = {
-
+      focus.newWindow = "focus";
       floating.modifier = "mod4";
       defaultWorkspace = "workspace number 1";
 
@@ -91,7 +88,6 @@
 
         eDP-1 = {
           scale = "1.5";
-          position = "0,0";
           resolution = "2880x1800";
 
           adaptive_sync = "on";
@@ -99,12 +95,12 @@
 
           subpixel = "rgb";
           color_profile = "srgb";
-          # render_bit_depth = "10";
+          render_bit_depth = "10";
         };
 
         HDMI-A-1 = {
           scale = "1.25";
-          position = "1920,0";
+          position = "-1920,0";
           resolution = "2560x1440";
 
           adaptive_sync = "off";
@@ -127,7 +123,7 @@
         };
 
         "type:mouse" = {
-          pointer_accel = "1";
+          pointer_accel = "0.4";
           accel_profile = "flat";
         };
       };
@@ -140,8 +136,8 @@
         "1" = [{ app_id = "^librewolf$"; }];
         "2" = [{ app_id = "^org.pwmt.zathura$"; }];
         "3" = [{ app_id = "^codium$"; }];
-        "4" = [{ app_id = "^whatsapp-for-linux$"; }];
-        "5" = [{ app_id = "^Freetube$"; }];
+        "4" = [{ app_id = "^wasistlos$"; }];
+        "5" = [{ app_id = "^FreeTube$"; }];
       };
 
       # ------------------------------------------------
@@ -251,6 +247,11 @@
         smartBorders = "on";
       };
 
+      window = {
+        border = 2;
+        titlebar = false;
+      };
+
       colors = {
         focused = {
           background = "#1E1E2E";
@@ -287,8 +288,8 @@
     enable = true;
     timeouts = [
       { timeout = 60; command = "${pkgs.brightnessctl}/bim/brightnessctl -s set 0"; resumeCommand = "${pkgs.brightnessctl}/bim/brightnessctl -r"; }
-      { timeout = 70; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
-      { timeout = 90; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+      { timeout = 90; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+      { timeout = 120; command = "${pkgs.systemd}/bin/systemctl suspend"; }
       { timeout = 1800; command = "${pkgs.systemd}/bin/systemctl poweroff"; }
     ];
   };

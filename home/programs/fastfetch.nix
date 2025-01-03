@@ -1,239 +1,141 @@
 {
-  # # programs.fastfetch = {
-  # #   enable = true;
-  # #   settings = {
-
-  # #     "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
-
-  # #     logo = {
-  # #       type = "kitty";
-  # #       height = 20;
-  # #       padding = {
-  # #         top = 0;
-  # #         right = 2;
-  # #       };
-  # #     };
-
-  # #     display = {
-  # #       separator = " ➜  ";
-  # #     };
-
-  # #     modules = [
-  # #       "break"
-  # #       {
-  # #         type = "os";
-  # #         key = "os   ";
-  # #         keycolor = "31";
-  # #         format = "{2} {8}";
-  # #       }
-  # #       {
-  # #         type = "kernel";
-  # #         key = " ├  ";
-  # #         keycolor = "31";
-  # #         format = "{2}";
-  # #       }
-  # #       {
-  # #         type = "packages";
-  # #         format = "{} (nixpkgs)";
-  # #         key = " ├ 󰏖 ";
-  # #         keycolor = "31";
-  # #       }
-  # #       {
-  # #         type = "shell";
-  # #         key = " └  ";
-  # #         keycolor = "31";
-  # #       }
-  # #       "break"
-  # #       {
-  # #         type = "wm";
-  # #         key = "wm   ";
-  # #         keycolor = "32";
-  # #         format = "{2}";
-  # #       }
-  # #       {
-  # #         type = "wmtheme";
-  # #         key = " ├ 󰉼 ";
-  # #         keycolor = "32";
-  # #       }
-  # #       {
-  # #         type = "icons";
-  # #         key = " ├ 󰀻 ";
-  # #         keycolor = "32";
-  #       }
-  #       {
-  #         type = "cursor";
-  #         key = " ├  ";
-  #         keycolor = "32";
-  #       }
-  #       {
-  #         type = "terminal";
-  #         key = " ├  ";
-  #         keycolor = "32";
-  #       }
-  #       {
-  #         type = "terminalfont";
-  #         key = " └  ";
-  #         keycolor = "32";
-  #       }
-  #       "break"
-  #       {
-  #         type = "host";
-  #         format = "{5}";
-  #         key = "pc   ";
-  #         keycolor = "33";
-  #       }
-  #       {
-  #         type = "cpu";
-  #         format = "amd ryzen 7 8845hs";
-  #         key = " ├  ";
-  #         keycolor = "33";
-  #       }
-  #       {
-  #         type = "gpu";
-  #         format = "amd radeon 780m";
-  #         key = " ├ 󰢮 ";
-  #         keycolor = "33";
-  #       }
-  #       {
-  #         type = "memory";
-  #         key = " ├  ";
-  #         keycolor = "33";
-  #       }
-  #       {
-  #         type = "swap";
-  #         key = " ├ 󰓡 ";
-  #         keycolor = "33";
-  #       }
-  #       {
-  #         type = "disk";
-  #         key = " ├ 󰋊 ";
-  #         keycolor = "33";
-  #       }
-  #       {
-  #         type = "monitor";
-  #         key = " └  ";
-  #         keycolor = "33";
-  #         format = "{2}x{3} px";
-  #       }
-  #     ];
-  #   };
-  # };
-
-
-
-
   programs.fastfetch = {
     enable = true;
-
     settings = {
-      display = {
-        color = {
-          keys = "35";
-          output = "90";
-        };
-      };
 
-      logo = {
-        source = ~/Dotfiles/home/wallpapers/nixos.png;
-        type = "kitty-direct";
-        height = 15;
-        width = 30;
-        padding = {
-          top = 3;
-          left = 3;
-        };
-      };
+      "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
 
-      modules = [
+      "logo" = { "padding" = { "top" = 3; }; "type" = "auto"; };
+
+      "display" = { "separator" = " ➜  "; };
+
+      "modules" = [
+        {
+          "type" = "os";
+          "key" = " DISTRO";
+          "keyColor" = "31";
+        }
+        {
+          "type" = "kernel";
+          "key" = " ├  ";
+          "keyColor" = "31";
+        }
+        {
+          "type" = "packages";
+          "key" = " ├ 󰏖 ";
+          "keyColor" = "31";
+        }
+        {
+          "type" = "shell";
+          "key" = " └  ";
+          "keyColor" = "31";
+        }
+
         "break"
+
         {
-          type = "custom";
-          format = "┌──────────────────────Hardware──────────────────────┐";
+          "type" = "wm";
+          "key" = " DE/WM";
+          "keyColor" = "32";
         }
         {
-          type = "cpu";
-          key = "│  ";
+          "type" = "terminal";
+          "key" = " ├  ";
+          "keyColor" = "32";
         }
         {
-          type = "gpu";
-          key = "│ 󰍛 ";
+          "type" = "wmtheme";
+          "key" = " ├ 󰉼 ";
+          "keyColor" = "32";
         }
         {
-          type = "memory";
-          key = "│ 󰑭 ";
+          "type" = "icons";
+          "key" = " ├ 󰀻 ";
+          "keyColor" = "32";
         }
         {
-          type = "custom";
-          format = "└────────────────────────────────────────────────────┘";
+          "type" = "cursor";
+          "key" = " ├  ";
+          "keyColor" = "32";
         }
+        {
+          "type" = "terminalfont";
+          "key" = " └  ";
+          "keyColor" = "32";
+        }
+
         "break"
+
         {
-          type = "custom";
-          format = "┌──────────────────────Software──────────────────────┐";
+          "type" = "host";
+          "key" = "󰌢 SYSTEM";
+          "keyColor" = "33";
         }
         {
-          type = "custom";
-          format = " OS -> ZaneyOS 2.2";
+          "type" = "cpu";
+          "key" = " ├  ";
+          "keyColor" = "33";
         }
         {
-          type = "kernel";
-          key = "│ ├ ";
+          "type" = "gpu";
+          "key" = " ├ 󰢮 ";
+          "keyColor" = "33";
         }
         {
-          type = "packages";
-          key = "│ ├󰏖 ";
+          "type" = "memory";
+          "key" = " ├  ";
+          "keyColor" = "33";
         }
         {
-          type = "shell";
-          key = "└ └ ";
+          "type" = "swap";
+          "key" = " ├  ";
+          "keyColor" = "33";
         }
+        {
+          "type" = "disk";
+          "key" = " ├  ";
+          "keyColor" = "33";
+        }
+        {
+          "type" = "display";
+          "key" = " ├  ";
+          "keyColor" = "33";
+        }
+        {
+          "type" = "battery";
+          "key" = " └  ";
+          "keyColor" = "33";
+        }
+
         "break"
+
         {
-          type = "wm";
-          key = " WM";
+          "type" = "wifi";
+          "key" = "󰀂 NETWORK";
+          "keyColor" = "34";
         }
         {
-          type = "wmtheme";
-          key = "│ ├󰉼 ";
+          "type" = "localip";
+          "key" = " ├ 󰒍 ";
+          "keyColor" = "34";
         }
         {
-          type = "terminal";
-          key = "└ └ ";
+          "type" = "dns";
+          "key" = " ├ 󰇖 ";
+          "keyColor" = "34";
         }
         {
-          type = "custom";
-          format = "└────────────────────────────────────────────────────┘";
-        }
-        "break"
-        {
-          type = "custom";
-          format = "┌────────────────────Uptime / Age────────────────────┐";
+          "type" = "publicip";
+          "key" = " ├ 󰩠 ";
+          "keyColor" = "34";
         }
         {
-          type = "command";
-          key = "│  ";
-          text = #bash
-            ''
-              birth_install=$(stat -c %W /)
-              current=$(date +%s)
-              delta=$((current - birth_install))
-              delta_days=$((delta / 86400))
-              echo $delta_days days
-            '';
+          "type" = "netio";
+          "key" = " ├ 󱫋 ";
+          "keyColor" = "34";
+          "wait-time" = 100;
         }
-        {
-          type = "uptime";
-          key = "│  ";
-        }
-        {
-          type = "custom";
-          format = "└────────────────────────────────────────────────────┘";
-        }
-        "break"
       ];
     };
   };
 }
-
-
-
