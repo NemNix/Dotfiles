@@ -22,7 +22,7 @@
     # };
 
     helix = {
-      url = "github:helix-editor/helix";
+      url = "github:helix-editor/helix/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

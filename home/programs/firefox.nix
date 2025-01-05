@@ -93,147 +93,70 @@
         signon.generation.enabled = "false";
       };
 
+      # ----------------------------------------------
+      # CSS
+      # ----------------------------------------------
+
       userChrome = ''
-          /* Base color for the theme, dependent on whether it's a light theme or not */
-          @media (prefers-color-scheme: dark) {
-            :root {
-              --accent-color: #11111b;
-            }
-          }
+        /* =========================================================================================================
+          Styling
+        ==========================================================================================================*/
 
-          @media (prefers-color-scheme: light) {
-            :root {
-              --accent-color: #dce0e8;
-            }
-          }
+        #navigator-toolbox {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
 
-          /*====== Aesthetics ======*/
+        #TabsToolbar {
+          order: 1;
+          flex: 0 0 70%;
+          position: relative;
+          margin-left: -21.8vw !important;
+        }
 
-          #navigator-toolbox {
-            border-bottom: none !important;
-          }
+        #nav-bar {
+          order: 2;
+          flex: 0 0 30%;
+          border: transparent !important;
+          background: transparent !important;
+        }
 
-          #titlebar {
-            background: var(--accent-color) !important;
-          }
+        #PersonalToolbar {
+          order: 3;
+          width: 100%;
+        }
 
-          /* Sets the toolbar color */
-          toolbar#nav-bar {
-            background: var(--accent-color) !important;
-            box-shadow: none !important;
-          }
+        #urlbar-container {
+          width: auto !important;
+        }
 
-          /* Sets the URL bar color */
-          #urlbar {
-            background: var(--accent-color) !important;
-          }
+        #urlbar {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
 
-          #urlbar-background {
-            background: var(--accent-color) !important;
-            border: none !important;
-          }
+        /* =========================================================================================================
+          Remove items
+        ==========================================================================================================*/
 
-          #urlbar-input-container {
-            border: none !important;
-          }
-
-          /*====== UI Settings ======*/
-
-          :root {
-            --navbarWidth: 500px;
-            /* Set width of navbar */
-          }
-
-          /* If the window is wider than 1000px, use flex layout */
-          @media (min-width: 1000px) {
-            #navigator-toolbox {
-              display: flex;
-              flex-direction: row;
-              flex-wrap: wrap;
-            }
-
-            /*  Url bar  */
-            #nav-bar {
-              order: 2;
-              width: var(--navbarWidth);
-            }
-
-            /* Tab bar */
-            #titlebar {
-              order: 1;
-              width: calc(100vw - var(--navbarWidth) - 1px);
-            }
-
-            /* Bookmarks bar */
-            #PersonalToolbar {
-              order: 3;
-              width: 100%;
-            }
-
-            /* Fix urlbar sometimes being misaligned */
-            :root[uidensity="compact"] #urlbar {
-              --urlbar-toolbar-height: 39.60px !important;
-            }
-
-            :root[uidensity="touch"] #urlbar {
-              --urlbar-toolbar-height: 49.00px !important;
-            }
-          }
-
-          /*====== Simplifying interface ======*/
-
-          /* Autohide back button when disabled */
-          #back-button,
-          #forward-button,
-          /* Remove UI elements */
-          #identity-box,
-          /* Site information */
-          #tracking-protection-icon-container,
-          /* Shield icon */
-          #page-action-buttons> :not(#urlbar-zoom-button, #star-button-box),
-          /* All url bar icons except for zoom level and bookmarks */
-          #urlbar-go-button,
-          /* Search URL magnifying glass */
-          #alltabs-button,
-          /* Menu to display all tabs at the end of tabs bar */
-          .titlebar-buttonbox-container
-
-          /* Minimize, maximize, and close buttons */
-            {
-            display: none !important;
-          }
-
-          #nav-bar {
-            box-shadow: none !important;
-          }
-
-          /* Remove "padding" left and right from tabs */
-          .titlebar-spacer {
-            display: none !important;
-          }
-
-          /* Fix URL bar overlapping elements */
-          #urlbar-container {
-            min-width: none !important;
-          }
-
-          /* Remove gap after pinned tabs */
-          #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {
-            margin-inline-start: 0 !important;
-          }
-
-          /* Hide the hamburger menu */
-          #PanelUI-menu-button {
-            padding: 0px !important;
-          }
-
-          #PanelUI-menu-button .toolbarbutton-icon {
-            width: 0px !important;
-          }
-
-          #PanelUI-menu-button .toolbarbutton-badge-stack {
-            padding: 0px !important;
-        }'';
+        .titlebar-buttonbox,
+        .titlebar-spacer,
+        #forward-button,
+        #back-button,
+        #tracking-protection-icon-container,
+        #page-action-buttons,
+        #PanelUI-button,
+        #identity-box,
+        #tracking-protection-icon-container,
+        #page-action-buttons> :not(#urlbar-zoom-button, #star-button-box),
+        #urlbar-go-button,
+        #alltabs-button,
+        .titlebar-buttonbox-container {
+          display: none !important;
+        }
+      '';
     };
   };
 }

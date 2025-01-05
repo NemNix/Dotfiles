@@ -211,6 +211,7 @@
         "mod4+Shift+r" = "exec notify-send --urgency=critical 'Sway Restart', restart";
         "mod4+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 
+        "mod4+Shift+Control+r" = "exec systemctl reboot";
         "mod4+Shift+Control+s" = "exec systemctl suspend";
         "mod4+Shift+Control+p" = "exec systemctl poweroff";
 
