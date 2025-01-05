@@ -18,7 +18,6 @@
     playerctl
     brightnessctl
 
-    xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
 
   ];
@@ -57,7 +56,7 @@
 
       set $terminal   footclient
       set $browser   librewolf
-      set $launcher     wofi
+      set $launcher     anyrun
       set $file-manager  nautilus
       set $Tfile-manager  $terminal -e yazi
       set $audio-manager  com.saivert.pwvucontrol
@@ -78,6 +77,7 @@
         { command = "foot --server"; }
         { command = "autotiling-rs"; }
         { command = "swaybg -i ~/Dotfiles/home/wallpapers/nixos-wallpaper.png"; }
+        { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
       ];
 
       # ------------------------------------------------
@@ -288,7 +288,7 @@
   services.swayidle = {
     enable = true;
     timeouts = [
-      { timeout = 60; command = "${pkgs.brightnessctl}/bim/brightnessctl -s set 0"; resumeCommand = "${pkgs.brightnessctl}/bim/brightnessctl -r"; }
+      { timeout = 60; command = "${pkgs.brightnessctl}/bin/brightnessctl -s set 0"; resumeCommand = "${pkgs.brightnessctl}/bin/brightnessctl -r"; }
       { timeout = 90; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
       { timeout = 120; command = "${pkgs.systemd}/bin/systemctl suspend"; }
       { timeout = 1800; command = "${pkgs.systemd}/bin/systemctl poweroff"; }

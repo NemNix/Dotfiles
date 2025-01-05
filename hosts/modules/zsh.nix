@@ -4,7 +4,7 @@
 
   programs.zsh = {
 
-    loginShellInit = '' [ "$(tty)" = "/dev/tty1" ] && exec dbus-run-session sway '';
+    loginShellInit = '' [ "$(tty)" = "/dev/tty1" ] && dbus-update-activation-environment --systemd WAYLAND_DISPLAY && env WLR_RENDERER=vulkan sway'';
 
     enable = true;
     autosuggestions.enable = true;

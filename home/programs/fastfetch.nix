@@ -5,7 +5,7 @@
 
       "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
 
-      "logo" = { "padding" = { "top" = 3; }; "type" = "auto"; };
+      "logo" = { "padding" = { "top" = 2; }; "type" = "auto"; };
 
       "display" = { "separator" = " ➜  "; };
 
@@ -128,12 +128,6 @@
           "type" = "publicip";
           "key" = " ├ 󰩠 ";
           "keyColor" = "34";
-        }
-        {
-          "type" = "netio";
-          "key" = " ├ 󱫋 ";
-          "keyColor" = "34";
-          "wait-time" = 100;
         }
       ];
     };
