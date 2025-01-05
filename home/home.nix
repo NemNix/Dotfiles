@@ -17,11 +17,11 @@
         ./programs/fastfetch.nix
         # ./programs/firefox.nix
 
-        ./system/tofi.nix
         ./system/wofi.nix
         ./system/dunst.nix
         ./system/stylix.nix
         ./system/waybar.nix
+        ./system/anyrun.nix
         ./system/wlsunset.nix
         # ./system/hyprland.nix
 
