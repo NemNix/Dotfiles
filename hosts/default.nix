@@ -18,6 +18,7 @@
         ./modules/time.nix
         ./modules/users.nix
         # ./modules/greetd.nix
+        ./modules/polkit.nix
         ./modules/fstrim.nix
         ./modules/network.nix
         ./modules/pipewire.nix

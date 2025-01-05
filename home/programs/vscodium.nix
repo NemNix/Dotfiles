@@ -13,14 +13,36 @@
 
     userSettings = {
 
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      # Helix config
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       "editor.fontSize" = 16;
+      "editor.formatOnSave" = true;
+      "editor.fontLigatures" = true;
+      "editor.formatOnPaste" = true;
+      "editor.minimap.enabled" = false;
+
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = true;
+
+      "symbols.hidesExplorerArrows" = false;
       "git.openRepositoryInParentFolders" = "never";
 
+      "workbench.editor.autoLockGroups" = false;
+
+      "catppuccin.accentColor" = "mauve";
+      "workbench.iconTheme" = "seti";
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.preferredDarkColorTheme" = "Catppuccin Mocha";
+      "workbench.preferredHighContrastColorTheme" = "Catppuccin Mocha";
+
+      # --------------------------------
+      # languages Configuration 
+      # --------------------------------
+
       "[python]" = {
-        "editor.defaultFormatter" = "ms-python.black-formatter";
         "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "ms-python.black-formatter";
       };
 
       "nix.enableLanguageServer" = true;
@@ -40,21 +62,6 @@
           };
         };
       };
-
-      "editor.formatOnSave" = true;
-
-      "editor.fontLigatures" = true;
-      "editor.formatOnPaste" = true;
-      "editor.minimap.enabled" = false;
-
-      "symbols.hidesExplorerArrows" = false;
-
-      "catppuccin.accentColor" = "blue";
-      "workbench.iconTheme" = "vs-minimal";
-      "workbench.colorTheme" = "Catppuccin Mocha";
-      "workbench.preferredDarkColorTheme" = "Catppuccin Mocha";
-      "workbench.preferredHighContrastColorTheme" = "Catppuccin Mocha";
-
     };
   };
 }

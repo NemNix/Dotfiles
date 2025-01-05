@@ -12,10 +12,10 @@
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       editor = {
         color-modes = true;
-
-        bufferline = "multiple";
         shell = [ "bash" "-c" ];
+        bufferline = "multiple";
         line-number = "relative";
+        end-of-line-diagnostics = "hint";
 
         statusline = {
           separator = "│";
@@ -69,31 +69,26 @@
           name = "c";
           auto-format = true;
           language-servers = [ "clangd" ];
-          formatter = { command = "${pkgs.clang-tools}/bin/clang-format"; };
-        }
-        {
-          name = "zig";
-          auto-format = true;
-          language-servers = [ "zsl" ];
-          formatter = { command = "${pkgs.zig}/bin/zig"; };
+          indent = { tab-width = 8; unit = "    "; };
+          formatter = { command = "${pkgs.clang-tools}/bin/clang-format"; args = [ "--style=Gnu" ]; };
         }
         {
           name = "nix";
           auto-format = true;
-          language-servers = [ "nil" ];
+          language-servers = [ "nixd" ];
           formatter = { command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"; };
-        }
-        {
-          name = "bash";
-          auto-format = true;
-          language-servers = [ "bash-language-server" ];
-          formatter = { command = "${pkgs.shfmt}/bin/shfmt"; args = [ "-i" "2" "-ci" ]; };
         }
         {
           name = "rust";
           auto-format = true;
           language-servers = [ "rust-analyzer" ];
           formatter = { command = "${pkgs.rustfmt}/bin/rustfmt"; };
+        }
+        {
+          name = "bash";
+          auto-format = true;
+          language-servers = [ "bash-language-server" ];
+          formatter = { command = "${pkgs.shfmt}/bin/shfmt"; args = [ "-i" "2" "-ci" ]; };
         }
         {
           name = "python";
@@ -117,6 +112,17 @@
       # Language Server Protocol Configuration 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      # Language Debugger
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      debugger = [
+        {
+          name = "debugpy";
+          transport = "stdio";
+          command = "python3";
+          args = [ "-m" "debugpy.adapter" ];
+        }
+      ];
     };
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,27 +130,23 @@
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     extraPackages = with pkgs; [
-      lldb_18
-      nil
-      clang-tools
-      nodePackages.bash-language-server
-      shfmt
-      pyright
-      black
-      python313Packages.debugpy
-      rust-analyzer
+      nixd
+
+      marksman
+
       lldb
+      clang-tools
+
+      nodePackages.bash-language-server
+
+      pyright
+      python313Packages.debugpy
+
+      rust-analyzer
       clippy
-      zls
-      zig
+
       vscode-langservers-extracted
       nodePackages_latest.typescript-language-server
-      docker-compose-language-service
-      dockerfile-language-server-nodejs
-      yaml-language-server
-      ansible-language-server
-      marksman
-      lsp-ai
     ];
   };
 }
