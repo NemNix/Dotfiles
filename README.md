@@ -8,11 +8,21 @@
    </div>
 </h1>
 
+## Hyprland
+
 ![Home](./assets/home.png)
 
 ![File](./assets/file.png)
 
 ![Dev](./assets/dev.png)
+
+## Sway
+
+![Home](./assets/sway.png)
+
+![File](./assets/sfile.png)
+
+![Dev](./assets/sdev.png)
 
 ## What Do I Use
 
@@ -34,11 +44,12 @@
 - [Swaylock](https://github.com/swaywm/swaylock) ![C][c]
 - [Swayidle](https://github.com/swaywm/swayidle) ![C][c]
 
+
 - **Status Bar:** [Waybar](https://github.com/Alexays/Waybar) ![C++][cpp]
 
 - **Notification Daemon:** [Dunst](https://dunst-project.org/) ![C][c]
 
-- **Application Launcher:** [Wofi](https://gitlab.com/dgirault/wofi) ![C][c]
+- **Application Launcher:** [Wofi](https://gitlab.com/dgirault/wofi) ![C][c] [Anyrun](https://github.com/anyrun-org/anyrun) ![rust][rs]
 
 - **Display:** [Kanshi](https://git.sr.ht/~emersion/kanshi) ![C][c] [wlr-randr](https://sr.ht/~emersion/wlr-randr/) ![C][c]
 

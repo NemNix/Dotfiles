@@ -255,7 +255,7 @@
 
       colors = {
         focused = {
-          background = "#1E1E2E";
+          background = "#CAD4F5";
           border = "#CAD4F5";
           childBorder = "#CAD4F5";
           indicator = "#CAD4F5";
