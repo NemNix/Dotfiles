@@ -8,6 +8,7 @@
     config = {
       x.fraction = 0.5;
       y.fraction = 0.0;
+      width.fraction = 0.3;
 
       layer = "overlay";
       closeOnClick = true;
@@ -16,6 +17,7 @@
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
         applications
         translate
+        kidex
       ];
     };
 
@@ -30,3 +32,4 @@
       '';
   };
 }
+

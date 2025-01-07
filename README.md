@@ -1,11 +1,9 @@
 <h1 align="center">
-   <img src="./assets/nixos.png" width="100px" /> 
-   <br>
-      NixOS For NEWBIES
-   <br>
-      <img src="./assets/macchiato.png" width="600px" /> <br>
-      <br>
-   </div>
+    <img src="./assets/nixos.png" width="100px" />
+    <br>
+    NixOS For NEWBIES
+    <br>
+    <img src="./assets/macchiato.png" width="600px" />
 </h1>
 
 ## Hyprland
@@ -43,7 +41,6 @@
 - [Swaybg](https://github.com/swaywm/swaybg) ![C][c]
 - [Swaylock](https://github.com/swaywm/swaylock) ![C][c]
 - [Swayidle](https://github.com/swaywm/swayidle) ![C][c]
-
 
 - **Status Bar:** [Waybar](https://github.com/Alexays/Waybar) ![C++][cpp]
 

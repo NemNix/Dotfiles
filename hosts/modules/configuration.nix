@@ -1,4 +1,4 @@
-{ hostname, ... }:
+{ hostname, pkgs, ... }:
 {
   # ---------------------------------------------------------
   # Documentation
@@ -17,6 +17,12 @@
   # System
   # ---------------------------------------------------------
 
+  environment.variables = {
+    # better fonts:
+    # https://web.archive.org/web/20230921201835/https://old.reddit.com/r/linux_gaming/comments/16lwgnj/is_it_possible_to_improve_font_rendering_on_linux/
+    FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
+  };
+
   system = { stateVersion = "24.11"; };
   security.pam.services.swaylock = { };
 
@@ -27,12 +33,14 @@
 
   services = {
     chrony.enable = true;
+    timesyncd.enable = false;
     logind = { lidSwitch = "ignore"; lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate"; };
   };
 
   systemd = {
     tpm2.enable = false;
     services.sertimesyncd.enable = false;
+
   };
 
   console.colors = [

@@ -1,26 +1,44 @@
 { pkgs, ... }:
 {
-  # ------------------------------------------------
-  # Needed Packages
-  # ------------------------------------------------
+  # ================================================================================================
+  # Environment config
+  # ================================================================================================
 
-  home.packages = with pkgs; [
+  home = {
+    packages = with pkgs; [
 
-    swaybg
-    autotiling-rs
+      swaybg
+      autotiling-rs
 
-    hyprshot
-    hyprpicker
+      hyprshot
+      hyprpicker
 
-    wlay
-    wlr-randr
+      wlay
+      wdisplays
+      wlr-randr
+      wl-gammactl
+      argyllcms
 
-    playerctl
-    brightnessctl
+      playerctl
+      brightnessctl
 
-    xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
 
-  ];
+    ];
+
+    sessionVariables = {
+      DISABLE_QT5_COMPAT = 1;
+      QT_QPA_PLATFORM = "wayland";
+      QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+
+      MOZ_ENABLE_WAYLAND = 1;
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+
+      GTK_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+    };
+  };
 
   # ================================================================================================
   # Sway 
@@ -29,31 +47,22 @@
   wayland.windowManager.sway = {
     enable = true;
     xwayland = false;
-    systemd.enable = true;
 
-    # ------------------------------------------------
-    # Session variables
-    # ------------------------------------------------
+    systemd = {
+      enable = false;
+      variables = [ "-all" ];
+    };
 
-    extraSessionCommands = ''
-
-      export DISABLE_QT5_COMPAT=1
-      export QT_QPA_PLATFORM="wayland"
-      export QT_AUTO_SCREEN_SCALE_FACTOR=1
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-
-      export NIXOS_OZONE_WL=1
-      export MOZ_ENABLE_WAYLAND=1
-      export ELECTRON_OZONE_PLATFORM_HINT="auto"
-
-      export GTK_WAYLAND_DISABLE_WINDOWDECORATION=1 '';
+    wrapperFeatures = {
+      # gtk = true;
+      # base = false;
+    };
 
     # ------------------------------------------------
     # Configuration
     # ------------------------------------------------
 
-    extraConfig = '' 
-
+    extraConfig = ''
       set $terminal   footclient
       set $browser   librewolf
       set $launcher     anyrun
@@ -76,6 +85,7 @@
         { command = "waybar"; }
         { command = "foot --server"; }
         { command = "autotiling-rs"; }
+        { command = "wl-gammactl -c 1.000 -b 0.950 -g 0.825"; }
         { command = "swaybg -i ~/Dotfiles/home/wallpapers/nixos-wallpaper.png"; }
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
       ];
@@ -88,23 +98,29 @@
 
         eDP-1 = {
           scale = "1.5";
+          scale_filter = "nearest";
           resolution = "2880x1800";
 
           adaptive_sync = "on";
           max_render_time = "off";
 
           subpixel = "rgb";
-          color_profile = "srgb";
           render_bit_depth = "10";
+          color_profile = "srgb";
+          # color_profile = "icc MNE007ZA3_2_cal_01.icm";
         };
 
         HDMI-A-1 = {
           scale = "1.25";
+          scale_filter = "nearest";
           position = "-1920,0";
           resolution = "2560x1440";
 
           adaptive_sync = "off";
           max_render_time = "off";
+
+          subpixel = "rgb";
+          color_profile = "srgb";
         };
       };
 
@@ -304,6 +320,7 @@
     settings = { indicator-caps-lock = true; };
   };
 }
+
 
 
 
