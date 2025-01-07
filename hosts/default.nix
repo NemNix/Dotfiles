@@ -17,8 +17,10 @@
         ./modules/boot.nix
         ./modules/time.nix
         ./modules/users.nix
+        # ./modules/qtile.nix
         # ./modules/greetd.nix
         ./modules/fstrim.nix
+        # ./modules/xserver.nix
         ./modules/network.nix
         ./modules/pipewire.nix
         ./modules/gsettings.nix

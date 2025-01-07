@@ -118,19 +118,16 @@
           "type" = "localip";
           "key" = " ├ 󰒍 ";
           "keyColor" = "34";
-          "format" = "What are U looking for ?";
         }
         {
           "type" = "dns";
           "key" = " ├ 󰇖 ";
           "keyColor" = "34";
-          "format" = "What are U looking for ?";
         }
         {
           "type" = "publicip";
           "key" = " ├ 󰩠 ";
           "keyColor" = "34";
-          "format" = "What are U looking for ?";
         }
       ];
     };

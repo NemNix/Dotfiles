@@ -4,7 +4,7 @@
 
   programs.zsh = {
 
-    loginShellInit = '' [ "$(tty)" = "/dev/tty1" ] && dbus-update-activation-environment --systemd WAYLAND_DISPLAY && env WLR_RENDERER=vulkan sway'';
+    loginShellInit = ''[ "$(tty)" = "/dev/tty1" ] && export WLR_RENDERER=vulkan && exec sway '';
 
     enable = true;
     autosuggestions.enable = true;
@@ -20,8 +20,11 @@
       grep = "grep --color=auto";
 
       # System
-      fetch = "fastfetch";
-      startupctl = "systemctl list-unit-files --type=service | grep enabled";
+      fetch = "
+      fastfetch ";
+      startupctl = "
+      systemctl
+      list-unit-files - -type=service | grep enabled";
 
       # NixOS
       nrs = "clear && nh os switch";
@@ -42,3 +45,4 @@
     };
   };
 }
+

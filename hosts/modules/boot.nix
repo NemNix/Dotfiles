@@ -45,17 +45,6 @@
 
       "module.pcie_aspm.parameters.policy" = "powersave";
       "module.snd_ac97_codec.parameters.power_save" = "Y";
-
-      "net.ipv4.tcp_keepalive_time" = "60";
-      "net.ipv4.tcp_rmem" = "4096	1000000	16000000";
-      "net.ipv4.tcp_wmem" = "4096	1000000	16000000";
-      "net.ipv4.tcp_timestamps" = 1;
-      "net.ipv4.tcp_ecn" = 1;
-      "net.core.rmem_default" = 26214400;
-      "net.core.rmem_max" = 26214400;
-      "net.core.wmem_default" = 26214400;
-      "net.core.wmem_max" = 26214400;
-      "net.ipv4.ip_local_port_range" = "1025 65535";
     };
 
     blacklistedKernelModules = [
