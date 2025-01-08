@@ -37,7 +37,9 @@
     };
   };
 
-  outputs = { nixpkgs, ... } @inputs: {
+  outputs = { self, nixpkgs, ... } @inputs: {
+
+    ISO = self.nixosConfigurations.iso.config.system.build.isoImage;
 
     nixosConfigurations = {
 
@@ -60,14 +62,10 @@
       };
 
       iso = nixpkgs.lib.nixosSystem {
-        modules = [
-          "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-          ./hosts/iso.nix
-        ];
+        modules = [ ./hosts/iso.nix ];
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
       };
-
     };
   };
 }

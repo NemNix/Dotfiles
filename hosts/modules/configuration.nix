@@ -40,7 +40,6 @@
   systemd = {
     tpm2.enable = false;
     services.sertimesyncd.enable = false;
-
   };
 
   console.colors = [
