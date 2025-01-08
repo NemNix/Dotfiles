@@ -4,9 +4,7 @@
   NixOS For NEWBIES
   <br>
   <img src="./assets/macchiato.png" width="600px" alt="Macchiato Theme" />
-</h1>
-
-# Desktop Environments
+</h1>=
 
 ## Hyprland
 ![Hyprland Home Screenshot](./assets/home.png)
@@ -18,20 +16,17 @@
 ![Sway File Manager Screenshot](./assets/sfile.png)
 ![Sway Development Screenshot](./assets/sdev.png)
 
-# System Configuration
-
 ## Core System
 - **Shell:** `zsh`
-- **Kernel:** CachyOS default kernel
-- **Display Manager:** [Tuigreet](https://github.com/apognu/tuigreet) ![Rust][rs]
+- **Kernel:** CachyOS kernel
+- **Distro:** NixOS Unstable
 
 ## Window Managers
-- [Hyprland](https://github.com/hyprwm/Hyprland) ![C++][cpp]
-- [Sway](https://github.com/swaywm/sway) ![C][c]
 
 ### Hyprland Ecosystem
-| Component | Description | Technology |
+| Component | Description | Language |
 |-----------|-------------|------------|
+| [Hyprland](https://github.com/hyprwm/Hyprland) | Window Manager | ![C++][cpp] |
 | [Hyprlock](https://github.com/hyprwm/hyprlock) | Screen locker | ![C++][cpp] |
 | [Hypridle](https://github.com/hyprwm/hypridle) | Idle daemon | ![C++][cpp] |
 | [Hyprshot](https://github.com/Gustash/Hyprshot) | Screenshot tool | ![Shell][sh] |
@@ -39,39 +34,37 @@
 | [Hyprpicker](https://github.com/hyprwm/hyprpicker) | Color picker | ![C++][cpp] |
 
 ### Sway Ecosystem
-| Component | Description | Technology |
-|-----------|-------------|------------|
+| Component | Description | Language |
+|-----------|-------------|------------
+| [Sway](https://github.com/swaywm/sway) | Window Manager | ![C][c] |
 | [Swaybg](https://github.com/swaywm/swaybg) | Background setter | ![C][c] |
 | [Swaylock](https://github.com/swaywm/swaylock) | Screen locker | ![C][c] |
 | [Swayidle](https://github.com/swaywm/swayidle) | Idle management | ![C][c] |
 
 ## System Components
-- **Status Bar:** [Waybar](https://github.com/Alexays/Waybar) ![C++][cpp]
-- **Notification Daemon:** [Dunst](https://dunst-project.org/) ![C][c]
-- **Application Launchers:** 
-  - [Wofi](https://gitlab.com/dgirault/wofi) ![C][c]
-  - [Anyrun](https://github.com/anyrun-org/anyrun) ![Rust][rs]
-- **Display Management:**
-  - [Kanshi](https://git.sr.ht/~emersion/kanshi) ![C][c]
-  - [wlr-randr](https://sr.ht/~emersion/wlr-randr/) ![C][c]
-- **Screen Recording:** [gpu-screen-recorder-gtk](https://git.dec05eba.com/gpu-screen-recorder-gtk/about/) ![C++][cpp]
+| Category | Component | Description | Language |
+|----------|-----------|-------------|-----------|
+| Login | [Tuigreet](https://github.com/apognu/tuigreet) | Login Manager | ![Rust][rs] |
+| Interface | [Waybar](https://github.com/Alexays/Waybar) | Status Bar | ![C++][cpp] |
+| Interface | [Dunst](https://dunst-project.org/) | Notification Daemon | ![C][c] |
+| Launchers | [Wofi](https://gitlab.com/dgirault/wofi) | Application Launcher | ![C][c] |
+| Launchers | [Anyrun](https://github.com/anyrun-org/anyrun) | Modern Application Launcher | ![Rust][rs] |
+| Display | [Kanshi](https://git.sr.ht/~emersion/kanshi) | Display Configuration Manager | ![C][c] |
+| Display | [wlr-randr](https://sr.ht/~emersion/wlr-randr/) | Display Management Tool | ![C][c] |
+| Media | [gpu-screen-recorder-gtk](https://git.dec05eba.com/gpu-screen-recorder-gtk/about/) | Screen Recording Tool | ![C++][cpp] |
 
-# Applications
+## Applications
+| Component | Description | Language |
+|-----------|-------------|-----------|
+| [Foot](https://codeberg.org/dnkl/foot) | Terminal Emulator | ![C][c] |
+| [Helix](https://helix-editor.com/) | Text Editor | ![Rust][rs] |
+| [VSCodium](https://github.com/VSCodium/vscodium) | IDE | - |
+| [Floorp](https://github.com/Floorp-Projects/Floorp) | Web Browser | - |
+| [Yazi](https://github.com/sxyazi/yazi) | Terminal File Manager | ![Rust][rs] |
+| [Nautilus](https://github.com/GNOME/nautilus) | File Manager | ![C][c] |
+| [Btop](https://github.com/aristocratos/btop) | System Monitor | ![C++][cpp] |
 
-## Development Tools
-- **Terminal:** [Foot](https://codeberg.org/dnkl/foot) ![C][c]
-- **IDEs:**
-  - [Helix](https://helix-editor.com/) ![Rust][rs]
-  - [VSCodium](https://github.com/VSCodium/vscodium)
-
-## Daily Use
-- **Browser:** [Floorp](https://github.com/Floorp-Projects/Floorp)
-- **File Managers:**
-  - [Yazi](https://github.com/sxyazi/yazi) ![Rust][rs]
-  - [Nautilus](https://github.com/GNOME/nautilus) ![C][c]
-- **System Monitor:** [Btop](https://github.com/aristocratos/btop) ![C++][cpp]
-
-# Repository Structure
+## Repository Structure
 
 ## 🏠 Home Directory
 Configuration files for user-level settings:
@@ -81,8 +74,6 @@ Configuration files for user-level settings:
 ## 💻 Hosts Directory
 Host-specific configurations:
 - `modules/`: System configurations divided into modules
-
-# Setup
 
 ## Installation
 - Installation script (coming soon)
