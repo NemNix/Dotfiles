@@ -1,119 +1,105 @@
 <h1 align="center">
-    <img src="./assets/nixos.png" width="100px" />
-    <br>
-    NixOS For NEWBIES
-    <br>
-    <img src="./assets/macchiato.png" width="600px" />
+  <img src="./assets/nixos.png" width="100px" alt="NixOS Logo" />
+  <br>
+  NixOS For NEWBIES
+  <br>
+  <img src="./assets/macchiato.png" width="600px" alt="Macchiato Theme" />
 </h1>
 
+# Desktop Environments
+
 ## Hyprland
-
-![Home](./assets/home.png)
-
-![File](./assets/file.png)
-
-![Dev](./assets/dev.png)
+![Hyprland Home Screenshot](./assets/home.png)
+![Hyprland File Manager Screenshot](./assets/file.png)
+![Hyprland Development Screenshot](./assets/dev.png)
 
 ## Sway
+![Sway Home Screenshot](./assets/sway.png)
+![Sway File Manager Screenshot](./assets/sfile.png)
+![Sway Development Screenshot](./assets/sdev.png)
 
-![Home](./assets/sway.png)
+# System Configuration
 
-![File](./assets/sfile.png)
-
-![Dev](./assets/sdev.png)
-
-## What Do I Use
-
-### System
-- **Shell:** ```zsh```
+## Core System
+- **Shell:** `zsh`
 - **Kernel:** CachyOS default kernel
-- **Display Manager:** [Tuigreet](https://github.com/apognu/tuigreet) ![rust][rs]
-- **Window Manager:** [Hyprland](https://github.com/hyprwm/Hyprland) ![C++][cpp] [Sway](https://github.com/swaywm/sway) ![C][c]
+- **Display Manager:** [Tuigreet](https://github.com/apognu/tuigreet) ![Rust][rs]
 
-#### Hypr Ecosystem
-- [Hyprlock](https://github.com/hyprwm/hyprlock) ![C++][cpp]
-- [Hypridle](https://github.com/hyprwm/hypridle) ![C++][cpp]
-- [Hyprshot](https://github.com/Gustash/Hyprshot) ![shell][sh]
-- [Hyprpaper](https://github.com/hyprwm/hyprpaper) ![C++][cpp]
-- [Hyprpicker](https://github.com/hyprwm/hyprpicker) ![C++][cpp]
+## Window Managers
+- [Hyprland](https://github.com/hyprwm/Hyprland) ![C++][cpp]
+- [Sway](https://github.com/swaywm/sway) ![C][c]
 
-#### Sway Ecosystem
-- [Swaybg](https://github.com/swaywm/swaybg) ![C][c]
-- [Swaylock](https://github.com/swaywm/swaylock) ![C][c]
-- [Swayidle](https://github.com/swaywm/swayidle) ![C][c]
+### Hyprland Ecosystem
+| Component | Description | Technology |
+|-----------|-------------|------------|
+| [Hyprlock](https://github.com/hyprwm/hyprlock) | Screen locker | ![C++][cpp] |
+| [Hypridle](https://github.com/hyprwm/hypridle) | Idle daemon | ![C++][cpp] |
+| [Hyprshot](https://github.com/Gustash/Hyprshot) | Screenshot tool | ![Shell][sh] |
+| [Hyprpaper](https://github.com/hyprwm/hyprpaper) | Wallpaper manager | ![C++][cpp] |
+| [Hyprpicker](https://github.com/hyprwm/hyprpicker) | Color picker | ![C++][cpp] |
 
+### Sway Ecosystem
+| Component | Description | Technology |
+|-----------|-------------|------------|
+| [Swaybg](https://github.com/swaywm/swaybg) | Background setter | ![C][c] |
+| [Swaylock](https://github.com/swaywm/swaylock) | Screen locker | ![C][c] |
+| [Swayidle](https://github.com/swaywm/swayidle) | Idle management | ![C][c] |
+
+## System Components
 - **Status Bar:** [Waybar](https://github.com/Alexays/Waybar) ![C++][cpp]
-
 - **Notification Daemon:** [Dunst](https://dunst-project.org/) ![C][c]
+- **Application Launchers:** 
+  - [Wofi](https://gitlab.com/dgirault/wofi) ![C][c]
+  - [Anyrun](https://github.com/anyrun-org/anyrun) ![Rust][rs]
+- **Display Management:**
+  - [Kanshi](https://git.sr.ht/~emersion/kanshi) ![C][c]
+  - [wlr-randr](https://sr.ht/~emersion/wlr-randr/) ![C][c]
+- **Screen Recording:** [gpu-screen-recorder-gtk](https://git.dec05eba.com/gpu-screen-recorder-gtk/about/) ![C++][cpp]
 
-- **Application Launcher:** [Wofi](https://gitlab.com/dgirault/wofi) ![C][c] [Anyrun](https://github.com/anyrun-org/anyrun) ![rust][rs]
+# Applications
 
-- **Display:** [Kanshi](https://git.sr.ht/~emersion/kanshi) ![C][c] [wlr-randr](https://sr.ht/~emersion/wlr-randr/) ![C][c]
-
-- **Recording:** [gpu-screen-recorder-gtk](https://git.dec05eba.com/gpu-screen-recorder-gtk/about/) ![C++][cpp] 
-
-### Apps
-
+## Development Tools
 - **Terminal:** [Foot](https://codeberg.org/dnkl/foot) ![C][c]
- 
+- **IDEs:**
+  - [Helix](https://helix-editor.com/) ![Rust][rs]
+  - [VSCodium](https://github.com/VSCodium/vscodium)
+
+## Daily Use
 - **Browser:** [Floorp](https://github.com/Floorp-Projects/Floorp)
-
-- **File Manager:** [Yazi](https://github.com/sxyazi/yazi) ![Rust][rs] [Nautilus](https://github.com/GNOME/nautilus) ![C][c]
-
-- **IDE:** [Helix](https://helix-editor.com/) ![Rust][rs] [Vscodium](https://github.com/VSCodium/vscodium)
-
+- **File Managers:**
+  - [Yazi](https://github.com/sxyazi/yazi) ![Rust][rs]
+  - [Nautilus](https://github.com/GNOME/nautilus) ![C][c]
 - **System Monitor:** [Btop](https://github.com/aristocratos/btop) ![C++][cpp]
 
-## Architecture
+# Repository Structure
 
-### 🏠 Home
+## 🏠 Home Directory
+Configuration files for user-level settings:
+- `programs/`: Home Manager configurations
+- `system/`: Window manager system configurations
 
-These are the dotfiles and configuration files for user-level configuration.
+## 💻 Hosts Directory
+Host-specific configurations:
+- `modules/`: System configurations divided into modules
 
-**Subfolders:**
-
-- `programs` contains all of my configurations declared with Home Manager.
-- `system` contains all of my window manager system configurations.
-
-### 💻 Hosts
-
-These are the host-specific configurations.
-
-**Subfolders:**
-
-- `modules` contains all of the system configurations divided into modules.
+# Setup
 
 ## Installation
+- Installation script (coming soon)
 
-- Install script coming
+## Todo List
+- [ ] Declare Browser configuration
+- [ ] Remove unused configurations
 
-## To do !
-
-- Declare Browser
-- Remove unused config
-
-<!-- Links -->
-
-<!-- Languages -->
-<!-- Rust -->
+<!-- Badge Definitions -->
 [rs]: https://img.shields.io/badge/-rust-orange
-<!-- Nim -->
 [nim]: https://img.shields.io/badge/-nim-%23ffe953
-<!-- Shell/Bash -->
 [sh]: https://img.shields.io/badge/-shell-green
-<!-- Golang -->
 [go]: https://img.shields.io/badge/-go-68D7E2
-<!-- C++ -->
 [cpp]: https://img.shields.io/badge/-c%2B%2B-red
-<!-- C -->
 [c]: https://img.shields.io/badge/-c-lightgrey
-<!-- Zig -->
 [z]: https://img.shields.io/badge/-zig-yellow
-<!-- Vala -->
 [va]: https://img.shields.io/badge/-vala-blueviolet
-<!-- Dart -->
 [da]: https://img.shields.io/badge/-dart-02D3B3
-<!-- Python -->
 [py]: https://img.shields.io/badge/-python-blue
-<!-- TypeScript -->
 [ts]: https://img.shields.io/badge/-TS-007BCD
