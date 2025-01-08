@@ -13,9 +13,15 @@
 
       editor = {
         color-modes = true;
+        auto-pairs = false;
         bufferline = "multiple";
-        file-picker.hidden = false;
+        continue-comments = false;
         end-of-line-diagnostics = "hint";
+
+        lsp = {
+          display-messages = true;
+          display-inlay-hints = true;
+        };
 
         statusline = {
           separator = "│";
@@ -25,11 +31,6 @@
           left = [ "mode" "spinner" ];
           center = [ "file-name" ];
           right = [ "diagnostics" "version-control" ];
-        };
-
-        lsp = {
-          display-messages = true;
-          display-inlay-hints = true;
         };
 
         cursor-shape = {
@@ -87,6 +88,11 @@
           auto-format = true;
           formatter = { command = "${pkgs.dprint}/bin/dprint "; args = [ "fmt" "--stdin" "md" ]; };
         }
+        {
+          name = "latex";
+          language-servers = [ "texlab" "ltex" ];
+          indent = { tab-width = 4; unit = "\t"; };
+        }
       ];
 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -112,6 +118,9 @@
       ruff-lsp
       python312Packages.python-lsp-server
       python313Packages.debugpy
+
+      texlab
+      ltex-ls-plus
 
       marksman
       markdown-oxide

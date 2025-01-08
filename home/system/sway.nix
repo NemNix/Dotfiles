@@ -49,8 +49,7 @@
     xwayland = false;
 
     systemd = {
-      enable = false;
-      variables = [ "-all" ];
+      enable = true;
     };
 
     wrapperFeatures = {
@@ -63,13 +62,13 @@
     # ------------------------------------------------
 
     extraConfig = ''
-      set $terminal   footclient
-      set $browser   librewolf
-      set $launcher     anyrun
-      set $file-manager  nautilus
-      set $Tfile-manager  $terminal -e yazi
-      set $audio-manager  com.saivert.pwvucontrol
-      set $password-manager  org.keepassxc.KeePassXC
+      set $launcher           anyrun
+      set $browser            librewolf
+      set $terminal           footclient
+      set $file-manager       nautilus
+      set $Tfile-manager      $terminal -e yazi
+      set $audio-manager      com.saivert.pwvucontrol
+      set $password-manager   org.keepassxc.KeePassXC
       set $bluetooth-manager  io.github.kaii_lb.Overskride '';
 
     config = {
