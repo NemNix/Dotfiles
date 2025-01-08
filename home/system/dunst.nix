@@ -4,7 +4,6 @@
 
   services.dunst = {
     enable = true;
-    package = pkgs.dunst;
 
     settings = {
       global = {

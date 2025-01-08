@@ -4,7 +4,6 @@
     settings = {
       allow_markup = true;
       width = 450;
-      terminal = "foot";
       height = "305px";
       orientation = "vertical";
       halign = "fill";

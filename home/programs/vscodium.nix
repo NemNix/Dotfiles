@@ -56,7 +56,7 @@
             "expr" = "import <nixpkgs> { }";
             "options" = {
               "nixos" = {
-                "expr" = "(builtins.getFlake \"/home/nel/Dotfiles\").nixosConfigurations.laptop.options";
+                "expr" = "(builtins.getFlake \"/home/nem/Dotfiles\").nixosConfigurations.laptop.options";
               };
             };
           };

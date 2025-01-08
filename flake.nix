@@ -58,6 +58,16 @@
           hostname = "server";
         };
       };
+
+      iso = nixpkgs.lib.nixosSystem {
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+          ./hosts/iso.nix
+        ];
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+      };
+
     };
   };
 }

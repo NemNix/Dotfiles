@@ -5,6 +5,7 @@
     # DEV
     python3
     gcc
+    nix-tree
 
     # MEDIA
     mpv

@@ -17,7 +17,7 @@
         ./programs/fastfetch.nix
         # ./programs/firefox.nix
 
-        ./system/wofi.nix
+        # ./system/wofi.nix
         ./system/dunst.nix
         ./system/stylix.nix
         ./system/waybar.nix
