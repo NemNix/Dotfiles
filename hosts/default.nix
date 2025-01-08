@@ -3,7 +3,7 @@
   imports =
     if hostname == "laptop" then
       [
-        ./laptop.nix
+        # ./laptop.nix
 
         ./modules/nh.nix
         # ./modules/vm.nix
