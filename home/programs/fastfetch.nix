@@ -126,7 +126,7 @@
         }
         {
           "type" = "publicip";
-          "key" = " ├ 󰩠 ";
+          "key" = " └ 󰩠 ";
           "keyColor" = "34";
         }
       ];

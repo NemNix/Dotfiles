@@ -1,24 +1,27 @@
 { pkgs, username, ... }:
 {
   users.users.${username}.extraGroups = [ "libvirtd" ];
-  boot.kernel.sysctl = { "vm.max_map_count" = 2147483642; };
-
-  environment.systemPackages = with pkgs; [
-    qemu
-    qemu_kvm
-    adwaita-icon-theme
-  ];
 
   programs.virt-manager.enable = true;
+
+  # services = { spice-vdagentd.enable = true; };
 
   virtualisation = {
     libvirtd = {
       enable = true;
+      onBoot = "ignore";
+      onShutdown = "shutdown";
 
       qemu = {
-        package = pkgs.qemu_kvm;
-        runAsRoot = true;
+        runAsRoot = false;
         swtpm.enable = true;
+        package = pkgs.qemu_kvm;
+
+        verbatimConfig = ''
+          memory_backing_dir = "/dev/shm"
+          security_driver = "selinux"
+          remember_owner = 0
+        '';
 
         ovmf = {
           enable = true;
@@ -28,3 +31,4 @@
     };
   };
 }
+

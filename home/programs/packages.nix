@@ -27,8 +27,8 @@
 
     keepassxc
 
+    whatsie
     element-desktop
-    whatsapp-for-linux
 
     qalculate-gtk
 

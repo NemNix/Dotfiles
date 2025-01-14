@@ -12,8 +12,8 @@
       # ================================================================================================
 
       editor = {
+        auto-pairs = true;
         color-modes = true;
-        auto-pairs = false;
         bufferline = "multiple";
         continue-comments = false;
         end-of-line-diagnostics = "hint";
@@ -66,7 +66,7 @@
           name = "c";
           auto-format = true;
           indent = { tab-width = 4; unit = "    "; };
-          formatter = { command = "${pkgs.clang-tools}/bin/clang-format"; args = [ "--style=Google" ]; };
+          formatter = { command = "${pkgs.clang-tools}/bin/clang-format"; args = [ "--style=LLVM" ]; };
         }
         {
           name = "nix";

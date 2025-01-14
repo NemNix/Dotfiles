@@ -3,10 +3,10 @@
   imports =
     if hostname == "laptop" then
       [
-        # ./laptop.nix
+        ./laptop.nix
 
         ./modules/nh.nix
-        # ./modules/vm.nix
+        ./modules/vm.nix
         # ./modules/adb.nix
         ./modules/tlp.nix
         ./modules/nix.nix
@@ -19,6 +19,7 @@
         ./modules/users.nix
         # ./modules/qtile.nix
         # ./modules/greetd.nix
+        # ./modules/polkit.nix
         ./modules/fstrim.nix
         # ./modules/xserver.nix
         ./modules/network.nix

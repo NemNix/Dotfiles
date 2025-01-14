@@ -20,11 +20,8 @@
       grep = "grep --color=auto";
 
       # System
-      fetch = "
-      fastfetch ";
-      startupctl = "
-      systemctl
-      list-unit-files - -type=service | grep enabled";
+      fetch = "fastfetch";
+      startupctl = "systemctl list-unit-files --type=service | grep enabled";
 
       # NixOS
       nrs = "clear && nh os switch";

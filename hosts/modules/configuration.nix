@@ -1,4 +1,4 @@
-{ hostname, pkgs, ... }:
+{ hostname, ... }:
 {
   # ---------------------------------------------------------
   # Documentation
@@ -17,30 +17,44 @@
   # System
   # ---------------------------------------------------------
 
-  environment.variables = {
-    # better fonts:
-    # https://web.archive.org/web/20230921201835/https://old.reddit.com/r/linux_gaming/comments/16lwgnj/is_it_possible_to_improve_font_rendering_on_linux/
-    FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
-  };
-
   system = { stateVersion = "24.11"; };
   security.pam.services.swaylock = { };
 
-  hardware.graphics = {
-    enable = true;
-    # enable32Bit = true;
+  hardware = {
+    enableAllFirmware = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
+
+  # ---------------------------------------------------------
+  # Systemd
+  # ---------------------------------------------------------
 
   services = {
     chrony.enable = true;
+    logrotate.enable = false;
     timesyncd.enable = false;
     logind = { lidSwitch = "ignore"; lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate"; };
   };
 
   systemd = {
     tpm2.enable = false;
-    services.sertimesyncd.enable = false;
+    services.systemd-journald.enable = false;
+    services.systemd-journal-flush.enable = false;
+    services.systemd-journal-catalog-update.enable = false;
+    extraConfig = ''
+      DefaultTimeoutStartSec=15s
+      DefaultTimeoutStopSec=10s
+      DefaultLimitNOFILE=2048
+      DefaultLimitNOFILE_HARD=2097152
+    '';
   };
+
+  # ---------------------------------------------------------
+  # TTY Catppuccin mocha 
+  # ---------------------------------------------------------
 
   console.colors = [
     "1e1e2e" # base
@@ -60,4 +74,10 @@
     "cba6f7" # mauve
     "f2cdcd" # flamingo 
   ];
+
+  environment.variables = {
+    # better fonts:
+    # https://web.archive.org/web/20230921201835/https://old.reddit.com/r/linux_gaming/comments/16lwgnj/is_it_possible_to_improve_font_rendering_on_linux/
+    FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
+  };
 }

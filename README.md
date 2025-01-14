@@ -12,14 +12,14 @@
 ![Hyprland Development Screenshot](./assets/dev.png)
 
 ## Sway
-![Sway Home Screenshot](./assets/sway.png)
+![Sway Home Screenshot](./assets/home-sway.png.png)
 ![Sway File Manager Screenshot](./assets/sfile.png)
 ![Sway Development Screenshot](./assets/sdev.png)
 
-## Core System
+# Core System
 - **Shell:** `zsh`
-- **Kernel:** CachyOS kernel
 - **Distro:** NixOS Unstable
+- **Kernel:** CachyOS kernel
 
 ## Window Managers
 
@@ -49,7 +49,7 @@
 | [Dunst](https://dunst-project.org/) | Notification Daemon | ![C][c] |
 | [Wofi](https://gitlab.com/dgirault/wofi) | Application Launcher | ![C][c] |
 | [Anyrun](https://github.com/anyrun-org/anyrun) | Modern Application Launcher | ![Rust][rs] |
-| [Kanshi](https://git.sr.ht/~emersion/kanshi) | Display Configuration Manager | ![C][c] |
+| [wdisplays](https://github.com/MichaelAquilina/wdisplays) | Display Configuration Manager | ![C][c] |
 | [wlr-randr](https://sr.ht/~emersion/wlr-randr/) | Display Management Tool | ![C][c] |
 | [gpu-screen-recorder-gtk](https://git.dec05eba.com/gpu-screen-recorder-gtk/about/) | Screen Recorder | ![C++][cpp] |
 
@@ -65,7 +65,7 @@
 | [Btop](https://github.com/aristocratos/btop) | System Monitor | ![C++][cpp] |
 
 
-## Repository Structure
+# Repository Structure
 
 ### 🏠 Home Directory
 Configuration files for user-level settings:

@@ -18,11 +18,12 @@
         # ./programs/firefox.nix
 
         # ./system/wofi.nix
+        ./system/mime.nix
         ./system/dunst.nix
         ./system/stylix.nix
         ./system/waybar.nix
         ./system/anyrun.nix
-        ./system/wlsunset.nix
+        # ./system/wlsunset.nix
         # ./system/hyprland.nix
 
         ./system/sway.nix

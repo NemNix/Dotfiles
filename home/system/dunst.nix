@@ -13,7 +13,7 @@
         height = "(0,400)";
 
         origin = "top-center";
-        offset = "0x10";
+        offset = "(0,2)";
       };
 
       fullscreen_delay_everything = {
