@@ -8,33 +8,38 @@
     packages = with pkgs; [
 
       swaybg
+      swaylock
+      swayidle
+
       autotiling-rs
+      wl-color-picker
+      sway-contrib.grimshot
 
-      hyprshot
-      hyprpicker
-
-      wlay
       wdisplays
       wlr-randr
       wl-gammactl
-      argyllcms
 
       playerctl
       brightnessctl
 
-      xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
 
     ];
 
     sessionVariables = {
+      XDG_SESSION_TYPE = "wayland";
+      XDG_CURRENT_DESKTOP = "sway";
+      XDG_SESSION_DESKTOP = "sway";
+
       DISABLE_QT5_COMPAT = 1;
       QT_QPA_PLATFORM = "wayland";
       QT_AUTO_SCREEN_SCALE_FACTOR = 1;
       QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
 
+      NIXOS_OZONE_WL = 1;
       MOZ_ENABLE_WAYLAND = 1;
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      ELECTRON_OZONE_PLATFORM_HINT = 1;
 
       GTK_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     };
@@ -49,7 +54,8 @@
     xwayland = false;
 
     systemd = {
-      enable = true;
+      enable = false;
+      # variables = [ ];
     };
 
     wrapperFeatures = {
@@ -72,21 +78,27 @@
       set $bluetooth-manager  io.github.kaii_lb.Overskride '';
 
     config = {
-      focus.newWindow = "focus";
-      floating.modifier = "mod4";
-      defaultWorkspace = "workspace number 1";
 
       # ------------------------------------------------
       # Startup
       # ------------------------------------------------
 
       startup = [
+        { command = "dunst"; }
         { command = "waybar"; }
         { command = "foot --server"; }
         { command = "autotiling-rs"; }
         { command = "wl-gammactl -c 1.000 -b 0.950 -g 0.825"; }
         { command = "swaybg -i ~/Dotfiles/home/wallpapers/nixos-wallpaper.png"; }
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+        {
+          command = ''
+            swayidle -w \
+            before-sleep  "swaylock -fF" \
+            timeout 60 "brightnessctl -s set 0" resume "brightnessctl -r" \
+            timeout 120 "systemctl suspend" \
+            timeout 1800 "systemctl poweroff" '';
+        }
       ];
 
       # ------------------------------------------------
@@ -144,6 +156,27 @@
       };
 
       # ------------------------------------------------
+      # Window
+      # ------------------------------------------------
+
+      window = {
+        border = 2;
+        titlebar = false;
+      };
+
+      floating = {
+        border = 2;
+        titlebar = false;
+
+        modifier = "mod4";
+        criteria = [
+          { app_id = "^yazi$"; }
+          { app_id = "^com.saivert.pwvucontrol$"; }
+          { app_id = "^io.github.kaii_lb.Overskride$"; }
+        ];
+      };
+
+      # ------------------------------------------------
       # Window Rules
       # ------------------------------------------------
 
@@ -158,6 +191,8 @@
       # ------------------------------------------------
       # Workspace Rules
       # ------------------------------------------------
+
+      defaultWorkspace = "workspace number 1";
 
       workspaceOutputAssign = [
         { workspace = "1"; output = "eDP-1"; }
@@ -178,14 +213,21 @@
       # ------------------------------------------------
 
       keycodebindings = {
-        # Switch workspaces with mainMod + [0-5]
-        "mod4+10" = "workspace number 6, workspace number 1";
-        "mod4+11" = "workspace number 7, workspace number 2";
-        "mod4+12" = "workspace number 8, workspace number 3";
-        "mod4+13" = "workspace number 9, workspace number 4";
-        "mod4+14" = "workspace number 10, workspace number 5";
+        # Switch workspaces with mainMod + [0-9]
+        "mod4+9" = "scratchpad show";
+        "mod4+10" = "workspace number 1";
+        "mod4+11" = "workspace number 2";
+        "mod4+12" = "workspace number 3";
+        "mod4+13" = "workspace number 4";
+        "mod4+14" = "workspace number 5";
+        "mod4+15" = "workspace number 6";
+        "mod4+16" = "workspace number 7";
+        "mod4+17" = "workspace number 8";
+        "mod4+18" = "workspace number 9";
+        "mod4+19" = "workspace number 10";
 
         # Switch workspaces with mainMod + [0-9]
+        "mod4+Shift+9" = "move scratchpad";
         "mod4+Shift+10" = "move container to workspace number 1";
         "mod4+Shift+11" = "move container to workspace number 2";
         "mod4+Shift+12" = "move container to workspace number 3";
@@ -208,9 +250,9 @@
         "mod4+Return" = "exec $terminal";
 
         # Screenshot
-        "mod4+s" = "exec hyprshot -m region --clipboard-only";
-        "mod4+Control+s" = "exec hyprshot -m region";
-        "mod4+Control+mod1+s" = "exec hyprshot -m output";
+        "mod4+s" = "exec grimshot --notify copy anything";
+        "mod4+Control+s" = "exec grimshot --notify save anything";
+        "mod4+Control+mod1+s" = "exec grimshot --notify save screen";
 
         # Multimedia
         "XF86MonBrightnessUp" = "exec brightnessctl -q s 5%+";
@@ -263,11 +305,6 @@
         smartBorders = "on";
       };
 
-      window = {
-        border = 2;
-        titlebar = false;
-      };
-
       colors = {
         focused = {
           background = "#CAD4F5";
@@ -295,31 +332,6 @@
       };
     };
   };
-
-  # ================================================================================================
-  # SwayIDLE
-  # ================================================================================================
-
-  services.swayidle = {
-    enable = true;
-    timeouts = [
-      { timeout = 60; command = "${pkgs.brightnessctl}/bin/brightnessctl -s set 0"; resumeCommand = "${pkgs.brightnessctl}/bin/brightnessctl -r"; }
-      { timeout = 90; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
-      { timeout = 120; command = "${pkgs.systemd}/bin/systemctl suspend"; }
-      { timeout = 1800; command = "${pkgs.systemd}/bin/systemctl poweroff"; }
-    ];
-  };
-
-  # ================================================================================================
-  # SwayLOCK
-  # ================================================================================================
-
-  programs.swaylock = {
-    enable = true;
-    settings = { indicator-caps-lock = true; };
-  };
 }
-
-
 
 

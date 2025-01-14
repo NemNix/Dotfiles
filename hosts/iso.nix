@@ -219,6 +219,6 @@ in
   isoImage = {
     compressImage = false;
     includeSystemBuildDependencies = false;
-    squashfsCompression = "zstd -Xcompression-level 22";
+    squashfsCompression = "zstd -Xcompression-level 19";
   };
 }

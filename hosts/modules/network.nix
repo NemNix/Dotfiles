@@ -3,6 +3,8 @@
   boot.initrd.systemd.network.wait-online.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 
+  services.resolved.enable = true;
+
   networking = {
     hostName = "${hostname}";
     firewall.enable = true;
@@ -14,7 +16,11 @@
 
     networkmanager = {
       enable = true;
-      wifi.backend = "wpa_supplicant";
+      dns = "systemd-resolved";
+      wifi = {
+        powersave = true;
+        backend = "wpa_supplicant";
+      };
     };
   };
 }

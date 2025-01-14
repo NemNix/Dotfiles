@@ -2,7 +2,11 @@
 {
   imports = if hostname == "laptop" then [ inputs.chaotic.nixosModules.default ] else [ ];
 
-  # services.scx.enable = true;
+  services.scx = {
+    enable = true;
+    scheduler = "scx_lavd";
+    extraArgs = [ "--powersave" ];
+  };
 
   boot = {
     tmp.cleanOnBoot = true;
