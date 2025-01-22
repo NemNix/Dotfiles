@@ -283,10 +283,10 @@
         "mod4+Shift+k" = "move up";
         "mod4+Shift+j" = "move down";
 
-        "mod4+Control+h" = "resize shrink width 20 px ";
-        "mod4+Control+l" = "resize grow width 20 px ";
-        "mod4+Control+k" = "resize shrink height 20 px ";
-        "mod4+Control+j" = "resize grow height 20 px ";
+        "mod4+Control+h" = "resize shrink width 10 px ";
+        "mod4+Control+l" = "resize grow width 10 px ";
+        "mod4+Control+k" = "resize shrink height 10 px ";
+        "mod4+Control+j" = "resize grow height 10 px ";
 
       };
 

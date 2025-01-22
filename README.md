@@ -12,7 +12,7 @@
 ![Hyprland Development Screenshot](./assets/dev.png)
 
 ## Sway
-![Sway Home Screenshot](./assets/home-sway.png.png)
+![Sway Home Screenshot](./assets/home-sway.png)
 ![Sway File Manager Screenshot](./assets/sfile.png)
 ![Sway Development Screenshot](./assets/sdev.png)
 
