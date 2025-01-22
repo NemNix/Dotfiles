@@ -5,6 +5,7 @@
     # DEV
     python3
     gcc
+    ccache
     nix-tree
 
     # MEDIA
@@ -27,7 +28,7 @@
 
     keepassxc
 
-    whatsie
+    zapzap
     element-desktop
 
     qalculate-gtk

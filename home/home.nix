@@ -2,6 +2,7 @@
 {
   imports =
     if hostname == "laptop" then
+
       [
         ./programs/git.nix
         ./programs/btop.nix
@@ -18,6 +19,7 @@
         # ./programs/firefox.nix
 
         # ./system/wofi.nix
+        ./system/sway.nix
         ./system/mime.nix
         ./system/dunst.nix
         ./system/stylix.nix
@@ -25,10 +27,10 @@
         ./system/anyrun.nix
         # ./system/wlsunset.nix
         # ./system/hyprland.nix
-
-        ./system/sway.nix
       ]
+
     else if hostname == "server" then
+
       [
         ./programs/git.nix
         ./programs/btop.nix
@@ -37,5 +39,6 @@
         ./programs/helix.nix
         ./programs/fastfetch.nix
       ]
+
     else [ ];
 }

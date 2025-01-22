@@ -13,6 +13,7 @@
 
       editor = {
         auto-pairs = true;
+        true-color = true;
         color-modes = true;
         bufferline = "multiple";
         continue-comments = false;
@@ -81,7 +82,7 @@
         {
           name = "python";
           auto-format = true;
-          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" "--line-length=100" ]; };
+          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" "--line-length=80" ]; };
         }
         {
           name = "markdown";
