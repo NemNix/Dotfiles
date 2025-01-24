@@ -20,14 +20,6 @@
   system = { stateVersion = "24.11"; };
   security.pam.services.swaylock = { };
 
-  hardware = {
-    enableAllFirmware = true;
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-  };
-
   # ---------------------------------------------------------
   # Systemd
   # ---------------------------------------------------------
