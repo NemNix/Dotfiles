@@ -17,7 +17,10 @@
         color-modes = true;
         bufferline = "multiple";
         continue-comments = false;
+
         end-of-line-diagnostics = "hint";
+        inline-diagnostics.cursor-line = "error";
+        inline-diagnostics.other-lines = "info";
 
         lsp = {
           display-messages = true;
@@ -82,7 +85,9 @@
         {
           name = "python";
           auto-format = true;
-          formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" "--line-length=80" ]; };
+          language-servers = [ "pyright" "ruff" ];
+          formatter = { command = "${pkgs.ruff}/bin/ruff"; args = [ "format" "-" "--quiet" ]; };
+          # formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" "--line-length=80" ]; };
         }
         {
           name = "markdown";
@@ -99,6 +104,12 @@
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       # Language Server Protocol Configuration 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+      language-server.ruff = {
+        command = "ruff-lsp";
+        config.setting = { args = [ "--ignore" "E501" ]; };
+      };
+
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       # Language Debugger
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -115,9 +126,8 @@
       clang-tools
       clang-analyzer
 
-      ruff
+      pyright
       ruff-lsp
-      python312Packages.python-lsp-server
       python313Packages.debugpy
 
       texlab
