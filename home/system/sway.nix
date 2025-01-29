@@ -41,6 +41,7 @@
       MOZ_ENABLE_WAYLAND = 1;
       ELECTRON_OZONE_PLATFORM_HINT = 1;
 
+      GTK_USE_PORTAL = 1;
       GTK_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     };
   };
@@ -85,11 +86,10 @@
 
       startup = [
         { command = "dunst"; }
-        { command = "waybar"; }
         { command = "foot --server"; }
         { command = "autotiling-rs"; }
         { command = "wl-gammactl -c 1.000 -b 0.950 -g 0.825"; }
-        { command = "swaybg -i ~/Dotfiles/home/wallpapers/nixos-wallpaper.png"; }
+        { command = "swaybg -i ~/Dotfiles/home/wallpapers/nixos-mocha.png"; }
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
         {
           command = ''
@@ -115,10 +115,10 @@
           adaptive_sync = "on";
           max_render_time = "off";
 
-          subpixel = "rgb";
+          # subpixel = "rgb";
           render_bit_depth = "10";
-          color_profile = "srgb";
-          # color_profile = "icc MNE007ZA3_2_cal_01.icm";
+          # color_profile = "srgb";
+          # color_profile = "icc /home/nem/Dotfiles/home/system/LAPTOP.icc";
         };
 
         HDMI-A-1 = {
@@ -130,8 +130,8 @@
           adaptive_sync = "off";
           max_render_time = "off";
 
-          subpixel = "rgb";
-          color_profile = "srgb";
+          # subpixel = "rgb";
+          # color_profile = "srgb";
         };
       };
 
@@ -184,7 +184,7 @@
         "1" = [{ app_id = "^librewolf$"; }];
         "2" = [{ app_id = "^org.pwmt.zathura$"; }];
         "3" = [{ app_id = "^codium$"; }];
-        "4" = [{ app_id = "^wasistlos$"; }];
+        "4" = [{ app_id = "^com.rtosta.zapzap$"; }];
         "5" = [{ app_id = "^FreeTube$"; }];
       };
 
@@ -265,8 +265,8 @@
         "mod4+q" = "kill";
         "mod4+t" = "floating toggle";
         "mod4+f" = "fullscreen toggle";
-        "mod4+Shift+r" = "exec notify-send --urgency=critical 'Sway Restart', restart";
-        "mod4+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+        "mod4+Shift+r" = "exec restart";
+        "mod4+Shift+e" = "exec swaymsg exit";
 
         "mod4+Shift+Control+r" = "exec systemctl reboot";
         "mod4+Shift+Control+s" = "exec systemctl suspend";
@@ -294,14 +294,16 @@
       # Style
       # ------------------------------------------------
 
-      bars = [ ];
-
       gaps = {
-        # inner = 0;
+        # inner = 10;
         # outer = 0;
         # right = 0;
         # left = 0;
-        # smartGaps = true;
+        # top = 0;
+        # bottom = 0;
+        # vertical = 0;
+        # horizontal = 0;
+        # # smartGaps = true;
         smartBorders = "on";
       };
 
@@ -330,8 +332,49 @@
           text = "#1E1E2E";
         };
       };
+
+      bars = [{
+
+        position = "top";
+        trayPadding = 0;
+        statusCommand = "${pkgs.i3status}/bin/i3status";
+
+        extraConfig = '' output eDP-1
+        separator_symbol ""
+         '';
+
+        fonts = {
+          names = [ "DroidSansM Nerd Font" ];
+          style = "Regular";
+          size = 11.0;
+        };
+
+        colors = {
+          separator = "#1e1e2e";
+          background = "#1e1e2e";
+
+          focusedWorkspace = {
+            text = "#1e1e2e";
+            border = "#fab387";
+            background = "#fab387";
+          };
+
+          activeWorkspace = {
+            text = "#1e1e2e";
+            border = "#eba0ac";
+            background = "#eba0ac";
+          };
+
+          urgentWorkspace = {
+            text = "#1e1e2e";
+            border = "#74c7ec";
+            background = "#74c7ec";
+          };
+        };
+      }];
     };
   };
 }
+
 
 

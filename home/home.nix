@@ -23,10 +23,11 @@
         ./system/mime.nix
         ./system/dunst.nix
         ./system/stylix.nix
-        ./system/waybar.nix
         ./system/anyrun.nix
+        # ./system/waybar.nix
         # ./system/wlsunset.nix
         # ./system/hyprland.nix
+        ./system/i3status.nix
       ]
 
     else if hostname == "server" then
