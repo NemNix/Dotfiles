@@ -1,13 +1,6 @@
+{ config, lib, modulesPath, ... }:
 {
-  config,
-  lib,
-  modulesPath,
-  ...
-}:
-{
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     initrd = {
@@ -23,11 +16,8 @@
 
     kernelModules = [
       "kvm-amd"
-      "zenpower"
     ];
     kernelParams = [ "amd_pstate=active" ];
-    extraModulePackages = [ config.boot.kernelPackages.zenpower ];
-    blacklistedKernelModules = [ "k10temp" ];
   };
 
   fileSystems = {

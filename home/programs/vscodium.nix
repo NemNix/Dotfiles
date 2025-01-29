@@ -14,7 +14,7 @@
     userSettings = {
 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      # Helix config
+      # IDE config
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       "editor.fontSize" = 16;
       "editor.formatOnSave" = true;

@@ -44,13 +44,15 @@
         };
       };
 
-      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
       # Keybindings 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       keys.normal = {
         space.q = ":q";
         space.space = ":w";
+        space.p = "@:sh python <C-r>%<ret>";
+        space.c = "@:sh gcc <C-r>%<ret> && ./main";
 
         C-q = ":q!";
 
