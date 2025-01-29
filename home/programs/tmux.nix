@@ -7,9 +7,7 @@
       # Settings
       # =========================================================================================
       set - s default-terminal 'tmux-256color'
-      bind
-      r
-      source-file ~/.config/tmux/tmux.conf
+      bind r source-file ~/.config/tmux/tmux.conf
 
       set-window-option - g automatic-rename on
       set-option - g set-titles on

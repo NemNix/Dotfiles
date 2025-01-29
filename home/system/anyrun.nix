@@ -14,11 +14,7 @@
       closeOnClick = true;
       hidePluginInfo = true;
 
-      plugins = with inputs.anyrun.packages.${pkgs.system}; [
-        applications
-        translate
-        kidex
-      ];
+      plugins = with inputs.anyrun.packages.${pkgs.system}; [ applications ];
     };
 
     extraCss =
