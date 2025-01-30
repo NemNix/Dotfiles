@@ -18,10 +18,11 @@
         ./programs/fastfetch.nix
         # ./programs/firefox.nix
 
-        # ./system/wofi.nix
         ./system/sway.nix
         ./system/mime.nix
-        ./system/dunst.nix
+        # ./system/wofi.nix
+        # ./system/dunst.nix
+        ./system/fnott.nix
         ./system/stylix.nix
         ./system/anyrun.nix
         # ./system/waybar.nix

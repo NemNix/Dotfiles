@@ -85,7 +85,7 @@
       # ------------------------------------------------
 
       startup = [
-        { command = "dunst"; }
+        { command = "fnott -s"; }
         { command = "foot --server"; }
         { command = "autotiling-rs"; }
         { command = "wl-gammactl -c 1.000 -b 0.950 -g 0.825"; }
@@ -162,6 +162,11 @@
       window = {
         border = 2;
         titlebar = false;
+
+        commands = [{
+          command = "inhibit_idle fullscreen";
+          criteria = { app_id = "^org.pwmt.zathura$"; };
+        }];
       };
 
       floating = {
@@ -265,8 +270,9 @@
         "mod4+q" = "kill";
         "mod4+t" = "floating toggle";
         "mod4+f" = "fullscreen toggle";
-        "mod4+Shift+r" = "exec restart";
+
         "mod4+Shift+e" = "exec swaymsg exit";
+        "mod4+Shift+r" = "exec swaymsg reload";
 
         "mod4+Shift+Control+r" = "exec systemctl reboot";
         "mod4+Shift+Control+s" = "exec systemctl suspend";
@@ -339,9 +345,10 @@
         trayPadding = 0;
         statusCommand = "${pkgs.i3status}/bin/i3status";
 
-        extraConfig = '' output eDP-1
-        separator_symbol ""
-         '';
+        extraConfig = ''
+          output eDP-1
+          separator_symbol ""
+        '';
 
         fonts = {
           names = [ "DroidSansM Nerd Font" ];

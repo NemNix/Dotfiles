@@ -48,8 +48,8 @@
 | [Waybar](https://github.com/Alexays/Waybar) | Status Bar | ![C++][cpp] |
 | [Dunst](https://dunst-project.org/) | Notification Daemon | ![C][c] |
 | [Wofi](https://gitlab.com/dgirault/wofi) | Application Launcher | ![C][c] |
-| [Anyrun](https://github.com/anyrun-org/anyrun) | Modern Application Launcher | ![Rust][rs] |
-| [wdisplays](https://github.com/MichaelAquilina/wdisplays) | Display Configuration Manager | ![C][c] |
+| [Anyrun](https://github.com/anyrun-org/anyrun) | Application Launcher | ![Rust][rs] |
+| [wdisplays](https://github.com/MichaelAquilina/wdisplays) | Display Management Tool | ![C][c] |
 | [wlr-randr](https://sr.ht/~emersion/wlr-randr/) | Display Management Tool | ![C][c] |
 | [gpu-screen-recorder-gtk](https://git.dec05eba.com/gpu-screen-recorder-gtk/about/) | Screen Recorder | ![C++][cpp] |
 
