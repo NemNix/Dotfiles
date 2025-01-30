@@ -17,14 +17,15 @@
         color-modes = true;
         bufferline = "multiple";
         continue-comments = false;
+        completion-replace = true;
 
         end-of-line-diagnostics = "hint";
-        inline-diagnostics.cursor-line = "error";
         inline-diagnostics.other-lines = "info";
+        inline-diagnostics.cursor-line = "warning";
 
         lsp = {
-          display-messages = true;
           display-inlay-hints = true;
+          display-progress-messages = true;
         };
 
         statusline = {
@@ -44,7 +45,7 @@
         };
       };
 
-
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       # Keybindings 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
