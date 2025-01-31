@@ -1,14 +1,16 @@
 {
-  nixpkgs.config.cudaSupport = true;
+  # nixpkgs.config.cudaSupport = true;
+  nixpkgs.config.rocmSupport = true;
 
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-  };
+  services = {
+    ollama.enable = false;
+    ollama.acceleration = false;
+    nextjs-ollama-llm-ui.enable = false;
 
-  services.open-webui = {
-    enable = true;
-    host = "0.0.0.0";
-    openFirewall = true;
+    open-webui = {
+      enable = false;
+      host = "0.0.0.0";
+      openFirewall = true;
+    };
   };
 }

@@ -4,13 +4,14 @@
     enableDefault = false;
 
     general = {
+      markup = "pango";
       output_format = "i3bar";
-      colors = false;
+
       interval = 1;
+      colors = true;
+      color_bad = "#ff8800";
       color_good = "#aaff00";
       color_degraded = "#00dddd";
-      color_bad = "#ff8800";
-      markup = "pango";
     };
 
     modules = {
