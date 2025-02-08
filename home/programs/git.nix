@@ -1,7 +1,17 @@
 {
   programs = {
 
-    lazygit = { enable = true; };
+    lazygit = {
+      enable = true;
+      settings = {
+        showRandomTip = false;
+        showListFooter = false;
+        showCommandLog = false;
+        showBottomLine = false;
+        nerdFontsVersion = "3";
+      };
+    };
+
     git = {
       enable = true;
 

@@ -3,6 +3,8 @@
   home.packages = with pkgs; [
 
     # DEV
+    R
+    # rstudio
     python3
     gcc
     ccache
@@ -29,12 +31,12 @@
     keepassxc
 
     zapzap
+    netflix
     element-desktop
 
+    ventoy-full
     qalculate-gtk
-
     gpu-screen-recorder-gtk
 
-    ventoy-full
   ];
 }

@@ -89,7 +89,7 @@
           name = "python";
           auto-format = true;
           language-servers = [ "pyright" "ruff" ];
-          formatter = { command = "${pkgs.ruff}/bin/ruff"; args = [ "format" "-" "--quiet" ]; };
+          formatter = { command = "${pkgs.ruff}/bin/ruff"; args = [ "format" "-" ]; };
           # formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" "--line-length=80" ]; };
         }
         {
@@ -108,40 +108,51 @@
       # Language Server Protocol Configuration 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      language-server.ruff = {
-        command = "ruff-lsp";
-        config.setting = { args = [ "--ignore" "E501" ]; };
+      language-server = {
+
+        ruff = {
+          command = "ruff";
+          args = [ "server" "--preview" ];
+          config.setting = { organizeImports = true; };
+        };
+
+        clangd = {
+          command = "clangd";
+          args = [ "--clang-tidy" "-j=5" "--malloc-trim" ];
+        };
+
+
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        # Language Debugger
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
       };
 
-      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      # Language Debugger
-      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      # ================================================================================================
+      # Needed Packages
+      # ================================================================================================
+
+      extraPackages = with pkgs; [
+
+        lldb
+        clang
+        clang-tools
+        clang-analyzer
+
+        ruff
+        pyright
+        python313Packages.debugpy
+
+        texlab
+        ltex-ls-plus
+
+        marksman
+        markdown-oxide
+
+        nixd
+        nodePackages.bash-language-server
+      ];
     };
-
-    # ================================================================================================
-    # Needed Packages
-    # ================================================================================================
-
-    extraPackages = with pkgs; [
-
-      lldb
-      clang
-      clang-tools
-      clang-analyzer
-
-      pyright
-      ruff-lsp
-      python313Packages.debugpy
-
-      texlab
-      ltex-ls-plus
-
-      marksman
-      markdown-oxide
-
-      nixd
-      nodePackages.bash-language-server
-    ];
   };
 }
 

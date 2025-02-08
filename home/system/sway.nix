@@ -23,7 +23,6 @@
       brightnessctl
 
       xdg-desktop-portal-wlr
-      xdg-desktop-portal-gtk
 
     ];
 
@@ -41,7 +40,6 @@
       MOZ_ENABLE_WAYLAND = 1;
       ELECTRON_OZONE_PLATFORM_HINT = 1;
 
-      GTK_USE_PORTAL = 1;
       GTK_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     };
   };
@@ -60,8 +58,8 @@
     };
 
     wrapperFeatures = {
-      # gtk = true;
-      # base = false;
+      gtk = true;
+      base = true;
     };
 
     # ------------------------------------------------
@@ -190,7 +188,7 @@
         "2" = [{ app_id = "^org.pwmt.zathura$"; }];
         "3" = [{ app_id = "^codium$"; }];
         "4" = [{ app_id = "^com.rtosta.zapzap$"; }];
-        "5" = [{ app_id = "^FreeTube$"; }];
+        "5" = [{ app_id = "^FreeTube"; } { app_id = "^chrome-netflix.com__-Default$"; }];
       };
 
       # ------------------------------------------------
@@ -273,6 +271,7 @@
 
         "mod4+Shift+e" = "exec swaymsg exit";
         "mod4+Shift+r" = "exec swaymsg reload";
+        "mod4+i" = "exec swaymsg inhibit_idle open";
 
         "mod4+Shift+Control+r" = "exec systemctl reboot";
         "mod4+Shift+Control+s" = "exec systemctl suspend";

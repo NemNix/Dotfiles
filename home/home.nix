@@ -13,7 +13,7 @@
         ./programs/zathura.nix
         ./programs/packages.nix
         ./programs/freetube.nix
-        ./programs/vscodium.nix
+        # ./programs/vscodium.nix
         # ./programs/spicetify.nix
         ./programs/fastfetch.nix
         # ./programs/firefox.nix

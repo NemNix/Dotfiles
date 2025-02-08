@@ -8,12 +8,16 @@
 
 ## Hyprland
 ![Hyprland Home Screenshot](./assets/hyprland-home.png)
+
 ![Hyprland File Manager Screenshot](./assets/hyprland-file.png)
+
 ![Hyprland Development Screenshot](./assets/hyprland-dev.png)
 
 ## Sway
 ![Sway Home Screenshot](./assets/sway-home.png)
+
 ![Sway File Manager Screensht](./assets/sway-file.png)
+
 ![Sway Development Screenshot](./assets/sway-dev.png)
 
 # Core System
@@ -66,6 +70,7 @@
 | [Btop](https://github.com/aristocratos/btop) | System Monitor | ![C++][cpp] |
 | [Librewolf](https://github.com/Floorp-Projects/Floorp) | Web Browser | - |
 
+---
 
 # Repository Structure
 

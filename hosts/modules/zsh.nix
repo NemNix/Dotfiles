@@ -33,8 +33,8 @@
       garbage = "clear && sudo nix-collect-garbage -d && nix-store --gc ";
 
       # Dev
+      ns = "nix-shell -p --command zsh";
       nd = "nix develop --command zsh";
-      ns = "nix-shell --command zsh";
       hxd = "hx ~/Dotfiles/";
       lg = "lazygit";
       g = "git";

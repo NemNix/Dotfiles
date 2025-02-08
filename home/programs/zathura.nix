@@ -4,7 +4,6 @@
     enable = true;
 
     options = {
-      guioptions = "g";
       adjust-open = "width";
       statusbar-basename = true;
       render-loading = false;
