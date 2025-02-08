@@ -1,4 +1,4 @@
 {
+  services.gvfs.enable = true;
   programs.dconf.enable = true;
-  services.gvfs.enable = false;
 }

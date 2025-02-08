@@ -43,7 +43,7 @@
       "vm.laptop_mode" = 5;
       "vm.vfs_cache_pressure" = 50;
       "vm.dirty_bytes" = 268435456;
-      "vm.dirty_writeback_centisecs" = 6000;
+      "vm.dirty_writeback_centisecs" = 1500;
       "vm.dirty_background_bytes" = 67108864;
 
       "sched_mc_power_savings" = 1;
