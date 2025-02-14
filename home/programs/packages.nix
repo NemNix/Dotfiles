@@ -1,10 +1,16 @@
 { pkgs, inputs, ... }:
+
+with pkgs; let
+  R = rWrapper.override { packages = with rPackages; [ ggplot2 dplyr xts languageserver httpgd ]; };
+in
+
 {
   home.packages = with pkgs; [
 
     # DEV
     R
-    # rstudio
+    python313Packages.radian
+    rstudio
     python3
     gcc
     ccache
