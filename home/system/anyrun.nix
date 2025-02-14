@@ -4,6 +4,7 @@
 
   programs.anyrun = {
     enable = true;
+    package = pkgs.anyrun;
 
     config = {
       x.fraction = 0.5;

@@ -2,17 +2,6 @@
 {
   imports = [ inputs.stylix.homeManagerModules.stylix ];
 
-  # qt = {
-  #   enable = true;
-  #   style.name = "adw-gtk3";
-  #   platformTheme.name = "qtct";
-  # };
-
-  gtk.iconTheme = {
-    name = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme;
-  };
-
   stylix = {
     enable = true;
     autoEnable = true;
@@ -30,6 +19,13 @@
 
     image = ../wallpapers/nixos-mocha.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
+    iconTheme = {
+      enable = true;
+      dark = "Papirus-Dark";
+      light = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
 
     cursor = {
       size = 24;
