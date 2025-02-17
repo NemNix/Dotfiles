@@ -26,16 +26,12 @@
 
   services = {
     chrony.enable = true;
-    logrotate.enable = false;
     timesyncd.enable = false;
     logind = { lidSwitch = "ignore"; lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate"; };
   };
 
   systemd = {
     tpm2.enable = false;
-    services.systemd-journald.enable = false;
-    services.systemd-journal-flush.enable = false;
-    services.systemd-journal-catalog-update.enable = false;
     extraConfig = ''
       DefaultTimeoutStartSec=15s
       DefaultTimeoutStopSec=10s
