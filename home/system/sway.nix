@@ -163,7 +163,7 @@
 
         commands = [{
           command = "inhibit_idle fullscreen";
-          criteria = { app_id = "^org.pwmt.zathura$"; };
+          criteria = { app_id = ".*"; };
         }];
       };
 
