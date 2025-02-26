@@ -7,6 +7,7 @@
     loginShellInit = ''[ "$(tty)" = "/dev/tty1" ] && export WLR_RENDERER=vulkan && exec sway '';
 
     enable = true;
+    vteIntegration = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 

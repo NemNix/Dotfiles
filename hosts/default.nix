@@ -7,7 +7,7 @@
 
         ./modules/nh.nix
         ./modules/vm.nix
-        ./modules/adb.nix
+        # ./modules/adb.nix
         ./modules/tlp.nix
         ./modules/nix.nix
 
@@ -21,7 +21,7 @@
         # ./modules/greetd.nix
         # ./modules/polkit.nix
         ./modules/fstrim.nix
-        ./modules/ollama.nix
+        # ./modules/ollama.nix
         # ./modules/xserver.nix
         ./modules/network.nix
         ./modules/pipewire.nix

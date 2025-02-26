@@ -2,6 +2,7 @@
 
   programs.bash = {
     blesh.enable = true;
+    vteIntegration = true;
 
     shellAliases = {
       cat = "bat";
