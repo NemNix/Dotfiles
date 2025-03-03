@@ -114,9 +114,9 @@
           adaptive_sync = "on";
           max_render_time = "off";
 
-          # subpixel = "rgb";
+          subpixel = "rgb";
           render_bit_depth = "10";
-          # color_profile = "srgb";
+          color_profile = "srgb";
           # color_profile = "icc /home/nem/Dotfiles/home/system/LAPTOP.icc";
         };
 
@@ -129,8 +129,8 @@
           adaptive_sync = "off";
           max_render_time = "off";
 
-          # subpixel = "rgb";
-          # color_profile = "srgb";
+          subpixel = "rgb";
+          color_profile = "srgb";
         };
       };
 

@@ -12,8 +12,8 @@
         max-width = 600;
         max-height = 400;
 
-        # anchor = "center";
-        anchor = "top-left";
+        anchor = "center";
+        edge-margin-vertical = 0;
 
         background = "1e1e2eff";
         body-color = "bac2deff";

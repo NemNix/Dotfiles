@@ -27,7 +27,6 @@
   services = {
     chrony.enable = true;
     timesyncd.enable = false;
-    logind = { lidSwitch = "ignore"; lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate"; };
   };
 
   systemd = {
