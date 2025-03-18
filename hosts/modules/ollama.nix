@@ -3,8 +3,12 @@
   nixpkgs.config.rocmSupport = true;
 
   services = {
-    ollama.enable = true;
-    ollama.acceleration = false;
+
+    ollama = {
+      enable = true;
+      acceleration = false;
+    };
+
     nextjs-ollama-llm-ui.enable = false;
 
     open-webui = {

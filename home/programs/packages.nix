@@ -1,48 +1,44 @@
 { pkgs, inputs, ... }:
-
-with pkgs; let
-  R = rWrapper.override { packages = with rPackages; [ ggplot2 dplyr xts languageserver httpgd ]; };
-in
-
 {
-  home.packages = with pkgs; [
+  home.packages = [
 
     # DEV
-    R
-    python313Packages.radian
-    rstudio
-    python3
-    gcc
-    ccache
-    nix-tree
+    pkgs.R
+    pkgs.python3
+    pkgs.gcc
+    pkgs.ccache
+    pkgs.nix-tree
+    inputs.nixpkgs-stable.legacyPackages.${"x86_64-linux"}.rstudio
 
     # MEDIA
-    mpv
-    imv
-    pwvucontrol
+    pkgs.mpv
+    pkgs.imv
+    pkgs.pwvucontrol
 
     # CONNECTIONS
-    overskride
-    protonvpn-cli_2
-    networkmanagerapplet
+    pkgs.overskride
+    pkgs.protonvpn-cli_2
+    pkgs.networkmanagerapplet
 
     # APPS
-    librewolf
-    tor-browser
-    ungoogled-chromium
+    pkgs.librewolf
+    pkgs.tor-browser
+    pkgs.ungoogled-chromium
 
-    nautilus
-    file-roller
+    pkgs.nautilus
+    pkgs.file-roller
 
-    keepassxc
+    pkgs.keepassxc
 
-    zapzap
-    netflix
-    element-desktop
+    pkgs.zapzap
+    pkgs.whatsie
+    pkgs.netflix
+    pkgs.element-desktop
 
-    ventoy-full
-    qalculate-gtk
-    gpu-screen-recorder-gtk
+    pkgs.ventoy-full
+    pkgs.qalculate-gtk
+    pkgs.gnome-calendar
+    pkgs.gpu-screen-recorder-gtk
 
   ];
 }

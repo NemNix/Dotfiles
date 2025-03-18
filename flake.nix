@@ -1,6 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-24.11";
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     # hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";

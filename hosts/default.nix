@@ -7,7 +7,7 @@
 
         ./modules/nh.nix
         ./modules/vm.nix
-        # ./modules/adb.nix
+        ./modules/adb.nix
         ./modules/tlp.nix
         ./modules/nix.nix
 

@@ -187,7 +187,7 @@
       assigns = {
         "1" = [{ app_id = "^librewolf$"; }];
         "2" = [{ app_id = "^org.pwmt.zathura$"; }];
-        "3" = [{ app_id = "^codium$"; }];
+        "3" = [{ app_id = "^codium$"; } { app_id = "^rstudio$"; }];
         "4" = [{ app_id = "^com.rtosta.zapzap$"; }];
         "5" = [{ app_id = "^FreeTube"; } { app_id = "^chrome-netflix.com__-Default$"; }];
       };
@@ -196,6 +196,7 @@
       # Workspace Rules
       # ------------------------------------------------
 
+      workspaceAutoBackAndForth = true;
       defaultWorkspace = "workspace number 1";
 
       workspaceOutputAssign = [
