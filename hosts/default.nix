@@ -34,13 +34,12 @@
         ./server.nix
 
         ./modules/nh.nix
-        ./modules/tlp.nix
+        ./modules/nix.nix
         ./modules/ssh.nix
+        ./modules/bash.nix
         ./modules/boot.nix
         ./modules/time.nix
         ./modules/users.nix
-        ./modules/nvidia.nix
-        ./modules/ollama.nix
         ./modules/fstrim.nix
         ./modules/network.nix
         ./modules/configuration.nix
