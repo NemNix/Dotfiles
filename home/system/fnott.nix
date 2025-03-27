@@ -7,12 +7,13 @@
     settings = {
 
       main = {
-        border-size = 4;
+        border-size = 3;
         min-width = 100;
         max-width = 600;
         max-height = 400;
 
-        anchor = "center";
+        timeout = 3;
+        anchor = "top-right";
         edge-margin-vertical = 0;
 
         title-format = "<b>%a%A\\n<b>";

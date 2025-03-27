@@ -23,11 +23,6 @@
   # Systemd
   # ---------------------------------------------------------
 
-  services = {
-    chrony.enable = true;
-    timesyncd.enable = false;
-  };
-
   systemd = {
     tpm2.enable = false;
     extraConfig = ''

@@ -6,6 +6,8 @@
     enable = true;
     autoEnable = true;
 
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
     targets = {
       qt.enable = false;
       sway.enable = false;
@@ -13,12 +15,11 @@
       fish.enable = false;
       wofi.enable = false;
       tofi.enable = false;
+      helix.enable = false;
       vscode.enable = false;
       waybar.enable = false;
       hyprland.enable = false;
     };
-
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     iconTheme = {
       enable = true;

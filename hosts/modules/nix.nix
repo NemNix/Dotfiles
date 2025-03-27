@@ -1,7 +1,5 @@
+{ inputs, ... }:
 {
-  # ---------------------------------------------------------
-  # Nix
-  # ---------------------------------------------------------
   nixpkgs = {
     config.allowUnfree = true;
     hostPlatform = "x86_64-linux";
@@ -9,7 +7,7 @@
 
   nix = {
     channel.enable = false;
-    # registry.nixpkgs.flake = nixpkgs;
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
     optimise = {
       automatic = true;
@@ -21,12 +19,6 @@
       auto-optimise-store = true;
       builders-use-substitutes = true;
       experimental-features = [ "nix-command" "flakes" ];
-
-      system-features = [
-        "kvm"
-        "big-parallel"
-        "gccarch-skylake"
-      ];
 
       substituters = [
         "https://helix.cachix.org"

@@ -12,6 +12,8 @@
       # Helix config
       # ================================================================================================
 
+      theme = "catppuccin_mocha";
+
       editor = {
         auto-pairs = true;
         true-color = true;
@@ -91,7 +93,6 @@
           auto-format = true;
           language-servers = [ "pyright" "ruff" ];
           formatter = { command = "${pkgs.ruff}/bin/ruff"; args = [ "format" "-" ]; };
-          # formatter = { command = "${pkgs.black}/bin/black"; args = [ "--quiet" "-" "--line-length=80" ]; };
         }
         {
           name = "markdown";
@@ -111,8 +112,12 @@
 
       language-server = {
 
+        nixd = {
+          command = "${pkgs.nixd}/bin/nixd";
+        };
+
         ruff = {
-          command = "ruff";
+          command = "${pkgs.ruff}/bin/ruff";
           args = [ "server" "--preview" ];
           config.setting = { organizeImports = true; };
         };

@@ -4,9 +4,9 @@
 
     # DEV
     pkgs.R
-    pkgs.python3
     pkgs.gcc
     pkgs.ccache
+    pkgs.python3
     pkgs.nix-tree
     inputs.nixpkgs-stable.legacyPackages.${"x86_64-linux"}.rstudio
 
@@ -31,7 +31,6 @@
     pkgs.keepassxc
 
     pkgs.zapzap
-    pkgs.whatsie
     pkgs.netflix
     pkgs.element-desktop
 

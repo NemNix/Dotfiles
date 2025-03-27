@@ -1,4 +1,3 @@
-{ hostname, ... }:
 {
   services.tlp = {
     enable = true;

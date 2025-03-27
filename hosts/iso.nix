@@ -37,6 +37,11 @@
     };
   };
 
+  users = {
+    mutableUsers = false;
+    users.nixos.initialPassword = "nixos";
+  };
+
   # Essential packages
   environment.systemPackages = with pkgs; [
     git

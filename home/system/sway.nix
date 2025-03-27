@@ -113,21 +113,20 @@
 
         eDP-1 = {
           scale = "1.5";
-          scale_filter = "nearest";
-          resolution = "2880x1800";
+          # resolution = "2880x1800@60.001Hz";
+          resolution = "2880x1800@120.000Hz";
 
           adaptive_sync = "on";
           max_render_time = "off";
 
           subpixel = "rgb";
-          render_bit_depth = "10";
           color_profile = "srgb";
+          render_bit_depth = "10";
           # color_profile = "icc /home/nem/Dotfiles/home/system/LAPTOP.icc";
         };
 
         HDMI-A-1 = {
           scale = "1.25";
-          scale_filter = "nearest";
           position = "-1920,0";
           resolution = "2560x1440";
 
@@ -191,7 +190,7 @@
 
       assigns = {
         "1" = [{ app_id = "^librewolf$"; }];
-        "2" = [{ app_id = "^org.pwmt.zathura$"; }];
+        # "2" = [{ app_id = "^org.pwmt.zathura$"; }];
         "3" = [{ app_id = "^codium$"; } { app_id = "^rstudio$"; }];
         "4" = [{ app_id = "^com.rtosta.zapzap$"; }];
         "5" = [{ app_id = "^FreeTube"; } { app_id = "^chrome-netflix.com__-Default$"; }];
