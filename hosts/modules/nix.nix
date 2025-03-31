@@ -18,7 +18,7 @@
       show-trace = true;
       auto-optimise-store = true;
       builders-use-substitutes = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "recursive-nix" "fetch-closure" ];
 
       substituters = [
         "https://helix.cachix.org"

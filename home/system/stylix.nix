@@ -10,6 +10,7 @@
 
     targets = {
       qt.enable = false;
+      yazi.enable = false;
       sway.enable = false;
       tmux.enable = false;
       fish.enable = false;

@@ -1,45 +1,26 @@
-{ pkgs, modulesPath, ... }:
+{ pkgs, modulesPath, lib, ... }:
 {
   # Base ISO configuration
   imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
 
-  # Network configuration
-  boot.initrd.systemd.network.wait-online.enable = false;
-  systemd.services.NetworkManager-wait-online.enable = false;
+  users = {
+    users.nixos.initialHashedPassword = lib.mkForce "nixos";
+  };
 
+  # Network configuration
   networking = {
     hostName = "ISO";
-    firewall.enable = true;
-    firewall.allowedTCPPorts = [ 22 ];
-
-    wireless = {
-      enable = false;
-      iwd.enable = false;
-    };
-
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-      wifi = {
-        powersave = true;
-        backend = "wpa_supplicant";
-      };
-    };
+    wireless.enable = false;
+    networkmanager.enable = true;
   };
 
   services.openssh = {
     enable = true;
     ports = [ 22 ];
-
     settings = {
-      PasswordAuthentication = true;
       UseDns = true;
+      PasswordAuthentication = true;
     };
-  };
-
-  users = {
-    mutableUsers = false;
-    users.nixos.initialPassword = "nixos";
   };
 
   # Essential packages

@@ -3,7 +3,6 @@
   home.packages = [
 
     # DEV
-    pkgs.R
     pkgs.gcc
     pkgs.ccache
     pkgs.python3
